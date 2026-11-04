@@ -56,17 +56,18 @@ def spatial_tiling(
         yield ok, (minx, miny, maxx, maxy)
 
 def removeSpatialInformation(histograms: np.ndarray) -> np.ndarray:
-    """Average four spatially tiled histograms into one histogram per image.
+    """Sum four spatially tiled histograms into one histogram per image.
 
     Args:
         histograms: Array of shape ``(N, num_words * 4)``.
 
     Returns:
-        Array of shape ``(N, num_words)`` with the tile dimension averaged.
+        Array of shape ``(N, num_words)`` with the tile dimension summed.
     """
     N = histograms.shape[0]
     # return np.mean(np.reshape(histograms, (N, -1, 4)), axis=2)
-    return np.mean(histograms.reshape(N, 4, -1), axis=1)
+    # return np.mean(histograms.reshape(N, 4, -1), axis=1)
+    return np.sum(histograms.reshape(N, 4, -1), axis=1)
 
 def load_npz(file_path: Union[str, Path]) -> Dict[str, np.ndarray]:
     """Load an encoder configuration from an ``.npz`` file.
