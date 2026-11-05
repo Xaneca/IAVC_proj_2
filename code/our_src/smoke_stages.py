@@ -3,7 +3,7 @@ import argparse
 import csv
 from pathlib import Path
 from .a_json import load, save
-from .part1.stage_a import run as run_a
+from .stagea.stage_a import run as run_a
 from .stageb.stage_b import run as run_b
 from .stagec.stage_c import run as run_cd
 from .stagee.stage_e import run as run_e
@@ -25,23 +25,23 @@ def main():
     for stage in ('a', 'b'):
         if stage not in args.stages:
             continue
-        output = f'stage{stage.upper()}/smoke'
+        output = f'results/stage{stage.upper()}/smoke'
         print(f'Running Stage {stage.upper()} real-data SMOKE', flush=True)
         if stage == 'a':
-            config = load(Path(__file__).parent/'part1/stage_a.json')
+            config = load(Path(__file__).parent/'stagea/stage_a.json')
             config['vocabulary_sizes'] = [32]
             save(project/output/'smoke_config.json', config)
             run_a(config, project, limit=args.per_class)
             state = load(project/output/'run.json')
         else:
-            previous = load(project/'stageA/smoke/run.json')
+            previous = load(project/'results/stageA/smoke/run.json')
             if previous.get('state') != 'complete':
                 raise ValueError('Stage A smoke must finish before B smoke')
-            with (project/'stageA/smoke/svm_ap.csv').open(newline='', encoding='utf-8') as stream:
+            with (project/'results/stageA/smoke/svm_ap.csv').open(newline='', encoding='utf-8') as stream:
                 candidates = [r for r in csv.DictReader(stream) if r['category'] == 'motorbike']
             best = max(candidates, key=lambda r: float(r['validation_ap']))
             config = load(Path(__file__).parent/'stageb/config.json')
-            config['stage_a_dir'] = 'stageA/smoke'
+            config['stage_a_dir'] = 'results/stageA/smoke'
             save(project/output/'smoke_config.json', config)
             state = run_b(config, project, k=int(best['k']), layout=best['layout'],
                           normalization=best['normalization'], smoke=args.per_class, render=False)
@@ -53,12 +53,12 @@ def main():
         if stage not in args.stages:
             continue
         config = load(Path(__file__).parent/f'stage{stage}'/'config.json')
-        config.update(smoke_per_class=args.per_class, output_dir=f'stage{stage.upper()}/smoke',
-                      stage_b_dir='stageB/smoke', stage_a_dir='stageA/smoke')
+        config.update(smoke_per_class=args.per_class, output_dir=f'results/stage{stage.upper()}/smoke',
+                      stage_b_dir='results/stageB/smoke', stage_a_dir='results/stageA/smoke')
         if stage in ('f', 'g'):
-            config['stage_e_dir'] = 'stageE/smoke'
+            config['stage_e_dir'] = 'results/stageE/smoke'
         if stage == 'g':
-            config.update(stage_f_dir='stageF/smoke', fractions=[.5, 1.])
+            config.update(stage_f_dir='results/stageF/smoke', fractions=[.5, 1.])
         save(project/config['output_dir']/'smoke_config.json', config)
         print(f'Running Stage {stage.upper()} real-data SMOKE', flush=True)
         state = runner(config, project)

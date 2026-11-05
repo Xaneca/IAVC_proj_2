@@ -30,7 +30,7 @@ Em D cada SVM é treinado só no treino e C é selecionado pelo AP de validaçã
 Nenhuma etapa escolhe parâmetros usando o teste nem volta a treinar com validação.
 Os histogramas são reutilizados na cache de B; não se guardam descritores SIFT.
 
-Cada saída `stageC/` ou `stageD/` contém:
+Cada saída `results/stageC/` ou `results/stageD/` contém:
 
 - `run.json`: configuração, estado e SHA256 dos splits.
 - `split_manifest.csv`: IDs, classes e partições efetivamente usados.

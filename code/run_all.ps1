@@ -6,9 +6,19 @@ param(
     [int]$PerClass = 2
 )
 $ErrorActionPreference = 'Stop'
-$pipelinePython = Join-Path $PSScriptRoot '.venv-stage-a\Scripts\python.exe'
-if (-not (Test-Path -LiteralPath $pipelinePython)) { throw "Python não encontrado: $pipelinePython" }
-$pipelineArgs = @((Join-Path $PSScriptRoot 'run_pipeline.py'), '--project', $PSScriptRoot, '--start', $Start, '--end', $End)
+
+$pipelinePython = (Get-Command python).Source
+if (-not (Test-Path -LiteralPath $pipelinePython)) {
+    throw "Python não encontrado: $pipelinePython"
+}
+
+$pipelineArgs = @(
+    (Join-Path $PSScriptRoot 'run_pipeline.py'),
+    '--project', $PSScriptRoot,
+    '--python', $pipelinePython,
+    '--start', $Start,
+    '--end', $End
+) 
 if ($DryRun) { $pipelineArgs += '--dry-run' }
 if ($Smoke) { $pipelineArgs += @('--smoke', '--per-class', $PerClass) }
 & $pipelinePython @pipelineArgs

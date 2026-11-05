@@ -9,7 +9,8 @@ Na pasta `code/`:
 python -m our_src.part1.stage_a
 ```
 
-Resultados em `stageA/centroids`, `stageA/metrics.csv` e `stageA/svm_ap.csv`.
+Resultados em `results/stageA/centroids`, `results/stageA/metrics.csv` e
+`results/stageA/svm_ap.csv`.
 SIFT e histogramas sao mantidos apenas em RAM. O teste final fica reservado.
 
 `make_splits.py` reproduz os splits globais por imagem. `a_json.py` e

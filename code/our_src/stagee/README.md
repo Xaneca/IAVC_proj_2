@@ -23,13 +23,13 @@ anteriores. São nove modelos finais por classe (45 no total); os candidatos
 de C são treinos de seleção. Não se treina na validação nem se seleciona pelo
 teste. O teste é avaliado para cada modelo depois da seleção do respetivo C.
 
-- `stageE/metrics.csv`: 45 linhas, uma por classe/combinação, com AP de treino,
+- `results/stageE/metrics.csv`: 45 linhas, uma por classe/combinação, com AP de treino,
   validação e teste, precision/recall/F1/accuracy de teste no threshold SVM 0,
   C selecionado, dimensão, K, tempo de treino do candidato selecionado,
   números de imagens, SHA256 dos splits e caminho do modelo.
-- `stageE/models/<classe>__<global|2x2|pyramid>__<l1|l2|none>.npz`:
+- `results/stageE/models/<classe>__<global|2x2|pyramid>__<l1|l2|none>.npz`:
   pesos, bias e metadados do encoding, vocabulário, splits e parâmetros.
-- `stageE/run.json`: configuração, proveniência e estado. Um CSV parcial durante
+- `results/stageE/run.json`: configuração, proveniência e estado. Um CSV parcial durante
   uma execução interrompida não representa uma experiência completa.
 
 Carregar NPZ com `allow_pickle=False`. Para inferência, derivar o vetor com

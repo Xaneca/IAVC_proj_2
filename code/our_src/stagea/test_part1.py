@@ -36,7 +36,7 @@ class Part1Tests(unittest.TestCase):
             's+':[4,1,0],'s-':[-4,1,0]}.items()}
         train={'t+':1,'t-':-1}; val={'v+':1,'v-':-1}
         grid={'C':[.1,1.],'normalization':['none','l2'],'max_iter':[10000]}
-        with patch('our_src.part1.svm.train_svm',wraps=train_svm) as trainer:
+        with patch('our_src.stagea.svm.train_svm',wraps=train_svm) as trainer:
             result=train_svm_grid(features,train,val,grid,test={'s+':1,'s-':-1})
             self.assertEqual(trainer.call_count,4)
         self.assertEqual(result['best']['validation_ap'],1.)

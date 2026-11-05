@@ -6,8 +6,8 @@ import numpy as np
 from src.features import extractFeatures
 from src.encoders import KMeansPredictor
 from ..a_json import key, file_signature
-from ..part1.encoding import encode_image, level_weights
-from ..part1.svm import transform_features
+from ..stagea.encoding import encode_image, level_weights
+from ..stagea.svm import transform_features
 
 
 def vector_from_pyramid(pyramid, k, layout):
@@ -41,7 +41,7 @@ def cached_pyramid(project, output, image_id, model, batch_size):
               'model_sha256':file_signature(model['path']),
               'extractor_sha256':file_signature(project/'src/features.py'),
               'encoders_sha256':file_signature(project/'src/encoders.py'),
-              'encoding_sha256':file_signature(Path(__file__).parents[1]/'part1/encoding.py')}
+              'encoding_sha256':file_signature(Path(__file__).parents[1]/'stagea/encoding.py')}
     path=Path(output)/'histograms'/model['path'].stem/f'{image_id}.npz'
     if path.exists():
         with np.load(path,allow_pickle=False) as archive:

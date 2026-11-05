@@ -2,7 +2,7 @@
 import csv
 from pathlib import Path
 from ..a_json import load
-from ..part1.encoding import LAYOUTS
+from ..stagea.encoding import LAYOUTS
 
 
 def select_encoding(stage_a, category, k=None, layout=None, normalization=None):

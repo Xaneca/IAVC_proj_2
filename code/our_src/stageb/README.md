@@ -1,10 +1,10 @@
 # Stage B — preparar histogramas, SVM e ranking
 
-Codigo em `our_src/stageb/`; resultados em `code/stageB/`.
+Codigo em `our_src/stageb/`; resultados em `code/results/stageB/`.
 Nao iniciar uma execucao integral sem a pedir explicitamente.
 
 ```text
-stageB/
+results/stageB/
   run.json
   svm_ap.csv
   svm_model.npz
@@ -19,8 +19,8 @@ stageB/
 
 ## Escolha do encoding
 
-`selection.py` exige `stageA/run.json` com state=complete e escolhe o maior AP
-de validacao da categoria em `stageA/svm_ap.csv`. Ignora o teste e os resultados
+`selection.py` exige `results/stageA/run.json` com state=complete e escolhe o maior AP
+de validacao da categoria em `results/stageA/svm_ap.csv`. Ignora o teste e os resultados
 de smoke. Atualmente a execucao integral da Stage A foi cancelada: por isso
 nao existe um vencedor automatico valido. Para testes pequenos usa-se uma
 escolha explicita `--k 32 --layout pyramid_L2`; fica marcada como override,
@@ -83,6 +83,6 @@ python -m unittest our_src.stageb.test_stage_b
 python -m our_src.stageb.stage_b --k 32 --layout pyramid_L2 --smoke-per-class 2
 ```
 
-O smoke usa duas imagens por classe e split e escreve em `stageB/smoke`.
+O smoke usa duas imagens por classe e split e escreve em `results/stageB/smoke`.
 Nao confundir a sua AP com resultados integrais. A execucao integral futura
 seria `python -m our_src.stageb.stage_b`, apenas depois de completar Stage A.

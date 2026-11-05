@@ -99,11 +99,11 @@ def save_model(path, model, metadata):
 def load_experiment(config, project):
     """Choose E by validation AP only and load unnormalized weighted histograms."""
     from ..a_json import load, file_signature
-    from ..part1.data import manifest
-    from ..part1.results import load_centroids
-    from ..part1.stage_a import binary_labels
+    from ..stagea.data import manifest
+    from ..stagea.results import load_centroids
+    from ..stagea.stage_a import binary_labels
     from ..stageb.histograms import cached_pyramid, vector_from_pyramid
-    from ..part1.encoding import level_weights
+    from ..stagea.encoding import level_weights
     from ..stagec.protocol import split_digest, smoke_rows
     project = Path(project)
     digest = split_digest(project/config['split_dir'])

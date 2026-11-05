@@ -1,8 +1,8 @@
 {
   "image_dir": "data/images",
   "split_dir": "data/splits_internal",
-  "stage_a_dir": "stageA",
-  "output_dir": "stageB",
+  "stage_a_dir": "results/stageA",
+  "output_dir": "results/stageB",
   "category": "motorbike",
   "seed": 42,
   "C_values": [0.1, 1.0, 10.0],

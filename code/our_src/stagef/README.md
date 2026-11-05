@@ -29,11 +29,11 @@ mantidos mesmo quando a normalização de E faz duas variantes coincidirem.
 
 Saídas:
 
-- `stageF/metrics.csv`: cinco linhas com AP, precision, recall, F1, accuracy,
+- `results/stageF/metrics.csv`: cinco linhas com AP, precision, recall, F1, accuracy,
   TN/FP/FN/TP, número de imagens e tempo de inferência, por train/val/test;
   tempo de treino, C e caminho do modelo. Precision e afins usam threshold 0.
-- `stageF/models/<variante>.npz`: pesos, bias, ordem das operações e proveniência.
-- `stageF/run.json`: configuração, parâmetros herdados e melhor Hellinger
+- `results/stageF/models/<variante>.npz`: pesos, bias, ordem das operações e proveniência.
+- `results/stageF/run.json`: configuração, parâmetros herdados e melhor Hellinger
   escolhido apenas pelo AP de validação; empates preferem a primeira variante.
 
 O tempo de inferência mede os scores do SVM; não inclui SIFT nem transformação.

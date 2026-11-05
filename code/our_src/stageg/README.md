@@ -25,15 +25,15 @@ O vocabulário permanece o aprendido no treino completo das etapas anteriores:
 esta é uma curva de aprendizagem do classificador, não da pipeline inteira.
 O subconjunto não desencadeia novo K-means ou seleção por validação/teste.
 
-- `stageG/metrics.csv`: uma linha por kernel/fração/seed, AP e restantes métricas
+- `results/stageG/metrics.csv`: uma linha por kernel/fração/seed, AP e restantes métricas
   de validação e teste, número de imagens de treino por classe, C, operações,
   SHA256 dos splits e tempos de treino/inferência.
-- `stageG/metrics_summary.csv`: AP de teste médio e desvio padrão amostral entre
+- `results/stageG/metrics_summary.csv`: AP de teste médio e desvio padrão amostral entre
   seeds, e AP de validação médio, por fração/kernel.
-- `stageG/ap_vs_train_images.png`: AP de teste médio versus número real de imagens
+- `results/stageG/ap_vs_train_images.png`: AP de teste médio versus número real de imagens
   de treino (positivas + background), com barras de ±1 desvio padrão.
-- `stageG/train_subsets.json`: IDs exatos usados por fração/seed.
-- `stageG/run.json`: estado, configuração e proveniência dos modelos E/F.
+- `results/stageG/train_subsets.json`: IDs exatos usados por fração/seed.
+- `results/stageG/run.json`: estado, configuração e proveniência dos modelos E/F.
 
 O vocabulário, parâmetros e variantes são congelados antes destas experiências.
 Não escolher a fração ou reajustar parâmetros pelo gráfico de teste. Um CSV

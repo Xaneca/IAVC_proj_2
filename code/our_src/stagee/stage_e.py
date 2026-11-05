@@ -6,10 +6,10 @@ from .experiment import train_models
 
 def run(config, project):
     from ..a_json import load, save, file_signature
-    from ..part1.data import manifest
-    from ..part1.results import load_centroids
-    from ..part1.stage_a import binary_labels
-    from ..part1.svm import train_svm_grid
+    from ..stagea.data import manifest
+    from ..stagea.results import load_centroids
+    from ..stagea.stage_a import binary_labels
+    from ..stagea.svm import train_svm_grid
     from ..stageb.histograms import cached_pyramid, svm_vector
     from ..stagec.protocol import split_digest, smoke_rows
     project = Path(project)

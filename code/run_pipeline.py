@@ -7,7 +7,7 @@ import subprocess
 import sys
 
 STAGES = {
-    'A': ('our_src.part1.stage_a', 'our_src/part1/stage_a.json'),
+    'A': ('our_src.stagea.stage_a', 'our_src/stagea/stage_a.json'),
     'B': ('our_src.stageb.stage_b', 'our_src/stageb/config.json'),
     'C': ('our_src.stagec.stage_c', 'our_src/stagec/config.json'),
     'D': ('our_src.staged.stage_d', 'our_src/staged/config.json'),

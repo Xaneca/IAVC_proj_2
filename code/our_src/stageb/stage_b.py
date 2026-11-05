@@ -5,10 +5,10 @@ from pathlib import Path
 from datetime import datetime,timezone
 import numpy as np
 from ..a_json import load,save,file_signature
-from ..part1.data import manifest
-from ..part1.results import load_centroids,write_csv
-from ..part1.stage_a import binary_labels
-from ..part1.svm import train_svm_grid
+from ..stagea.data import manifest
+from ..stagea.results import load_centroids,write_csv
+from ..stagea.stage_a import binary_labels
+from ..stagea.svm import train_svm_grid
 from .selection import select_encoding
 from .histograms import cached_pyramid,svm_vector
 from .statistics import class_statistics

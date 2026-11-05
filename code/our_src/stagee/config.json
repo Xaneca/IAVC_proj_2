@@ -1,9 +1,9 @@
 {
   "image_dir": "data/images",
   "split_dir": "data/splits_internal",
-  "stage_a_dir": "stageA",
-  "stage_b_dir": "stageB",
-  "output_dir": "stageE",
+  "stage_a_dir": "results/stageA",
+  "stage_b_dir": "results/stageB",
+  "output_dir": "results/stageE",
   "categories": ["motorbike", "aeroplane", "horse", "car", "person"],
   "seed": 42,
   "C_values": [0.1, 1.0, 10.0],

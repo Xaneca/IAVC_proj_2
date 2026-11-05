@@ -140,7 +140,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config',type=Path,default=Path(__file__).with_name('stage_a.json'))
     parser.add_argument('--recover-centroids-from',help='Explicit local Git commit hash with historical centroid files')
-    parser.add_argument('--smoke-per-category',type=int,help='Bounded run; outputs go to stageA/smoke')
+    parser.add_argument('--smoke-per-category',type=int,help='Bounded run; outputs go to results/stageA/smoke')
     args=parser.parse_args()
     if args.smoke_per_category is not None and args.smoke_per_category<1:
         parser.error('--smoke-per-category must be positive')

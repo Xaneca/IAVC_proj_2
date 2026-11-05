@@ -36,7 +36,7 @@ class EvaluationTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         data_path = root/'part1_setup/data.py'
         if not data_path.exists():
-            data_path = root/'part1/data.py'
+            data_path = root/'stagea/data.py'
         spec = importlib.util.spec_from_file_location('split_data', data_path)
         data = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(data)

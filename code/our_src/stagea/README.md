@@ -14,11 +14,11 @@ são validados e reutilizados; modelos incompatíveis causam erro explícito.
 Não é necessário executar previamente `vocabulary` nem recuperar modelos de Git.
 Os centroides e o tempo de ajuste ficam guardados em JSON. Os SIFT ficam em RAM.
 No modo smoke, os centroides são aprendidos só nas imagens de treino selecionadas
-e ficam em `stageA/smoke/centroids`, sem misturar com a experiência completa.
-Resultados em `code/stageA/`:
+e ficam em `results/stageA/smoke/centroids`, sem misturar com a experiência completa.
+Resultados em `code/results/stageA/`:
 
 ```text
-stageA/
+results/stageA/
   centroids/       # vocabularios partilhados entre layouts
   metrics.csv
   svm_ap.csv
@@ -120,6 +120,7 @@ python -m unittest our_src.part1.test_part1
 python -m our_src.part1.stage_a --smoke-per-category 2
 ```
 
-O smoke usa ate duas imagens por categoria e split e escreve em `stageA/smoke`;
+O smoke usa ate duas imagens por categoria e split e escreve em
+`results/stageA/smoke`;
 nao substitui a experiencia integral. O processo completo publica os CSV
 progressivamente depois da fase de encoding; `run.json` indica running/complete.
