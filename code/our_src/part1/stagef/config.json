@@ -1,0 +1,9 @@
+{
+  "image_dir": "data/images",
+  "split_dir": "data/splits_internal",
+  "stage_a_dir": "results/part1/stageA",
+  "stage_b_dir": "results/part1/stageB",
+  "stage_e_dir": "results/part1/stageE",
+  "output_dir": "results/part1/stageF",
+  "assignment_batch_size": 2048
+}

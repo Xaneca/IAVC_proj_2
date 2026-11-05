@@ -35,14 +35,14 @@ class PipelineTests(unittest.TestCase):
     def test_failure_stops_chain_and_records_log(self):
         with tempfile.TemporaryDirectory(dir=Path.cwd()) as directory:
             root = Path(directory)
-            protocol = types.ModuleType('our_src.stagec.protocol')
+            protocol = types.ModuleType('our_src.part1.stagec.protocol')
             protocol.split_digest = lambda _: 'fixture'
             child = Mock()
             child.stdout = iter(['training failed\n'])
             child.wait.return_value = 7
             plan = [('A', ['fake', 'A'], {'output_dir': 'stageA'}),
                     ('B', ['fake', 'B'], {'output_dir': 'stageB'})]
-            with patch.dict(sys.modules, {'our_src.stagec.protocol': protocol}), patch.object(sys, 'argv',
+            with patch.dict(sys.modules, {'our_src.part1.stagec.protocol': protocol}), patch.object(sys, 'argv',
                 ['run_part_1.py', '--project', str(root), '--python', sys.executable]), patch.object(pipeline,
                 'build_plan', return_value=plan), patch.object(pipeline.subprocess, 'Popen', return_value=child) as popen, contextlib.redirect_stdout(io.StringIO()):
                 with self.assertRaisesRegex(RuntimeError, 'exit code 7'):

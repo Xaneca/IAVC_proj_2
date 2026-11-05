@@ -12,7 +12,7 @@ Executa A → B → C → D → E → F → G, sequencialmente, no ambiente
 A calcula automaticamente os centroides em falta com K-means, usando apenas
 imagens do treino interno, e reutiliza os existentes compatíveis. Não volta
 a gerar os splits. Guarda os centroides em `stageA/centroids/`.
-Os resultados ficam nas pastas `results/stageA/` a `results/stageG/`.
+Os resultados ficam nas pastas `results/part1/stageA/` a `results/part1/stageG/`.
 
 Para ver os comandos e validar os caminhos sem iniciar experiências:
 
@@ -44,10 +44,10 @@ Smoke de integração A–G com os dados reais pequenos e vocabulário K=32:
 .\run_part_1.ps1 -Smoke -PerClass 2
 ```
 
-O smoke usa pastas `results/stageA/smoke` a `results/stageG/smoke`; G usa 50%/100% do treino
+O smoke usa pastas `results/part1/stageA/smoke` a `results/part1/stageG/smoke`; G usa 50%/100% do treino
 pequeno com dez seeds. Não altera os defaults da experiência completa.
 Os centroides smoke são calculados apenas com o treino pequeno e guardados em
-`results/stageA/smoke/centroids/`, separados dos centroides da experiência completa.
+`results/part1/stageA/smoke/centroids/`, separados dos centroides da experiência completa.
 `-Start`/`-End` aplicam-se apenas ao modo completo; smoke corre sempre A–G.
 
 Também pode ser executado diretamente:

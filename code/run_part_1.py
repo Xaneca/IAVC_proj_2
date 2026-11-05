@@ -7,13 +7,13 @@ import subprocess
 import sys
 
 STAGES = {
-    'A': ('our_src.stagea.stage_a', 'our_src/stagea/stage_a.json'),
-    'B': ('our_src.stageb.stage_b', 'our_src/stageb/config.json'),
-    'C': ('our_src.stagec.stage_c', 'our_src/stagec/config.json'),
-    'D': ('our_src.staged.stage_d', 'our_src/staged/config.json'),
-    'E': ('our_src.stagee.stage_e', 'our_src/stagee/config.json'),
-    'F': ('our_src.stagef.stage_f', 'our_src/stagef/config.json'),
-    'G': ('our_src.stageg.stage_g', 'our_src/stageg/config.json'),
+    'A': ('our_src.part1.stagea.stage_a', 'our_src/part1/stagea/config.json'),
+    'B': ('our_src.part1.stageb.stage_b', 'our_src/part1/stageb/config.json'),
+    'C': ('our_src.part1.stagec.stage_c', 'our_src/part1/stagec/config.json'),
+    'D': ('our_src.part1.staged.stage_d', 'our_src/part1/staged/config.json'),
+    'E': ('our_src.part1.stagee.stage_e', 'our_src/part1/stagee/config.json'),
+    'F': ('our_src.part1.stagef.stage_f', 'our_src/part1/stagef/config.json'),
+    'G': ('our_src.part1.stageg.stage_g', 'our_src/part1/stageg/config.json'),
 }
 DEPENDENCIES = {'A': [], 'B': ['A'], 'C': ['A', 'B'], 'D': ['A', 'B'],
                 'E': ['A', 'B'], 'F': ['E'], 'G': ['E', 'F']}
@@ -74,12 +74,12 @@ def main():
         parser.error(f'Python not found: {python}; use --python')
     # Validate canonical image memberships even for a dry-run; never regenerate splits.
     sys.path.insert(0, str(project))
-    from our_src.stagec.protocol import split_digest
+    from our_src.part1.stagec.protocol import split_digest
     digest = split_digest(project/'data/splits_internal')
     if args.smoke:
         if args.per_class < 2:
             parser.error('--per-class must be at least 2')
-        plan = [('SMOKE', [str(python), '-u', '-m', 'our_src.smoke_stages',
+        plan = [('SMOKE', [str(python), '-u', '-m', 'our_src.part1.smoke_stages',
                            '--per-class', str(args.per_class), '--project', str(project)], None)]
     else:
         plan = build_plan(project, python, args.start, args.end)

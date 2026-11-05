@@ -1,19 +1,20 @@
 # Codigo do grupo
 
-A Stage A e o baseline SVM estao organizados em [`part1/`](part1/README.md).
-Configuracao atual: `part1/stage_a.json`.
+A Stage A e o baseline SVM estao organizados em
+[`part1/`](part1/stagea/README.md). Configuracao atual:
+`part1/stagea/config.json`.
 
 Na pasta `code/`:
 
 ```powershell
-python -m our_src.part1.stage_a
+python -m our_src.part1.stagea.stage_a
 ```
 
-Resultados em `results/stageA/centroids`, `results/stageA/metrics.csv` e
-`results/stageA/svm_ap.csv`.
+Resultados em `results/part1/stageA/centroids`, `results/part1/stageA/metrics.csv` e
+`results/part1/stageA/svm_ap.csv`.
 SIFT e histogramas sao mantidos apenas em RAM. O teste final fica reservado.
 
-`make_splits.py` reproduz os splits globais por imagem. `a_json.py` e
-`a_metrics.py` contem utilitarios partilhados, reutilizados por `part1`.
-`python -m our_src.stage_a` continua como alias para treinar apenas vocabularios.
+`make_splits.py` reproduz os splits globais por imagem.
+`artifact_json.py` contem utilitarios JSON partilhados por todas as stages.
+`part1/stagea/metrics_utils.py` contem metricas auxiliares exclusivas da Stage A.
 As configuracoes anteriores em `our_src/configs` nao sao usadas pela nova Stage A.

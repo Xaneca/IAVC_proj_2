@@ -4,6 +4,7 @@ __pycache__/
 *.before_stages_*.bak
 /pipeline_logs/
 /smoke_summary.json
+/results/
 /stageA/
 /stageB/
 /stageC/

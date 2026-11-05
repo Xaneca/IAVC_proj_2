@@ -1,17 +1,17 @@
 # Fase A — Dense SIFT e BoVW
 
 Executar os comandos na pasta `code/`, com o ambiente `cvc-a2` ativo.
-O codigo fornecido permanece em `src/`; a orquestracao fica em `our_src/stage_a.py`.
-A configuracao fica em `configs/stage_a.json`.
+O codigo fornecido permanece em `src/`; a orquestracao fica em
+`our_src/part1/`. A configuracao fica em `our_src/part1/stagea/config.json`.
 
 ## Etapas
 
 ```powershell
-python -m our_src.stage_a --stage inspect
-python -m our_src.stage_a --stage descriptors
-python -m our_src.stage_a --stage sample
-python -m our_src.stage_a --stage vocabularies
-python -m our_src.stage_a --stage encode
+python -m our_src.part1.stagea.stage_a --stage inspect
+python -m our_src.part1.stagea.stage_a --stage descriptors
+python -m our_src.part1.stagea.stage_a --stage sample
+python -m our_src.part1.stagea.stage_a --stage vocabularies
+python -m our_src.part1.stagea.stage_a --stage encode
 ```
 
 `inspect` cria um painel de imagens de treino para analisar escala, perspetiva,
