@@ -91,7 +91,7 @@ def main():
     if args.smoke_per_class is not None and args.smoke_per_class<1:
         parser.error('--smoke-per-class must be positive')
     try:
-        run(load(args.config),Path(__file__).resolve().parents[2],args.k,args.layout,args.normalization,
+        run(load(args.config),Path(__file__).resolve().parents[3],args.k,args.layout,args.normalization,
             args.smoke_per_class,not args.no_render)
     except ValueError as error:
         parser.exit(2,str(error)+'\n')

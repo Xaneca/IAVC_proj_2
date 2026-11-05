@@ -145,7 +145,7 @@ def main():
     if args.smoke_per_category is not None and args.smoke_per_category<1:
         parser.error('--smoke-per-category must be positive')
     config = load(args.config)
-    project = Path(__file__).resolve().parents[2]
+    project = Path(__file__).resolve().parents[3]
     try:
         run(config,project,args.recover_centroids_from,args.smoke_per_category)
     except (Exception,KeyboardInterrupt) as error:

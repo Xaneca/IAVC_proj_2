@@ -1,0 +1,39 @@
+{
+  "image_dir": "data/images",
+  "split_dir": "data/splits_internal",
+  "stage_a_dir": "results/part1/stageA",
+  "output_dir": "results/part1/stageH",
+  "categories": [
+    "motorbike",
+    "aeroplane",
+    "horse",
+    "car",
+    "person"
+  ],
+  "vocabulary_sizes": [
+    64,
+    128
+  ],
+  "pca_dim": 0,
+  "images_per_class": -1,
+  "descriptors_per_image": 400,
+  "seed": 42,
+  "C_values": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "max_iter": 20000,
+  "tol": 0.0001,
+  "gmm": {
+    "max_iter": 200,
+    "tol": 0.001,
+    "reg_covar": 1e-06,
+    "n_init": 1
+  },
+  "curve_splits": [
+    "train",
+    "val",
+    "test"
+  ]
+}

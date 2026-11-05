@@ -88,7 +88,7 @@ def run(config, project):
 def main(default_config=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', type=Path, default=default_config or Path(__file__).with_name('config.json'))
-    parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[2])
+    parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[3])
     args = parser.parse_args()
     run(load(args.config), args.project)
 
