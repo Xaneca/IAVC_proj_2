@@ -13,7 +13,7 @@ if (-not (Test-Path -LiteralPath $pipelinePython)) {
 }
 
 $pipelineArgs = @(
-    (Join-Path $PSScriptRoot 'run_pipeline.py'),
+    (Join-Path $PSScriptRoot 'run_part_1.py'),
     '--project', $PSScriptRoot,
     '--python', $pipelinePython,
     '--start', $Start,

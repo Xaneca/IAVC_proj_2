@@ -7,7 +7,7 @@ import tempfile
 import types
 import unittest
 from unittest.mock import Mock, patch
-import run_pipeline as pipeline
+import run_part_1 as pipeline
 
 
 class PipelineTests(unittest.TestCase):
@@ -43,7 +43,7 @@ class PipelineTests(unittest.TestCase):
             plan = [('A', ['fake', 'A'], {'output_dir': 'stageA'}),
                     ('B', ['fake', 'B'], {'output_dir': 'stageB'})]
             with patch.dict(sys.modules, {'our_src.stagec.protocol': protocol}), patch.object(sys, 'argv',
-                ['run_pipeline.py', '--project', str(root), '--python', sys.executable]), patch.object(pipeline,
+                ['run_part_1.py', '--project', str(root), '--python', sys.executable]), patch.object(pipeline,
                 'build_plan', return_value=plan), patch.object(pipeline.subprocess, 'Popen', return_value=child) as popen, contextlib.redirect_stdout(io.StringIO()):
                 with self.assertRaisesRegex(RuntimeError, 'exit code 7'):
                     pipeline.main()

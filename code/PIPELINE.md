@@ -4,7 +4,7 @@ Scripts instalados em `C:\IAVC\IAVC_proj_2\code`. No PowerShell:
 
 ```powershell
 cd C:\IAVC\IAVC_proj_2\code
-.\run_all.ps1
+.\run_part_1.ps1
 ```
 
 Executa A → B → C → D → E → F → G, sequencialmente, no ambiente
@@ -17,19 +17,19 @@ Os resultados ficam nas pastas `results/stageA/` a `results/stageG/`.
 Para ver os comandos e validar os caminhos sem iniciar experiências:
 
 ```powershell
-.\run_all.ps1 -DryRun
+.\run_part_1.ps1 -DryRun
 ```
 
 Para retomar a partir de uma etapa (repete essa etapa inteira):
 
 ```powershell
-.\run_all.ps1 -Start E
+.\run_part_1.ps1 -Start E
 ```
 
 Para executar apenas um intervalo:
 
 ```powershell
-.\run_all.ps1 -Start C -End E
+.\run_part_1.ps1 -Start C -End E
 ```
 
 As dependências anteriores ao intervalo têm de estar completas. O script
@@ -41,7 +41,7 @@ etapa e estado global em `pipeline_logs/<data_hora>/pipeline.json`.
 Smoke de integração A–G com os dados reais pequenos e vocabulário K=32:
 
 ```powershell
-.\run_all.ps1 -Smoke -PerClass 2
+.\run_part_1.ps1 -Smoke -PerClass 2
 ```
 
 O smoke usa pastas `results/stageA/smoke` a `results/stageG/smoke`; G usa 50%/100% do treino
@@ -53,5 +53,5 @@ Os centroides smoke são calculados apenas com o treino pequeno e guardados em
 Também pode ser executado diretamente:
 
 ```powershell
-.\.venv-stage-a\Scripts\python.exe .\run_pipeline.py --dry-run
+.\.venv-stage-a\Scripts\python.exe .\run_part_1.py --dry-run
 ```
