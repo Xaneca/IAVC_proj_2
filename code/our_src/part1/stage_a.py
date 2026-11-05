@@ -13,6 +13,7 @@ from .encoding import LAYOUTS, encode_image, feature_dimension, level_weights
 from .metrics import evaluate_representation
 from .results import load_centroids, recover_centroids, write_csv
 from .svm import train_svm_grid
+from .vocabulary import train_vocabularies
 from ..a_json import load, save, file_signature
 
 
@@ -38,10 +39,9 @@ def run(config, project, revision=None, limit=None):
     if limit is not None:
         output = output/'smoke'
     rows = manifest(project/config['split_dir'])
-    model_folder = project/config['output_dir']/'centroids'
+    model_folder = output/'centroids'
     if revision:
-        recover_centroids(project, project/config['output_dir'], revision)
-    models = load_centroids(model_folder,config,rows,project)
+        recover_centroids(project, output, revision)
     active = [r for r in rows if r['split'] in ('train','val')]
     if limit is not None:
         # Include both target and background in each split for a useful smoke test.
@@ -52,6 +52,23 @@ def run(config, project, revision=None, limit=None):
         active = [r for r in active if r['image_id'] in selected]
     if not active:
         raise ValueError('No images for this experiment')
+    # Fail on incompatible existing models, but fit genuinely missing K values.
+    # Smoke vocabularies are isolated and learned from smoke TRAIN images only.
+    missing = []
+    for k in config['vocabulary_sizes']:
+        candidates = [p for p in model_folder.glob('*.json')
+                      if load(p).get('identity', {}).get('k') == k
+                      and load(p).get('identity', {}).get('seed') == config['seed']]
+        if candidates:
+            load_centroids(model_folder, {**config, 'vocabulary_sizes': [k]}, rows, project)
+        else:
+            missing.append(k)
+    if missing:
+        vocabulary_config = {**config, 'vocabulary_sizes': missing,
+                             'output_dir': str(output.relative_to(project))}
+        sample_ids = [r['image_id'] for r in active if r['split'] == 'train'] if limit is not None else None
+        train_vocabularies(vocabulary_config, project, sample_ids=sample_ids)
+    models = load_centroids(model_folder,config,rows,project)
     output.mkdir(parents=True,exist_ok=True)
     run_info = {'started_utc':datetime.now(timezone.utc).isoformat(), 'config':config,
                 'smoke_limit_per_category_split':limit, 'state':'running',

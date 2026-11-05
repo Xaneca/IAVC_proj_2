@@ -7,6 +7,14 @@ python -m our_src.part1.stage_a
 ```
 
 Configuracao: `our_src/part1/stage_a.json`. Uma seed (42), K=32,64,128,256,512,1024.
+O comando calcula automaticamente os centroides em falta antes do encoding e
+das métricas. O K-means usa apenas o treino interno, uma amostra determinística
+de até 400 SIFT por imagem, partilhada entre os K em falta. Centroides existentes
+são validados e reutilizados; modelos incompatíveis causam erro explícito.
+Não é necessário executar previamente `vocabulary` nem recuperar modelos de Git.
+Os centroides e o tempo de ajuste ficam guardados em JSON. Os SIFT ficam em RAM.
+No modo smoke, os centroides são aprendidos só nas imagens de treino selecionadas
+e ficam em `stageA/smoke/centroids`, sem misturar com a experiência completa.
 Resultados em `code/stageA/`:
 
 ```text

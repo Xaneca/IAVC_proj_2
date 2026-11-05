@@ -9,8 +9,9 @@ cd C:\IAVC\IAVC_proj_2\code
 
 Executa A → B → C → D → E → F → G, sequencialmente, no ambiente
 `.venv-stage-a`. Usa as configurações completas existentes em `our_src`.
-A reutiliza os centroides já calculados e valida a sua compatibilidade;
-o script não volta a gerar os splits nem a treinar K-means.
+A calcula automaticamente os centroides em falta com K-means, usando apenas
+imagens do treino interno, e reutiliza os existentes compatíveis. Não volta
+a gerar os splits. Guarda os centroides em `stageA/centroids/`.
 Os resultados ficam nas pastas `stageA/` a `stageG/`.
 
 Para ver os comandos e validar os caminhos sem iniciar experiências:
@@ -37,7 +38,7 @@ Se uma etapa falhar, a cadeia para imediatamente. Ctrl+C termina o processo
 de treino em execução e regista a interrupção. Cada execução guarda logs por
 etapa e estado global em `pipeline_logs/<data_hora>/pipeline.json`.
 
-Smoke de integração A–G com os dados reais pequenos e vocabulário K=32 existente:
+Smoke de integração A–G com os dados reais pequenos e vocabulário K=32:
 
 ```powershell
 .\run_all.ps1 -Smoke -PerClass 2
@@ -45,6 +46,8 @@ Smoke de integração A–G com os dados reais pequenos e vocabulário K=32 exis
 
 O smoke usa pastas `stageA/smoke` a `stageG/smoke`; G usa 50%/100% do treino
 pequeno com dez seeds. Não altera os defaults da experiência completa.
+Os centroides smoke são calculados apenas com o treino pequeno e guardados em
+`stageA/smoke/centroids/`, separados dos centroides da experiência completa.
 `-Start`/`-End` aplicam-se apenas ao modo completo; smoke corre sempre A–G.
 
 Também pode ser executado diretamente:

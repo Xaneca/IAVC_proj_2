@@ -1,6 +1,7 @@
 """Stage A: fit vocabularies in RAM and save only centroids/configuration."""
 import argparse
 import importlib.metadata
+import time
 from pathlib import Path
 import numpy as np
 from ..a_json import file_signature, key, load, save
@@ -9,7 +10,7 @@ from ..a_json import file_signature, key, load, save
 from .data import manifest
 
 
-def train_vocabularies(config, project, extract=None, fit=None, select=None):
+def train_vocabularies(config, project, extract=None, fit=None, select=None, sample_ids=None):
     """Keep one bounded training sample in RAM; persist only centroid files."""
     project = Path(project)
     split_dir = project / config['split_dir']
@@ -21,15 +22,17 @@ def train_vocabularies(config, project, extract=None, fit=None, select=None):
         raise ValueError('K must be an integer >= 2')
     if config['descriptors_per_image'] < 1:
         raise ValueError('descriptors_per_image must be positive')
-    if select is None:
+    if select is None and sample_ids is None:
         from src.utils import loadSamplesTable
         select = loadSamplesTable
     # The supplied per-class branch has a pandas reset_index conflict.
     # Reuse its loader, then select unique images here without groupby.apply.
-    table = select(split_dir, image_dir, subset='train',
+    table = None if sample_ids is not None else select(split_dir, image_dir, subset='train',
                    per_class=-1, random_state=config['seed'])
     per_class = config['images_per_class']
-    if per_class != -1:
+    if sample_ids is not None:
+        selected = sorted(set(sample_ids))
+    elif per_class != -1:
         if per_class < 1:
             raise ValueError('images_per_class must be -1 or positive')
         table = table.copy()
@@ -100,13 +103,16 @@ def train_vocabularies(config, project, extract=None, fit=None, select=None):
     print(f'Sample in RAM: {sample.shape}, {sample.nbytes / 1e6:.1f} MB', flush=True)
     for k in pending:
         print(f'Fitting K={k}', flush=True)
+        started = time.perf_counter()
         model = fit(sample, encoder_type='bovw', num_words=k,
                     pca_dim=0, seed=config['seed'])
+        fit_seconds = time.perf_counter()-started
         centers = np.asarray(model['words'])
         if centers.shape != (k, sample.shape[1]) or not np.isfinite(centers).all():
             raise ValueError('Invalid centroids returned by supplied trainer')
         save(paths[k], {'identity': {**identity, 'k': k},
-                        'centroids': centers.tolist(), 'descriptor_dimension': sample.shape[1]})
+                        'centroids': centers.tolist(), 'descriptor_dimension': sample.shape[1],
+                        'fit_seconds': fit_seconds})
         print(f'Saved only centroids and configuration: {paths[k]}', flush=True)
     return list(paths.values())
 

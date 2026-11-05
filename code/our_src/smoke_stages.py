@@ -41,6 +41,7 @@ def main():
                 candidates = [r for r in csv.DictReader(stream) if r['category'] == 'motorbike']
             best = max(candidates, key=lambda r: float(r['validation_ap']))
             config = load(Path(__file__).parent/'stageb/config.json')
+            config['stage_a_dir'] = 'stageA/smoke'
             save(project/output/'smoke_config.json', config)
             state = run_b(config, project, k=int(best['k']), layout=best['layout'],
                           normalization=best['normalization'], smoke=args.per_class, render=False)
@@ -53,7 +54,7 @@ def main():
             continue
         config = load(Path(__file__).parent/f'stage{stage}'/'config.json')
         config.update(smoke_per_class=args.per_class, output_dir=f'stage{stage.upper()}/smoke',
-                      stage_b_dir='stageB/smoke')
+                      stage_b_dir='stageB/smoke', stage_a_dir='stageA/smoke')
         if stage in ('f', 'g'):
             config['stage_e_dir'] = 'stageE/smoke'
         if stage == 'g':
