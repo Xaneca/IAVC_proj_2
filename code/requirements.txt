@@ -20,6 +20,7 @@ pandas==3.0.5
 tabulate
 scikit-image==0.26.0
 scikit-learn==1.9.1
+scipy
 transformers==5.17.0
 accelerate==1.15.0
 torchinfo
