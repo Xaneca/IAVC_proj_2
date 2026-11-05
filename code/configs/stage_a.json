@@ -1,0 +1,9 @@
+{
+  "image_dir": "data/images",
+  "split_dir": "data/splits_internal",
+  "output_dir": "data/phase_a",
+  "vocabulary_sizes": [256, 512, 1024],
+  "images_per_class": 150,
+  "descriptors_per_image": 400,
+  "seed": 42
+}

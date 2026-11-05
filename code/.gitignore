@@ -1,2 +1,13 @@
 /data/ 
 __pycache__/
+*.bak
+*.before_stages_*.bak
+/pipeline_logs/
+/smoke_summary.json
+/stageA/
+/stageB/
+/stageC/
+/stageD/
+/stageE/
+/stageF/
+/stageG/

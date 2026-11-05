@@ -1,0 +1,27 @@
+{
+  "image_dir": "data/images",
+  "split_dir": "data/splits_internal",
+  "stage_a_dir": "stageA",
+  "output_dir": "stageD",
+  "category": "motorbike",
+  "seed": 42,
+  "C_values": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "max_iter": 20000,
+  "tol": 0.0001,
+  "assignment_batch_size": 2048,
+  "ranking_splits": [
+    "train"
+  ],
+  "extreme_images_per_end": 3,
+  "stage_b_dir": "stageB",
+  "categories": [
+    "aeroplane",
+    "horse",
+    "car",
+    "person"
+  ]
+}

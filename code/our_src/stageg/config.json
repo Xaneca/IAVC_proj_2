@@ -1,0 +1,12 @@
+{
+  "image_dir": "data/images",
+  "split_dir": "data/splits_internal",
+  "stage_a_dir": "stageA",
+  "stage_b_dir": "stageB",
+  "stage_e_dir": "stageE",
+  "stage_f_dir": "stageF",
+  "output_dir": "stageG",
+  "assignment_batch_size": 2048,
+  "fractions": [0.1, 0.25, 0.5, 0.75, 1.0],
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
