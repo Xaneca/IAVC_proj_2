@@ -6,16 +6,20 @@ from pathlib import Path
 import numpy as np
 from sklearn.exceptions import ConvergenceWarning
 from src.features import extractFeatures
+from .provenance import DenseSIFT
+import importlib.metadata
 from src.train import learn_gmm
-from ..artifact_json import load, save, key, file_signature
-from ..stagea.results import load_centroids
-from ..stagea.vocabulary import train_vocabularies
+from our_src.part1.artifact_json import load, save, key, file_signature
+from our_src.part1.stagea.results import load_centroids
+from our_src.part1.stagea.vocabulary import train_vocabularies
 
 
 def load_gmm(path, identity):
     with np.load(path, allow_pickle=False) as data:
         metadata = json.loads(str(data['metadata']))
         arrays = {name: data[name].copy() for name in ('means', 'covariances', 'priors')}
+    if not metadata.get('converged'):
+        raise ValueError('Cached GMM has no successful convergence record')
     if metadata['identity'] != identity:
         raise ValueError('GMM identity mismatch')
     k = identity['k']
@@ -27,10 +31,11 @@ def load_gmm(path, identity):
     return arrays, metadata
 
 
-def prepare(config, project, all_rows, active, output, digest):
+def prepare(config, project, all_rows, active, output, digest, extractor=None):
     project, output = Path(project), Path(output)
+    extractor = extractor or DenseSIFT(project, config)
     smoke = config.get('smoke_per_class') is not None
-    vocabulary_output = output/'encoders/kmeans' if smoke else project/config['stage_a_dir']
+    vocabulary_output = project/config['centroid_cache_dir'] if config.get('centroid_cache_dir') else (output/'encoders/kmeans' if smoke else project/config['stage_a_dir'])
     folder = vocabulary_output/'centroids'
     vocabulary_config = {**config, 'output_dir': str(vocabulary_output.relative_to(project))}
     sample_ids = sorted(r['image_id'] for r in active if r['split']=='train') if smoke else None
@@ -44,7 +49,7 @@ def prepare(config, project, all_rows, active, output, digest):
             load_centroids(folder, {**config, 'vocabulary_sizes':[k]}, all_rows, project)
     if missing:
         train_vocabularies({**vocabulary_config, 'vocabulary_sizes':missing}, project,
-                           sample_ids=sample_ids)
+                           sample_ids=sample_ids, extract=extractor)
     centers = load_centroids(folder, config, all_rows, project)
     identities = [load(m['path'])['identity'] for m in centers.values()]
     ids = sorted(identities[0]['sample_image_ids'])
@@ -57,12 +62,18 @@ def prepare(config, project, all_rows, active, output, digest):
     train_ids = {r['image_id'] for r in all_rows if r['split']=='train'}
     if not set(ids) <= train_ids:
         raise ValueError('Encoder training sample contains non-training images')
+    references = {str(k): dict(path=str(m['path']), sha256=file_signature(m['path'])) for k,m in centers.items()}
+    save(output/'encoders/kmeans_references.json', references)
+    if 'fv' not in config.get('encoders',['bovw','vlad','fv']):
+        return centers, {}
     # Same image order, per-image descriptor cap, seed and RNG as Stage A.
     rng = np.random.default_rng(config['seed'])
     base_identity = dict(seed=config['seed'], split_sha256=digest, sample_image_ids=ids,
         descriptors_per_image=config['descriptors_per_image'], pca_dim=0,
         sample_images=identities[0]['images'], sift_sha256=file_signature(project/'src/features.py'),
-        gmm_parameters=config['gmm'], implementation_sha256=file_signature(Path(__file__)))
+        gmm_parameters=config['gmm'], implementation_sha256=file_signature(Path(__file__)),
+        provider_sha256=file_signature(project/'src/encoders.py'),
+        versions={p:importlib.metadata.version(p) for p in ('numpy','scikit-learn','scikit-image')})
     gmms, pending = {}, []
     for k in config['vocabulary_sizes']:
         identity = {**base_identity, 'k':k}
@@ -75,7 +86,7 @@ def prepare(config, project, all_rows, active, output, digest):
     if pending:
         chunks = []
         for n, image_id in enumerate(ids, 1):
-            _, descriptors, _ = extractFeatures(project/config['image_dir']/f'{image_id}.jpg', cache_dir=None)
+            _, descriptors, _ = extractor(project/config['image_dir']/f'{image_id}.jpg', cache_dir=None)
             if len(descriptors):
                 chosen = rng.choice(len(descriptors), min(len(descriptors), config['descriptors_per_image']), replace=False)
                 chunks.append(descriptors[chosen].astype(np.float32))

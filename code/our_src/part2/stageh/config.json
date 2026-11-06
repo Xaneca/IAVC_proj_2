@@ -2,7 +2,7 @@
   "image_dir": "data/images",
   "split_dir": "data/splits_internal",
   "stage_a_dir": "results/part1/stageA",
-  "output_dir": "results/part1/stageH",
+  "output_dir": "results/part2/stageH",
   "categories": [
     "motorbike",
     "aeroplane",
@@ -35,5 +35,11 @@
     "train",
     "val",
     "test"
-  ]
+  ],
+  "stage_id": "H",
+  "encoders": [
+    "bovw",
+    "vlad"
+  ],
+  "centroid_cache_dir": "results/part2/encoder_cache"
 }

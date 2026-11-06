@@ -1,6 +1,6 @@
 # Part 4 - frozen representations
 
-Canonical source: `code/our_src/deepmodels/`, a sibling of the remote repository's
+Canonical source: `code/our_src/part4/`, a sibling of the remote repository's
 `code/our_src/part1/`. Entry point: `code/run_deepmodels.py`. No external editing
 workspace or machine-specific Python path is required. All commands below start
 at the Git repository root (the directory containing `code/`). The entry point
@@ -76,7 +76,7 @@ supports the older checkout's Part 1 module locations.
 `config.json` contains unchanged experimental settings. `--config` accepts an
 alternate JSON file. `image_dir` and `split_dir` are resolved relative to
 `--project` (default: this repository's `code/`); absolute paths are also accepted.
-`output_dir` defaults to `deepmodels` beneath that project directory. `--output`
+`output_dir` defaults to `results/part4` beneath that project directory. `--output`
 overrides the base containing both feature caches and experiment outputs and is
 resolved relative to the invoking shell. It can point to external storage.
 
@@ -120,7 +120,7 @@ Existing implementation tests can be run later from `code/`:
 
 ```bash
 cd code
-python -m unittest our_src.deepmodels.test_integration -v
+python -m unittest our_src.part4.test_integration -v
 ```
 
 Dataset-dependent integration tests skip if the separately supplied images and
@@ -146,3 +146,26 @@ smoke. This repository-integration audit performs only static checks, shared-mod
 imports and CLI help. No benchmark, inference, checkpoint download or new
 scientific performance validation was performed. Full benchmark and final test
 reporting remain pending.
+
+## Stage result directories
+
+New results follow the same part/stage organization as Parts 1 and 2:
+
+```text
+code/results/part4/
+  stageA/runs/<experiment_id>/classification/   # ResNet
+  stageB/runs/<experiment_id>/classification/   # DINOv2
+  stageC/runs/<experiment_id>/fewshot/
+  stageD/runs/<experiment_id>/regularization/
+  stageE/runs/<experiment_id>/clip/             # plus CLIP classification
+  stageF/runs/<experiment_id>/visual_analysis/
+  runs/<experiment_id>/                        # shared manifests/comparison/SVM trials
+  features/                                   # shared content-addressed feature cache
+```
+
+Smoke uses `smoke/` instead of `runs/` in both stage and shared run folders.
+Stage dependencies and resume checks verify stage artifacts from their new paths.
+`--output` overrides the complete Part 4 base, retaining this organization.
+Existing `code/deepmodels/` results remain untouched and are historical; they are
+not silently resumed under the new layout. No models, experimental settings or
+splits change with this directory update. These generated outputs remain outside Git.

@@ -1,15 +1,14 @@
-# Part 1 pipeline: A-H
+# Part 1 pipeline: A-G
 
 From the Git repository root, enter `code/`. The canonical runner is
 `our_src/part1/run.py` (`run_part_1.ps1` on Windows); modules live beneath
-`our_src/part1/stagea` through `stageh`. A-G follow the fetched repository layout;
-H preserves our local BoVW/VLAD/Fisher comparison extension.
+`our_src/part1/stagea` through `stageg`. Stages H and I are in Part 2; see
+[`../part2/README.md`](../part2/README.md).
 
 The full pipeline uses the existing stage configurations and unchanged historical
 splits. All newly generated Part 1 outputs use `results/part1/stageA` through
-`stageH`. Previous local `stageA` through `stageH` directories are retained as
-historical artifacts and are not overwritten or silently merged with upstream
-results. Stage H remains independently runnable and uses its own configurations.
+`stageG`. Historical outputs remain in their original locations and are not
+overwritten or silently merged with upstream results.
 
 ## Validate paths only (no experiments)
 
@@ -34,20 +33,30 @@ prints commands without launching the stages.
 ```powershell
 ./run_part_1.ps1
 ./run_part_1.ps1 -Start E
-./run_part_1.ps1 -Start H -End H
 ./run_part_1.ps1 -Smoke -PerClass 2
 ```
 
 ```bash
 python -m our_src.part1.run --python "$(command -v python)"
-python -m our_src.part1.run --python "$(command -v python)" --start H --end H
+python -m our_src.part1.run --python "$(command -v python)" --start E
 ```
 
 Smoke still runs actual extraction/training; it was NOT run during repository
 synchronization. It uses the nested `results/part1/stageX/smoke` directories,
-K=32 in A, K=64/128 in H and the existing seed/fraction protocol. H reuses or fits
-its encoder models using training images only. Main pipeline logs are retained
+K=32 in A and the existing seed/fraction protocol. Main pipeline logs are retained
 under `pipeline_logs/`; stop-on-failure behavior is preserved.
 
-For frozen representations (Part 4 A-F), use `run_deepmodels.py` and see
-`our_src/deepmodels/README.md`. This is separate from the classical A-H pipeline.
+## Frozen Stage B test evaluation (no training or C selection)
+
+```bash
+python -m our_src.part1.stageb.stage_b --evaluate-test
+python -m unittest our_src.part1.stageb.test_stage_b our_src.part1.stageb.test_frozen_test
+```
+
+Requires the existing Stage B model, run metadata, matching Stage A centroids,
+original splits and dataset. Test artifacts use content-addressed
+`results/part1/stageB/test_evaluations/<id>/`; histogram caches stay outside Git.
+The generated notebook `results/part1/stageB/report.ipynb` displays persisted
+metrics, LaTeX tables, PR curve, confusion matrix and automatically selected
+TP/FN/FP/hard-negative images. A prior notebook is archived before replacement.
+No test score influences training or hyperparameter selection.

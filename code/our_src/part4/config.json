@@ -1,7 +1,7 @@
 {
   "image_dir": "data/images",
   "split_dir": "data/splits_internal",
-  "output_dir": "deepmodels",
+  "output_dir": "results/part4",
   "categories": [
     "aeroplane",
     "car",

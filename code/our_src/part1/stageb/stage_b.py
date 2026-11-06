@@ -87,7 +87,14 @@ def main():
     parser.add_argument('--normalization',choices=['none','l1','l2'])
     parser.add_argument('--smoke-per-class',type=int)
     parser.add_argument('--no-render',action='store_true')
+    parser.add_argument('--evaluate-test',action='store_true',help='Evaluate the saved validation-selected model; never fit')
     args=parser.parse_args()
+    if args.evaluate_test:
+        if any(v is not None for v in (args.k,args.layout,args.normalization,args.smoke_per_class)):
+            parser.error('Frozen test evaluation cannot override the selected encoding or use smoke training')
+        from .test_evaluation import evaluate_test
+        evaluate_test(load(args.config),Path(__file__).resolve().parents[3])
+        return
     if args.smoke_per_class is not None and args.smoke_per_class<1:
         parser.error('--smoke-per-class must be positive')
     try:
