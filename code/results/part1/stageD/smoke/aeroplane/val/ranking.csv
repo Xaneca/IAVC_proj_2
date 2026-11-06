@@ -1,5 +1,0 @@
-rank,image_id,label,decision_score,split,category
-1,000936,1,0.04872063113018911,val,aeroplane
-2,000032,1,0.011627416032150194,val,aeroplane
-3,000036,-1,-0.013175681784280413,val,aeroplane
-4,000034,-1,-0.028308886700897182,val,aeroplane

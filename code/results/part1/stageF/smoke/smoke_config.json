@@ -1,1 +1,0 @@
-{"image_dir":"data/images","split_dir":"data/splits_internal","stage_a_dir":"results/part1/stageA/smoke","stage_b_dir":"results/part1/stageB/smoke","stage_e_dir":"results/part1/stageE/smoke","output_dir":"results/part1/stageF/smoke","assignment_batch_size":2048,"smoke_per_class":2}

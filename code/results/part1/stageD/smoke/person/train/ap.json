@@ -1,9 +1,0 @@
-{
-  "category": "person",
-  "split": "train",
-  "ap": 1.0,
-  "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
-  "images": 6,
-  "positives": 4,
-  "negatives": 2
-}

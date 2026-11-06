@@ -1,5 +1,0 @@
-rank,image_id,label,decision_score,split,category
-1,000219,1,0.1030058730832475,train,motorbike
-2,000164,1,0.07489419191702851,train,motorbike
-3,000044,-1,0.001463833771021674,train,motorbike
-4,000042,-1,-0.0710809798135731,train,motorbike

@@ -23,3 +23,6 @@
 
 # Part 4 generated stage outputs and shared caches
 /code/results/part4/
+
+# Smoke-run outputs are regenerated locally
+/code/results/**/smoke/

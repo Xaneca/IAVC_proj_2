@@ -1,4 +1,0 @@
-category,split,ap,ap_definition,images,positives,negatives
-motorbike,train,1.0,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
-motorbike,val,0.75,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
-motorbike,test,0.75,sklearn non-interpolated average precision on continuous SVM scores,4,2,2

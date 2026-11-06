@@ -1,2 +1,0 @@
-representation,k,seed,original_dim,n_train,max_components,d80,d90,d95,variance_at_8
-bovw,16,0,16,24,16,3,4,7,0.9767351365940778

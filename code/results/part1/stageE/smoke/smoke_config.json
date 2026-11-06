@@ -1,1 +1,0 @@
-{"image_dir":"data/images","split_dir":"data/splits_internal","stage_a_dir":"results/part1/stageA/smoke","stage_b_dir":"results/part1/stageB/smoke","output_dir":"results/part1/stageE/smoke","categories":["motorbike","aeroplane","horse","car","person"],"seed":42,"C_values":[0.1,1.0,10.0],"max_iter":20000,"tol":0.0001,"assignment_batch_size":2048,"smoke_per_class":2}

@@ -1,2 +1,0 @@
-experiment,representation,k,pca_dim,seed,reason
-vlad_K4_pca64,vlad,4,64,0,pca_dim=64 must be <= n_train_samples - 1 = 23
