@@ -3,10 +3,20 @@
 Run from `code/` on Linux or Windows with the project's SIFT environment:
 
 ```bash
-python run_part_2.py --smoke --sift-cache results/part2/sift_cache
-python run_part_2.py --preflight
-python run_part_2.py --sift-cache results/part2/sift_cache
+python -m our_src.part2.run --smoke --sift-cache results/part2/sift_cache
+python -m our_src.part2.run --preflight
+python -m our_src.part2.run --sift-cache results/part2/sift_cache
 python -m unittest our_src.part2.shared.test_shared our_src.part1.test_run
+```
+
+Or use the `code/run_part_2.ps1` wrapper, which can be called from any directory. A relative
+`-SiftCache` path is still resolved from `code/`:
+
+```powershell
+.\code\run_part_2.ps1 -Smoke -SiftCache results/part2/sift_cache   # smoke test
+.\code\run_part_2.ps1 -Preflight                                   # preflight checks
+.\code\run_part_2.ps1 -SiftCache results/part2/sift_cache          # full run
+.\code\run_part_2.ps1 -Stages H                                    # one stage only
 ```
 
 H lives in `our_src/part2/stageh/` (BoVW/VLAD); I in `our_src/part2/stagei/` (Fisher).

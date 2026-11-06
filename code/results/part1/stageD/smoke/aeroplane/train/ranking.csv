@@ -1,0 +1,5 @@
+rank,image_id,label,decision_score,split,category
+1,000033,1,0.07275072448847966,train,aeroplane
+2,000228,1,0.05966597136883002,train,aeroplane
+3,000044,-1,0.022093885178682115,train,aeroplane
+4,000042,-1,-0.07663144419553206,train,aeroplane

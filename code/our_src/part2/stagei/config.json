@@ -26,7 +26,7 @@
   "max_iter": 20000,
   "tol": 0.0001,
   "gmm": {
-    "max_iter": 200,
+    "max_iter": 500,
     "tol": 0.001,
     "reg_covar": 1e-06,
     "n_init": 1

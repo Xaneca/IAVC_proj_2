@@ -16,7 +16,7 @@ def main():
     parser.add_argument('--threads',type=int,default=2)
     args=parser.parse_args()
     if args.threads<1: parser.error('--threads must be positive')
-    project=Path(__file__).resolve().parent
+    project=Path(__file__).resolve().parents[2]
     environment=dict(os.environ)
     for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS'): environment[name]=str(args.threads)
     for stage in args.stages:

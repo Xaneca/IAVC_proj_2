@@ -85,10 +85,10 @@ require a new output directory because provenance is intentionally checked.
 
 ```bash
 python -m unittest our_src.part2.shared.test_shared -v
-python run_part_2.py --smoke --sift-cache results/part2/sift_cache
-python run_part_2.py --preflight
+python -m our_src.part2.run --smoke --sift-cache results/part2/sift_cache
+python -m our_src.part2.run --preflight
 # Full benchmark only if resources permit:
-python run_part_2.py
+python -m our_src.part2.run
 ```
 
 Use a new --output-dir for a changed source/configuration. No historical output

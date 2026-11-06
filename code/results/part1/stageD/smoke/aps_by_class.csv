@@ -1,0 +1,13 @@
+category,split,ap,ap_definition,images,positives,negatives
+aeroplane,train,1.0,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+aeroplane,val,1.0,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+aeroplane,test,1.0,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+horse,train,1.0,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+horse,val,0.5,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+horse,test,0.8333333333333333,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+car,train,1.0,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+car,val,0.5833333333333333,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+car,test,0.8333333333333333,sklearn non-interpolated average precision on continuous SVM scores,4,2,2
+person,train,1.0,sklearn non-interpolated average precision on continuous SVM scores,6,4,2
+person,val,0.8541666666666666,sklearn non-interpolated average precision on continuous SVM scores,6,4,2
+person,test,0.8055555555555556,sklearn non-interpolated average precision on continuous SVM scores,5,3,2

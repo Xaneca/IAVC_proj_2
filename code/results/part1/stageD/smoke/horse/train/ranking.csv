@@ -1,0 +1,5 @@
+rank,image_id,label,decision_score,split,category
+1,000133,1,0.0965154485979599,train,horse
+2,000017,1,0.08430685904755586,train,horse
+3,000042,-1,-0.02263007205983802,train,horse
+4,000044,-1,-0.08478505597321266,train,horse

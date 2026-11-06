@@ -36,4 +36,5 @@ Guia geral: [`PART4.md`](../../PART4.md).
 
 ## Parte 2 — H/I
 
-Código em [part2/](part2/README.md); executar `python run_part_2.py` a partir de `code/`.
+Código em [part2/](part2/README.md); executar `python -m our_src.part2.run` a partir de `code/`
+(ou `run_part_2.ps1` em Windows).

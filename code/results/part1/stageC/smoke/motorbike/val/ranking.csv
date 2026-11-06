@@ -1,0 +1,5 @@
+rank,image_id,label,decision_score,split,category
+1,000822,1,0.07367566143583287,val,motorbike
+2,000036,-1,0.048745750141268446,val,motorbike
+3,000034,-1,0.03602303217201239,val,motorbike
+4,000163,1,-0.018653776849608106,val,motorbike

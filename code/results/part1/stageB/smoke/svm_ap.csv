@@ -1,0 +1,4 @@
+C,normalization,max_iter,tol,train_ap,validation_ap,fit_seconds,validation_inference_seconds,train_images,validation_images,encoding_normalization,selected,k,layout
+0.1,none,20000,0.0001,1.0,0.75,0.0008288000244647264,1.1899974197149277e-05,4,4,l2,True,32,flat_2x2
+1.0,none,20000,0.0001,1.0,0.75,0.0007845000363886356,8.399831131100655e-06,4,4,l2,False,32,flat_2x2
+10.0,none,20000,0.0001,1.0,0.75,0.0006957000587135553,7.400056347250938e-06,4,4,l2,False,32,flat_2x2

@@ -1,0 +1,5 @@
+kernel,fraction,train_images,seeds,test_ap_mean,test_ap_std,val_ap_mean
+linear,0.5,2,10,0.6,0.12909944487358058,0.675
+linear,1.0,4,10,0.8333333333333333,0.0,0.75
+hellinger,0.5,2,10,0.7,0.25819888974716115,0.5
+hellinger,1.0,4,10,0.8333333333333333,0.0,0.5

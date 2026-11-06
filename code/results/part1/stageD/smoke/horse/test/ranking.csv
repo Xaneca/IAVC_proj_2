@@ -1,0 +1,5 @@
+rank,image_id,label,decision_score,split,category
+1,000009,1,0.08489748607606898,test,horse
+2,000016,-1,0.07478896688039431,test,horse
+3,000150,1,0.050890422705061854,test,horse
+4,000005,-1,-0.013774076896731845,test,horse
