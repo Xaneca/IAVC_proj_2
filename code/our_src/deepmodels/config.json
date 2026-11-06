@@ -1,0 +1,65 @@
+{
+  "image_dir": "data/images",
+  "split_dir": "data/splits_internal",
+  "output_dir": "deepmodels",
+  "categories": [
+    "aeroplane",
+    "car",
+    "horse",
+    "motorbike",
+    "person",
+    "background"
+  ],
+  "C_values": [
+    0.1,
+    1,
+    10
+  ],
+  "seed": 42,
+  "max_iter": 20000,
+  "tol": 0.0001,
+  "batch_size": 16,
+  "device": "cpu",
+  "positive_counts": [
+    1,
+    5,
+    10,
+    20,
+    "all"
+  ],
+  "fewshot_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "prompt_templates": [
+    "a photo of a {}",
+    "an image showing a {}",
+    "a picture of a {}"
+  ],
+  "class_descriptions": {
+    "aeroplane": "airplane",
+    "car": "car",
+    "horse": "horse",
+    "motorbike": "motorbike",
+    "person": "person",
+    "background": "background scene without the target objects"
+  },
+  "visual_examples": 2,
+  "occlusion_grid": 7,
+  "regularization_C_values": [
+    0.1,
+    1,
+    10,
+    100,
+    1000
+  ],
+  "augmentations": [
+    "none",
+    "horizontal_flip"
+  ],
+  "visual_max_total": 15,
+  "dino_patch_visualization": true
+}

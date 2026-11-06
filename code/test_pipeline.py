@@ -21,6 +21,8 @@ class PipelineTests(unittest.TestCase):
                 path.write_text(json.dumps(config))
             plan = pipeline.build_plan(root, Path(sys.executable), 'A', 'G')
             self.assertEqual([item[0] for item in plan], list('ABCDEFG'))
+            self.assertEqual([item[0] for item in pipeline.build_plan(root, Path(sys.executable), 'A', 'H')], list('ABCDEFGH'))
+            self.assertEqual([item[0] for item in pipeline.build_plan(root, Path(sys.executable), 'H', 'H')], ['H'])
             with self.assertRaises(FileNotFoundError):
                 pipeline.build_plan(root, Path(sys.executable), 'E', 'G')
             for stage in 'AB':

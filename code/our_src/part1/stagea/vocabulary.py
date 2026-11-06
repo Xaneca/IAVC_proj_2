@@ -123,7 +123,7 @@ def main():
     parser.add_argument('--stage', choices=['vocabularies', 'all'], default='vocabularies',
                         help='Both options fit missing vocabularies only; no feature/report persistence')
     args = parser.parse_args()
-    train_vocabularies(load(args.config), Path(__file__).resolve().parents[2])
+    train_vocabularies(load(args.config), Path(__file__).resolve().parents[3])
 
 
 if __name__ == '__main__':

@@ -1,0 +1,17 @@
+# Part 4: local environments, generated features/results and checkpoint caches
+/.venv-part4/
+/code/deepmodels/
+/code/deepmodels_output/
+/code/.cache/
+/code/.venv*/
+/code/venv/
+/code/**/*.pyc
+/code/**/*.pyo
+/code/**/*.pt
+/code/**/*.pth
+/code/**/*.ckpt
+/code/**/*.safetensors
+/code/**/*.tmp
+
+# Local Stage H extension uses the canonical Part 1 result namespace
+/code/results/part1/stageH/
