@@ -1,0 +1,147 @@
+{
+  "state": "complete",
+  "updated_utc": "2026-11-06T19:17:00.651879+00:00",
+  "argv": [
+    "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\part3\\run.py",
+    "--config",
+    "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\part3\\config.yaml"
+  ],
+  "python": "3.11.18",
+  "versions": {
+    "numpy": "2.4.6",
+    "sklearn": "1.9.1",
+    "skimage": "0.26.0",
+    "pandas": "3.0.5"
+  },
+  "config": {
+    "paths": {
+      "image_dir": "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\data\\images",
+      "split_dir": "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\data\\splits_internal",
+      "output_dir": "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\results\\part3",
+      "cache_dir": "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\cache\\part3"
+    },
+    "data": {
+      "train_splits": [
+        "train",
+        "val"
+      ],
+      "test_splits": [
+        "test"
+      ],
+      "target_classes": [
+        "motorbike"
+      ],
+      "negatives": "all"
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "n_jobs": -2,
+    "chunk_size": 25,
+    "encoding": {
+      "max_descriptors_per_image": null,
+      "fisher_include_weight_grads": false
+    },
+    "codebook": {
+      "n_descriptors": 200000,
+      "kmeans": {
+        "algorithm": "minibatch",
+        "batch_size": 4096,
+        "n_init": 3,
+        "max_iter": 100
+      },
+      "gmm": {
+        "init_params": "kmeans",
+        "max_iter": 100,
+        "n_init": 1,
+        "tol": 0.001,
+        "reg_covar": 1.0
+      }
+    },
+    "normalization": {
+      "post_encoding": [
+        "sqrt",
+        "l2"
+      ],
+      "post_pca": [
+        "l2"
+      ],
+      "sqrt_alpha": 0.5
+    },
+    "pca": {
+      "whiten": false,
+      "svd_solver": "full",
+      "full_max_size": 20000
+    },
+    "svm": {
+      "kernel": "linear",
+      "C_grid": [
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "gamma_grid": [
+        "scale",
+        0.001,
+        0.01,
+        0.1
+      ],
+      "class_weight": null,
+      "max_iter": 20000,
+      "cv_folds": 5,
+      "cv_scoring": "average_precision",
+      "cv_n_jobs": -2
+    },
+    "inference_max_images": null,
+    "experiments": [
+      "bovw_K128",
+      "bovw_K256",
+      "bovw_K512",
+      "bovw_K1024",
+      "bovw_K1024_pca512",
+      "bovw_K1024_pca256",
+      "bovw_K1024_pca128",
+      "bovw_K1024_pca64",
+      "bovw_K512_pca256",
+      "bovw_K512_pca128",
+      "bovw_K512_pca64",
+      "vlad_K16",
+      "vlad_K32",
+      "vlad_K16_pca256",
+      "vlad_K16_pca128",
+      "vlad_K32_pca256",
+      "vlad_K32_pca128",
+      "fisher_K16",
+      "fisher_K32",
+      "fisher_K16_pca256",
+      "fisher_K16_pca128",
+      "fisher_K32_pca256",
+      "fisher_K32_pca128"
+    ],
+    "pca_variance": {
+      "enabled": true,
+      "targets": [
+        [
+          "bovw",
+          512
+        ],
+        [
+          "bovw",
+          1024
+        ]
+      ],
+      "thresholds": [
+        0.8,
+        0.9,
+        0.95
+      ]
+    },
+    "smoke": false,
+    "smoke_images": {}
+  },
+  "skipped": []
+}
