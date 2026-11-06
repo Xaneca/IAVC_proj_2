@@ -22,20 +22,20 @@ fetched tree. Existing remotely tracked historical results were not removed.
 
 ## Canonical Part 4 files and corrections
 
-All implementation source belongs in `code/our_src/deepmodels/`; no relocation
+All implementation source belongs in `code/our_src/part4/`; no relocation
 was needed. It was entirely untracked, and no Part 4 package exists on the fetched
 remote. Necessary commit scope now consists of:
 
 - Root `.gitignore` and `PART4.md`.
 - `code/run_deepmodels.py` and `code/requirements-deepmodels.txt`.
-- All 16 top-level files in `code/our_src/deepmodels/`: __init__.py,
+- All 16 top-level files in `code/our_src/part4/`: __init__.py,
   classification.py, clip_experiments.py, common.py, config.json, features.py,
   fewshot.py, run.py, test_integration.py, visual_analysis.py, README.md, AUDIT.md,
   VALIDATION.md, PROTOCOL.md, CHANGE_REPORT.md and this REPOSITORY_AUDIT.md.
 
 Corrections made during this integration audit:
 
-1. Repository launcher imports `our_src.deepmodels` directly, removing dependence
+1. Repository launcher imports `our_src.part4` directly, removing dependence
    on a development-only setup package.
 2. Default project path derives from the installed package, making invocation
    from the Git root valid without a machine-specific --project argument.
@@ -102,9 +102,9 @@ they intentionally leave the unrelated working changes pending:
 
 ```bash
 git switch -c codex/part4-portability
-git add -- .gitignore PART4.md code/requirements-deepmodels.txt code/run_deepmodels.py code/our_src/deepmodels
+git add -- .gitignore PART4.md code/requirements-deepmodels.txt code/run_deepmodels.py code/our_src/part4
 git diff --cached --stat
-git commit --only -m "Integrate portable Part 4 representation learning pipeline" -- .gitignore PART4.md code/requirements-deepmodels.txt code/run_deepmodels.py code/our_src/deepmodels
+git commit --only -m "Integrate portable Part 4 representation learning pipeline" -- .gitignore PART4.md code/requirements-deepmodels.txt code/run_deepmodels.py code/our_src/part4
 git push -u origin codex/part4-portability
 ```
 
@@ -118,7 +118,7 @@ After publishing, another machine can use:
 ```bash
 git clone --branch codex/part4-portability https://github.com/Xaneca/IAVC_proj_2.git
 cd IAVC_proj_2
-# Follow PART4.md and code/our_src/deepmodels/README.md
+# Follow PART4.md and code/our_src/part4/README.md
 ```
 
 Readiness: Part 4 source is integrated and ready for the scoped commit. The

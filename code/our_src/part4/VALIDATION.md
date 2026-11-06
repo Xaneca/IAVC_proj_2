@@ -127,14 +127,14 @@ up to `audit_evidence/original_deepmodels/` before installed synchronization.
 ## Installed package
 
 Synchronized all 15 top-level source/config/documentation files into
-`<repository>/code/our_src/deepmodels/`, after preserving the previous
+`<repository>/code/our_src/part4/`, after preserving the previous
 13-file package under `audit_evidence/original_deepmodels/`. SHA256 equality of
 portable and installed files was checked. Only that package was written.
 
 Installed import/CLI dry-run passed from the original code directory:
 
 ```powershell
-& 'python' -B -m our_src.deepmodels.run --project <repository>/code --output <former-development-workspace>/deepmodels_output/audit_v2 --smoke 2 --dry-run
+& 'python' -B -m our_src.part4.run --project <repository>/code --output <former-development-workspace>/deepmodels_output/audit_v2 --smoke 2 --dry-run
 ```
 
 Result: 33 images, A-B-C-D-E-F, no final test evaluation, and the same

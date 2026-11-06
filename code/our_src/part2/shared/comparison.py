@@ -7,15 +7,18 @@ import tempfile
 import time
 import numpy as np
 from src.features import extractFeatures
-from ..artifact_json import load, save, file_signature
-from ..stagea.data import manifest
-from ..stagea.stage_a import binary_labels
-from ..stagea.svm import train_svm_grid
-from ..stagec.protocol import split_digest, smoke_rows
-from ..stagec.evaluation import evaluate
-from ..stagef.common import save_csv, save_model, score_metrics
+from our_src.part1.artifact_json import load, save, file_signature
+from our_src.part1.stagea.data import manifest
+from our_src.part1.stagea.stage_a import binary_labels
+from our_src.part1.stagea.svm import train_svm_grid
+from our_src.part1.stagec.protocol import split_digest, smoke_rows
+from our_src.part1.stagec.evaluation import evaluate
+from our_src.part1.stagef.common import save_csv, save_model, score_metrics
 from .encoders import create, encode, dimension
 from .models import prepare
+from .provenance import identity, DenseSIFT, resources
+from .reporting import consolidate
+from our_src.part1.artifact_json import key
 
 EXPERIMENTS = [('E1','bovw',64,'l2'), ('E2','vlad',64,'intra_l2'), ('E3','fv',64,'power_l2'),
                ('E4','bovw',128,'l2'), ('E5','vlad',128,'intra_l2'), ('E6','fv',128,'power_l2')]
@@ -23,6 +26,8 @@ EXPERIMENTS = [('E1','bovw',64,'l2'), ('E2','vlad',64,'intra_l2'), ('E3','fv',64
 
 def run(config, project):
     project = Path(project)
+    experiments=[r for r in EXPERIMENTS if r[1] in config.get('encoders',['bovw','vlad','fv'])]
+    if not experiments: raise ValueError('No supported encoder selected')
     if config['vocabulary_sizes'] != [64,128] or set(config['categories']) != {'motorbike','aeroplane','horse','car','person'} or len(config['categories']) != 5:
         raise ValueError('Stage H requires K=64/128 and the five target classes')
     if config['images_per_class'] != -1 or config.get('pca_dim',0) != 0:
@@ -33,15 +38,37 @@ def run(config, project):
     all_rows = manifest(project/config['split_dir'])
     active = smoke_rows(all_rows, config)
     output = project/config['output_dir']
-    state = dict(state='running', started_utc=datetime.now(timezone.utc).isoformat(), config=config,
+    provenance = identity(config, project, active, digest)
+    baseline_reports=[]
+    if config.get('stage_id')=='I':
+        from .reporting import compatible_baseline
+        baseline_reports=compatible_baseline(project/config['baseline_dir'],provenance)
+        provenance['baseline_metrics_sha256']=file_signature(project/config['baseline_dir']/'metrics.csv')
+    run_id = key(provenance)
+    if (output/'run.json').exists():
+        if not (output/'manifest.json').exists() or load(output/'manifest.json')['run_id'] != run_id:
+            raise ValueError('Existing results have different/unknown provenance; preserve them and use --output-dir for a new run')
+        previous=load(output/'run.json')
+        if previous.get('state')=='complete':
+            artifacts=load(output/'complete.json')['artifacts']
+            if not all((output/p).is_file() and file_signature(output/p)==sha for p,sha in artifacts.items()):
+                raise ValueError('Completed artifact checksum changed; preserve and inspect this run')
+            print(f'Reuse completed H/I run {run_id}',flush=True)
+            return previous
+    save(output/'manifest.json',dict(run_id=run_id,**provenance))
+    extractor=DenseSIFT(project,config)
+    state = dict(run_id=run_id, state='running', started_utc=datetime.now(timezone.utc).isoformat(), config=config,
         split_sha256=digest, smoke_per_class=config.get('smoke_per_class'), pca_dim=0,
         tiling='global', test_used_for_selection=False, test_evaluated=False)
     save(output/'run.json', state)
     try:
-        centers, gmms = prepare(config, project, all_rows, active, output, digest)
+        centers, gmms = prepare(config, project, all_rows, active, output, digest, extractor)
+        preparation_sift_seconds=extractor.extraction_seconds
+        preparation_cache_seconds=extractor.cache_read_seconds
+        initial_hits,initial_misses=extractor.hits,extractor.misses
         encoders = {}
         provenance = {}
-        for name, kind, k, norm in EXPERIMENTS:
+        for name, kind, k, norm in experiments:
             params = {'words': centers[k]['centroids']} if kind != 'fv' else gmms[k]['params']
             encoders[name] = create(kind, params, k)
             path = centers[k]['path'] if kind != 'fv' else gmms[k]['path']
@@ -55,20 +82,20 @@ def run(config, project):
             matrices = {}
             try:
                 matrices = {name: np.lib.format.open_memmap(Path(temporary)/f'{name}.npy',mode='w+',
-                    dtype=np.float32,shape=(len(ids),dimension(kind,k))) for name,kind,k,_ in EXPERIMENTS}
-                encoding_seconds = {name:0. for name,_,_,_ in EXPERIMENTS}
+                    dtype=np.float32,shape=(len(ids),dimension(kind,k))) for name,kind,k,_ in experiments}
+                encoding_seconds = {name:0. for name,_,_,_ in experiments}
                 extraction_seconds = 0.
                 for n, row in enumerate(active):
                     start = time.perf_counter()
-                    _, descriptors, _ = extractFeatures(project/config['image_dir']/f'{row["image_id"]}.jpg',cache_dir=None)
+                    _, descriptors, _ = extractor(project/config['image_dir']/f'{row["image_id"]}.jpg',cache_dir=None)
                     extraction_seconds += time.perf_counter()-start
                     descriptors = descriptors.astype(np.float32)
-                    for name,kind,k,_ in EXPERIMENTS:
+                    for name,kind,k,_ in experiments:
                         start = time.perf_counter()
                         matrices[name][n] = encode(encoders[name], descriptors, kind, k)
                         encoding_seconds[name] += time.perf_counter()-start
-                    print(f'H encoding {n+1}/{len(active)}: all six experiments', flush=True)
-                for name,kind,k,norm in EXPERIMENTS:
+                    print(f"{config.get('stage_id','H/I')} encoding {n+1}/{len(active)}: {len(experiments)} experiments", flush=True)
+                for name,kind,k,norm in experiments:
                     features = {image_id: matrices[name][index[image_id]] for image_id in ids}
                     for category in config['categories']:
                         partitions = {s:binary_labels(active,s,category) for s in ('train','val','test')}
@@ -84,6 +111,8 @@ def run(config, project):
                             split_sha256=digest,smoke_per_class=config.get('smoke_per_class'),
                             training_split='train',selection_split='val',test_used_for_selection=False,
                             svm_fit_seconds=best['fit_seconds'],
+                            svm_search_fit_seconds=sum(t['fit_seconds'] for t in result['trials']),
+                            run_id=run_id,
                             **provenance[name])
                         save_model(model_path,best,metadata)
                         selected.append((metadata,partitions,model_path))
@@ -94,7 +123,11 @@ def run(config, project):
                     with np.load(model_path,allow_pickle=False) as archive:
                         weights,bias = archive['weights'],float(archive['bias'])
                     record = dict(**metadata,model=model_path.relative_to(output).as_posix(),
-                        encoding_seconds_shared=encoding_seconds[name],sift_seconds_shared=extraction_seconds)
+                        encoding_seconds_shared=encoding_seconds[name],sift_seconds_shared=extractor.extraction_seconds-preparation_sift_seconds,
+                        sift_access_seconds_shared=extraction_seconds,
+                        sift_cache_read_seconds_shared=extractor.cache_read_seconds-preparation_cache_seconds,
+                        sift_cache_hits=extractor.hits-initial_hits,sift_cache_misses=extractor.misses-initial_misses,
+                        encoder_preparation_sift_seconds_shared=preparation_sift_seconds)
                     for split, labels in partitions.items():
                         split_ids = sorted(labels)
                         start = time.perf_counter()
@@ -124,6 +157,10 @@ def run(config, project):
         save_csv(output/'metrics.csv',reports)
         if split_digest(project/config['split_dir']) != digest:
             raise ValueError('Splits changed during Stage H')
+        comparison_records=baseline_reports+reports
+        consolidate(output,comparison_records,len(active),dict(run_id=run_id,stage_id=config.get('stage_id','H/I'),smoke_per_class=config.get('smoke_per_class'),split_sha256=digest))
+        artifacts={str(p.relative_to(output)):file_signature(p) for p in output.rglob('*') if p.is_file() and p.name not in ('run.json','complete.json','preflight.json')}
+        save(output/'complete.json',dict(run_id=run_id,artifacts=artifacts))
         state.update(state='complete',model_count=len(selected),test_evaluated=True,
                      completed_utc=datetime.now(timezone.utc).isoformat())
         save(output/'run.json',state)
@@ -134,17 +171,34 @@ def run(config, project):
         raise
 
 
-def main():
+def main(stage="H"):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--config',type=Path,default=Path(__file__).with_name('config.json'))
+    parser.add_argument('--config',type=Path,default=Path(__file__).parents[1]/('stageh' if stage=='H' else 'stagei')/'config.json')
     parser.add_argument('--project',type=Path,default=Path(__file__).resolve().parents[3])
     parser.add_argument('--smoke-per-class',type=int)
+    parser.add_argument('--output-dir',help='New output directory relative to --project; historical results are protected')
+    parser.add_argument('--baseline-dir',help='Completed Stage H result directory for the Fisher comparison')
+    parser.add_argument('--sift-cache',help='Optional source/image-addressed cache using provided Dense SIFT API')
+    parser.add_argument('--preflight',action='store_true',help='Resource estimate only; no training or extraction')
     args = parser.parse_args()
     config = load(args.config)
+    if args.output_dir: config['output_dir']=args.output_dir
+    if args.baseline_dir: config['baseline_dir']=args.baseline_dir
+    if args.sift_cache: config['sift_cache_dir']=args.sift_cache
     if args.smoke_per_class is not None:
         if args.smoke_per_class < 2:
             parser.error('--smoke-per-class must be at least 2')
         config.update(smoke_per_class=args.smoke_per_class,output_dir=str(Path(config['output_dir'])/'smoke'))
+        if config.get('centroid_cache_dir'): config['centroid_cache_dir']=str(Path(config['centroid_cache_dir'])/'smoke')
+        if config.get('baseline_dir'): config['baseline_dir']=str(Path(config['baseline_dir'])/'smoke')
+    if not args.smoke_per_class:
+        rows=manifest(args.project/config['split_dir'])
+        preflight=resources(rows,config,args.project)
+        save(args.project/config['output_dir']/'preflight.json',preflight)
+        print(json.dumps(preflight,indent=2),flush=True)
+        if args.preflight: return
+        if not preflight['feasible']:
+            raise SystemExit('Full benchmark not started: insufficient resource headroom; see preflight.json')
     run(config,args.project)
 
 

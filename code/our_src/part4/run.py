@@ -38,10 +38,23 @@ def classify(rep, rows, config, project, output, final):
     return metrics
 
 
+def stage_output(root, stage):
+    """Resolve stage results beside shared run metadata, independent of OS."""
+    root = Path(root)
+    if stage not in 'ABCDEF' or len(stage) != 1:
+        raise ValueError('Unknown Part 4 stage')
+    return root.parent.parent / ('stage' + stage) / root.parent.name / root.name
+
+
+def classification_output(root, name):
+    stage = 'A' if name.startswith('resnet18_') else 'B' if name.startswith('dinov2_') else 'E'
+    return stage_output(root, stage) / 'classification' / name
+
+
 def report(root, project, split_sha, smoke):
     """Consolidate only completed, compatible results; never invent baselines."""
     records = []
-    for path in (root/'classification').glob('*/metrics.json'):
+    for path in (path for stage in ('A','B','E') for path in (stage_output(root,stage)/'classification').glob('*/metrics.json')):
         if not (path.parent/'complete.json').exists():
             continue
         meta = read(path.parent/'representation.json')
@@ -65,7 +78,7 @@ def report(root, project, split_sha, smoke):
                 timing_components_shared={k:sum(t.get(k,0.) for t in meta['timings'].values()) for k in next(iter(meta['timings'].values()))},
                 classifier_training_time=sum(r['fit_seconds'] for t in binary_search['trials'] for r in t['per_class']),
                 inference_time=sum(v[split]['inference_seconds'] for v in binary.values())))
-    for path in (root/'clip').glob('*/metrics.json'):
+    for path in (stage_output(root,'E')/'clip').glob('*/metrics.json'):
         for split, metrics in read(path).items():
             records.append(dict(method='clip_'+path.parent.name,supervision='image-text pretraining; zero task labels',
                 split=split,protocol='full_dataset_classwise_text_retrieval',map=metrics['map'],accuracy=metrics['accuracy'],
@@ -191,13 +204,13 @@ def execute(args):
         reps = extract(backbone(model),rows,project,config,base)
         register(reps)
         for name,rep in reps.items():
-            destination=root/'classification'/name
+            destination=classification_output(root,name)
             if not (destination/'complete.json').exists():
                 classify(rep,rows,config,project,destination,args.final)
                 save(destination/'complete.json',dict(state='complete',feature_identity=rep['identity']))
     def choose():
         candidates = []
-        for p in (root/'classification').glob('*/matching_classical_protocol/metrics.json'):
+        for p in (path for stage in ('A','B') for path in (stage_output(root,stage)/'classification').glob('*/matching_classical_protocol/metrics.json')):
             if p.parents[1].name.startswith(('resnet18_', 'dinov2_')):
                 candidates.append((float(np.mean([v['val']['ap'] for v in read(p).values()])),p.parents[1].name))
         if len(candidates)!=6:
@@ -208,48 +221,48 @@ def execute(args):
         from .fewshot import run
         name,candidates=choose()
         rep=representation(name)
-        save(root/'fewshot/selection.json',dict(representation=name,validation_metric='target/background mAP',
+        save(stage_output(root,'C')/'fewshot/selection.json',dict(representation=name,validation_metric='target/background mAP',
             reason='highest validation mAP; lexical ascending representation name breaks ties',
             candidates=candidates,test_used_for_selection=False))
         selected_backbone=backbone(rep['metadata']['model'])
         if selected_backbone.metadata!=rep['metadata']:
             raise ValueError('Few-shot backbone provenance mismatch')
         flips=extract(selected_backbone,rows,project,config,base,flip=True)[name]
-        run(rep,flips,rows,config,project,root/'fewshot',root/'svm_trials',args.final)
+        run(rep,flips,rows,config,project,stage_output(root,'C')/'fewshot',root/'svm_trials',args.final)
     def d():
         from .fewshot import run
-        name=read(root/'fewshot/selection.json')['representation']
+        name=read(stage_output(root,'C')/'fewshot/selection.json')['representation']
         rep=representation(name)
         extended=dict(config,C_values=config['regularization_C_values'],augmentations=['none'])
-        run(rep,None,rows,extended,project,root/'regularization',root/'svm_trials',args.final)
+        run(rep,None,rows,extended,project,stage_output(root,'D')/'regularization',root/'svm_trials',args.final)
     def e():
         from .clip_experiments import run
         b=backbone('clip_vit_b_32')
         reps=extract(b,rows,project,config,base)
         register(reps)
-        run(b,reps['clip_vit_b_32_global'],rows,config,project,root/'clip',args.final)
-        destination=root/'classification/clip_vit_b_32_global'
+        run(b,reps['clip_vit_b_32_global'],rows,config,project,stage_output(root,'E')/'clip',args.final)
+        destination=classification_output(root,'clip_vit_b_32_global')
         classify(reps['clip_vit_b_32_global'],rows,config,project,destination,args.final)
         save(destination/'complete.json',dict(state='complete'))
     def f():
         from .visual_analysis import run,load_predictions
         split='test' if args.final else 'val'
-        cnn_candidates=[(float(np.mean([v['val']['ap'] for v in read(root/'classification'/name/'matching_classical_protocol/metrics.json').values()])),name)
+        cnn_candidates=[(float(np.mean([v['val']['ap'] for v in read(classification_output(root,name)/'matching_classical_protocol/metrics.json').values()])),name)
             for name in registry if name.startswith('resnet18_')]
         if len(cnn_candidates)!=3:
             raise ValueError('Stage F needs A/B/E outputs')
         cnn=max(sorted(cnn_candidates),key=lambda x:x[0])[1]
-        dino=max(sorted((float(np.mean([v['val']['ap'] for v in read(root/'classification'/name/'matching_classical_protocol/metrics.json').values()])),name) for name in registry if name.startswith('dinov2_')),key=lambda x:x[0])[1]
+        dino=max(sorted((float(np.mean([v['val']['ap'] for v in read(classification_output(root,name)/'matching_classical_protocol/metrics.json').values()])),name) for name in registry if name.startswith('dinov2_')),key=lambda x:x[0])[1]
         names={'cnn':cnn,'dino':dino}
-        predictions={k:load_predictions(root/'classification'/v/'matching_classical_protocol'/(split+'_predictions.npz')) for k,v in names.items()}
-        predictions['clip']=load_predictions(root/'clip/selected'/(split+'_predictions.npz'))
+        predictions={k:load_predictions(classification_output(root,v)/'matching_classical_protocol'/(split+'_predictions.npz')) for k,v in names.items()}
+        predictions['clip']=load_predictions(stage_output(root,'E')/'clip/selected'/(split+'_predictions.npz'))
         models={}
         scorers={}
         for key,name in names.items():
             models[key]=backbone(registry[name]['metadata']['model'])
             if models[key].metadata!=registry[name]['metadata']:
                 raise ValueError('Visual-analysis backbone differs from cached feature provenance')
-            with np.load(root/'classification'/name/'matching_classical_protocol/model.npz',allow_pickle=False) as z:
+            with np.load(classification_output(root,name)/'matching_classical_protocol/model.npz',allow_pickle=False) as z:
                 weights,bias,categories=z['weights'].copy(),z['bias'].copy(),z['categories'].tolist()
             layer=registry[name]['layer']
             def factory(category,weights=weights,bias=bias,categories=categories,layer=layer):
@@ -261,13 +274,13 @@ def execute(args):
         models['clip']=backbone('clip_vit_b_32')
         if models['clip'].metadata!=registry['clip_vit_b_32_global']['metadata']:
             raise ValueError('CLIP visual-analysis backbone differs from cached feature provenance')
-        with np.load(root/'clip/selected/text_embeddings.npz',allow_pickle=False) as z:
+        with np.load(stage_output(root,'E')/'clip/selected/text_embeddings.npz',allow_pickle=False) as z:
             text=z['embeddings'].mean(axis=1); categories=z['categories'].tolist()
         scorers['clip']=lambda category:lambda values:l2(values['global'])@text[categories.index(category)]
-        save(root/'visual_analysis/models.json',dict(representations=names,svm_protocol='target_vs_background',
+        save(stage_output(root,'F')/'visual_analysis/models.json',dict(representations=names,svm_protocol='target_vs_background',
             clip_mode='validation-selected global template',selection_split='val',
             background_svm_score='negative maximum target margin; derived score, not a trained background classifier'))
-        run(predictions,models,scorers,rows,project,config,root/'visual_analysis')
+        run(predictions,models,scorers,rows,project,config,stage_output(root,'F')/'visual_analysis')
     stage_handlers.update(A=lambda:ab('A'),B=lambda:ab('B'),D=d,C=c,E=e,F=f)
     state_path=root/'run.json'
     state=read(state_path) if state_path.exists() else dict(stages={})
@@ -280,7 +293,7 @@ def execute(args):
         if not marker.exists():
             raise ValueError(f'Part 4 Stage {stage} must complete first with the same configuration/options')
         completed=read(marker)
-        if not all((root/p).is_file() and file_hash(root/p)==sha for p,sha in completed['artifacts'].items()):
+        if not all((base/p).is_file() and file_hash(base/p)==sha for p,sha in completed['artifacts'].items()):
             raise ValueError(f'Stage {stage} artifacts changed; preserve this run and inspect before resuming')
     try:
         for stage in args.stages:
@@ -289,7 +302,7 @@ def execute(args):
             marker=root/'manifests'/(stage+'.json')
             if marker.exists():
                 completed=read(marker)
-                if all((root/p).is_file() and file_hash(root/p)==sha for p,sha in completed['artifacts'].items()):
+                if all((base/p).is_file() and file_hash(base/p)==sha for p,sha in completed['artifacts'].items()):
                     state['stages'][stage]='complete'
                     save(state_path,state)
                     print(f'{stage}: reuse completed artifacts',flush=True); continue
@@ -298,10 +311,10 @@ def execute(args):
             stage_handlers[stage]()
             # Each stage owns its outputs; shared classification manifests are
             # scoped to its representations to permit later B/D execution.
-            folders = {'A':[root/'classification'/n for n in registry if n.startswith('resnet18_')],
-                'B':[root/'classification'/n for n in registry if n.startswith('dinov2_')], 'C':[root/'fewshot'],
-                'D':[root/'regularization'], 'E':[root/'clip',root/'classification/clip_vit_b_32_global'], 'F':[root/'visual_analysis']}[stage]
-            artifacts={str(p.relative_to(root)):file_hash(p) for folder in folders for p in folder.rglob('*') if p.is_file()}
+            folders = {'A':[classification_output(root,n) for n in registry if n.startswith('resnet18_')],
+                'B':[classification_output(root,n) for n in registry if n.startswith('dinov2_')], 'C':[stage_output(root,'C')/'fewshot'],
+                'D':[stage_output(root,'D')/'regularization'], 'E':[stage_output(root,'E')/'clip',classification_output(root,'clip_vit_b_32_global')], 'F':[stage_output(root,'F')/'visual_analysis']}[stage]
+            artifacts={str(p.relative_to(base)):file_hash(p) for folder in folders for p in folder.rglob('*') if p.is_file()}
             save(marker,dict(state='complete',artifacts=artifacts))
             state['stages'][stage]='complete'; save(state_path,state)
         report(root,project,split_sha,args.smoke)

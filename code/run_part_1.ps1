@@ -1,6 +1,6 @@
 param(
-    [ValidateSet('A','B','C','D','E','F','G','H')][string]$Start = 'A',
-    [ValidateSet('A','B','C','D','E','F','G','H')][string]$End = 'H',
+    [ValidateSet('A','B','C','D','E','F','G')][string]$Start = 'A',
+    [ValidateSet('A','B','C','D','E','F','G')][string]$End = 'G',
     [switch]$DryRun,
     [switch]$Smoke,
     [int]$PerClass = 2

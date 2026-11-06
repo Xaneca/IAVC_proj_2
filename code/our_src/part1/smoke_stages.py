@@ -1,4 +1,4 @@
-"""Run A-H on a tiny real-image sample without changing historical splits."""
+"""Run A-G on a tiny real-image sample without changing historical splits."""
 import argparse
 import csv
 from pathlib import Path
@@ -9,14 +9,13 @@ from .stagec.stage_c import run as run_cd
 from .stagee.stage_e import run as run_e
 from .stagef.stage_f import run as run_f
 from .stageg.stage_g import run as run_g
-from .stageh.stage_h import run as run_h
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--per-class', type=int, default=2)
     parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[2])
-    parser.add_argument('--stages', nargs='+', choices=list('abcdefgh'), default=list('abcdefgh'))
+    parser.add_argument('--stages', nargs='+', choices=list('abcdefg'), default=list('abcdefg'))
     args = parser.parse_args()
     project = args.project
     summary_path = project/'smoke_summary.json'
@@ -50,7 +49,7 @@ def main():
                                       smoke_per_class=args.per_class)
         save(summary_path, summary)
         print(f'Stage {stage.upper()}: {state["state"]}', flush=True)
-    for stage, runner in [('c', run_cd), ('d', run_cd), ('e', run_e), ('f', run_f), ('g', run_g), ('h', run_h)]:
+    for stage, runner in [('c', run_cd), ('d', run_cd), ('e', run_e), ('f', run_f), ('g', run_g)]:
         if stage not in args.stages:
             continue
         config = load(Path(__file__).parent/f'stage{stage}'/'config.json')

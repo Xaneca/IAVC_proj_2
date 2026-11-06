@@ -15,3 +15,11 @@
 
 # Local Stage H extension uses the canonical Part 1 result namespace
 /code/results/part1/stageH/
+
+# Part 2 generated advanced-encoding results
+/code/results/part2/
+# Stage B test histogram caches; retain compact reports/figures/tables
+/code/results/part1/stageB/test_evaluations/**/histograms/
+
+# Part 4 generated stage outputs and shared caches
+/code/results/part4/

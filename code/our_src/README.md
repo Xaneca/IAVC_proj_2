@@ -18,3 +18,13 @@ SIFT e histogramas sao mantidos apenas em RAM. O teste final fica reservado.
 `artifact_json.py` contem utilitarios JSON partilhados por todas as stages.
 `part1/stagea/metrics_utils.py` contem metricas auxiliares exclusivas da Stage A.
 As configuracoes anteriores em `our_src/configs` nao sao usadas pela nova Stage A.
+
+## Parte 4 — representações aprendidas
+
+Código e configuração em [`part4/`](part4/README.md).
+A partir da raiz Git: `python code/run_deepmodels.py --help`.
+Guia geral: [`PART4.md`](../../PART4.md).
+
+## Parte 2 — H/I
+
+Código em [part2/](part2/README.md); executar `python run_part_2.py` a partir de `code/`.

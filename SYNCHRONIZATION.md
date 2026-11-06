@@ -26,7 +26,7 @@ code/
       smoke_stages.py
       stagea/ ... stageg/           fetched remote locations
       stageh/                      our retained comparison extension
-    deepmodels/                    our unchanged Part 4 implementation
+    part4/                         our unchanged Part 4 implementation
   results/part1/stageA ... stageG   historical artifacts tracked upstream
   results/part1/stageH             future generated H output, ignored
   deepmodels/                      generated Part 4 output/cache, ignored
@@ -83,11 +83,11 @@ assignment PDF and local ZIP are excluded:
 
 ```bash
 git switch -c codex/synchronized-local-implementation
-git add -- .gitignore PART4.md SYNCHRONIZATION.md code/.gitignore code/PIPELINE.md code/run_part_1.py code/run_part_1.ps1 code/test_pipeline.py code/requirements-deepmodels.txt code/run_deepmodels.py code/our_src/part1 code/our_src/deepmodels
+git add -- .gitignore PART4.md SYNCHRONIZATION.md code/.gitignore code/PIPELINE.md code/run_part_1.py code/run_part_1.ps1 code/test_pipeline.py code/requirements-deepmodels.txt code/run_deepmodels.py code/our_src/part1 code/our_src/part4
 git diff --cached --stat
 # Review before committing; do not use git add .
 ```
 
 Future execution/setup instructions are in PART4.md, code/PIPELINE.md and
-code/our_src/deepmodels/README.md. No execution depends on the backup or former
+code/our_src/part4/README.md. No execution depends on the backup or former
 development workspace.

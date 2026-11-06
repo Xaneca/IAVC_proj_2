@@ -1,4 +1,4 @@
-"""Sequential A-H runner. Full experiments start only when this is executed."""
+"""Sequential A-G runner. Full experiments start only when this is executed."""
 import argparse
 from datetime import datetime, timezone
 import json
@@ -14,10 +14,9 @@ STAGES = {
     'E': ('our_src.part1.stagee.stage_e', 'our_src/part1/stagee/config.json'),
     'F': ('our_src.part1.stagef.stage_f', 'our_src/part1/stagef/config.json'),
     'G': ('our_src.part1.stageg.stage_g', 'our_src/part1/stageg/config.json'),
-    'H': ('our_src.part1.stageh.stage_h', 'our_src/part1/stageh/config.json'),
 }
 DEPENDENCIES = {'A': [], 'B': ['A'], 'C': ['A', 'B'], 'D': ['A', 'B'],
-                'E': ['A', 'B'], 'F': ['E'], 'G': ['E', 'F'], 'H': []}
+                'E': ['A', 'B'], 'F': ['E'], 'G': ['E', 'F']}
 
 
 def read(path):
@@ -64,9 +63,9 @@ def main():
     parser.add_argument('--project', type=Path, default=Path(__file__).resolve().parent)
     parser.add_argument('--python', type=Path)
     parser.add_argument('--start', choices=list(STAGES), default='A')
-    parser.add_argument('--end', choices=list(STAGES), default='H')
+    parser.add_argument('--end', choices=list(STAGES), default='G')
     parser.add_argument('--dry-run', action='store_true', help='Validate and print commands without running experiments')
-    parser.add_argument('--smoke', action='store_true', help='Run the small real-image A-H integration chain')
+    parser.add_argument('--smoke', action='store_true', help='Run the small real-image A-G integration chain')
     parser.add_argument('--per-class', type=int, default=2)
     args = parser.parse_args()
     project = args.project.resolve()
