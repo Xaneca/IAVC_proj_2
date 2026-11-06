@@ -1,0 +1,1 @@
+{"training_images":1978,"descriptor_upper_bound":791200,"available_ram_bytes":6353915904,"estimated_ram_bytes":2694119424,"temporary_feature_bytes":490010112,"free_disk_bytes":120234504192,"feasible":true,"rationale":"Conservative GMM EM/K-means estimate with descriptor chunks and 1 GiB headroom; no full SIFT disk cache assumed."}
