@@ -18,7 +18,7 @@ blindly popped over the remote's reorganized files. No local work was discarded.
 
 ```text
 code/
-  run_part_1.py / run_part_1.ps1     canonical classical A-H entry points
+  run_part_1.ps1                     Part 1 A-G entry point (our_src/part1/run.py)
   run_deepmodels.py                 Part 4 A-F entry point
   our_src/
     part1/
@@ -88,6 +88,6 @@ git diff --cached --stat
 # Review before committing; do not use git add .
 ```
 
-Future execution/setup instructions are in PART4.md, code/PIPELINE.md and
+Future execution/setup instructions are in PART4.md, code/our_src/README.md and
 code/our_src/part4/README.md. No execution depends on the backup or former
 development workspace.

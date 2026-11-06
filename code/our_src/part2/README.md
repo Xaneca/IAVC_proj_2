@@ -6,7 +6,7 @@ Run from `code/` on Linux or Windows with the project's SIFT environment:
 python run_part_2.py --smoke --sift-cache results/part2/sift_cache
 python run_part_2.py --preflight
 python run_part_2.py --sift-cache results/part2/sift_cache
-python -m unittest our_src.part2.shared.test_shared test_pipeline
+python -m unittest our_src.part2.shared.test_shared our_src.part1.test_run
 ```
 
 H lives in `our_src/part2/stageh/` (BoVW/VLAD); I in `our_src/part2/stagei/` (Fisher).
