@@ -1,7 +1,7 @@
 # Part 1 pipeline: A-H
 
 From the Git repository root, enter `code/`. The canonical runner is
-`run_part_1.py` (`run_part_1.ps1` on Windows); modules live beneath
+`our_src/part1/run.py` (`run_part_1.ps1` on Windows); modules live beneath
 `our_src/part1/stagea` through `stageh`. A-G follow the fetched repository layout;
 H preserves our local BoVW/VLAD/Fisher comparison extension.
 
@@ -22,7 +22,7 @@ Windows PowerShell, from `code/`, with the intended environment active:
 Linux, from `code/`, with the intended Part 1 environment active:
 
 ```bash
-python run_part_1.py --python "$(command -v python)" --dry-run
+python -m our_src.part1.run --python "$(command -v python)" --dry-run
 ```
 
 Part 1 needs its documented cyvlfeat/SIFT dependencies. Choose an environment
@@ -39,8 +39,8 @@ prints commands without launching the stages.
 ```
 
 ```bash
-python run_part_1.py --python "$(command -v python)"
-python run_part_1.py --python "$(command -v python)" --start H --end H
+python -m our_src.part1.run --python "$(command -v python)"
+python -m our_src.part1.run --python "$(command -v python)" --start H --end H
 ```
 
 Smoke still runs actual extraction/training; it was NOT run during repository

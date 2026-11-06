@@ -13,13 +13,21 @@ if (-not (Test-Path -LiteralPath $pipelinePython)) {
 }
 
 $pipelineArgs = @(
-    (Join-Path $PSScriptRoot 'run_part_1.py'),
+    '-m', 'our_src.part1.run',
     '--project', $PSScriptRoot,
     '--python', $pipelinePython,
     '--start', $Start,
     '--end', $End
-) 
+)
 if ($DryRun) { $pipelineArgs += '--dry-run' }
 if ($Smoke) { $pipelineArgs += @('--smoke', '--per-class', $PerClass) }
-& $pipelinePython @pipelineArgs
-exit $LASTEXITCODE
+
+# 'python -m' only finds our_src when run from code/.
+Push-Location -LiteralPath $PSScriptRoot
+try {
+    & $pipelinePython @pipelineArgs
+    $exitCode = $LASTEXITCODE
+} finally {
+    Pop-Location
+}
+exit $exitCode
