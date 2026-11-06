@@ -2,7 +2,7 @@
 
 Run from the ``code/`` directory:
 
-    python -m our_src.part3.run --config our_src/part3/config.yaml [--seeds 0 1] [--force] [--quick]
+    python -m our_src.part3.run --config our_src/part3/config.yaml [--seeds 0 1] [--force] [--smoke]
     python -m our_src.part3.run --config our_src/part3/config.yaml --clean-cache
 """
 from __future__ import annotations
@@ -250,11 +250,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--config", default=str(Path(__file__).with_name("config.yaml")))
     parser.add_argument("--seeds", type=int, nargs="+", help="Override the seeds of the config")
     parser.add_argument("--force", action="store_true", help="Recompute rows already in metrics.csv")
-    parser.add_argument("--quick", action="store_true", help="Tiny smoke test written to <output_dir>/quick")
+    parser.add_argument("--smoke", action="store_true", help="Tiny smoke test written to <output_dir>/smoke")
     parser.add_argument("--clean-cache", action="store_true", help="Delete the cache directory and exit")
     args = parser.parse_args(argv)
 
-    cfg = load_config(args.config, quick=args.quick, seeds=args.seeds)
+    cfg = load_config(args.config, smoke=args.smoke, seeds=args.seeds)
 
     if args.clean_cache:
         cache = cfg.paths.cache_dir.resolve()
@@ -270,7 +270,7 @@ def main(argv: list[str] | None = None) -> int:
     out = cfg.paths.output_dir
     logger = setup_logging(out)
     logger.info("=" * 70)
-    logger.info("Part 3 run%s, seeds=%s, force=%s", " (QUICK)" if cfg.quick else "", cfg.seeds, args.force)
+    logger.info("Part 3 run%s, seeds=%s, force=%s", " (SMOKE)" if cfg.smoke else "", cfg.seeds, args.force)
     write_run_json(cfg, "running")
 
     dataset = load_dataset(cfg)

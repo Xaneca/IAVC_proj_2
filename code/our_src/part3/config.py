@@ -109,8 +109,8 @@ class Config:
     inference_max_images: int | None
     experiments: list[Experiment]
     pca_variance: PCAVarianceConfig
-    quick: bool = False
-    quick_images: dict[str, int] = field(default_factory=dict)
+    smoke: bool = False
+    smoke_images: dict[str, int] = field(default_factory=dict)
     raw: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -153,21 +153,21 @@ def _check_steps(steps: list[str], name: str) -> list[str]:
     return steps
 
 
-def load_config(path: str | Path, quick: bool = False, seeds: list[int] | None = None) -> Config:
-    """Load ``config.yaml``, apply the ``quick`` overrides and validate every section."""
+def load_config(path: str | Path, smoke: bool = False, seeds: list[int] | None = None) -> Config:
+    """Load ``config.yaml``, apply the ``smoke`` overrides and validate every section."""
     with open(path, encoding="utf-8") as stream:
         raw = yaml.safe_load(stream)
     raw_original = copy.deepcopy(raw)
 
-    if quick:
-        q = raw["quick"]
-        raw["seeds"] = q["seeds"]
-        raw["experiments"] = q["experiments"]
-        raw["codebook"]["n_descriptors"] = q["n_descriptors"]
-        raw["svm"]["cv_folds"] = q["cv_folds"]
-        raw["svm"]["C_grid"] = q["C_grid"]
-        raw["pca_variance"]["targets"] = q["pca_variance_targets"]
-        raw["paths"]["output_dir"] = str(Path(raw["paths"]["output_dir"]) / "quick")
+    if smoke:
+        s = raw["smoke"]
+        raw["seeds"] = s["seeds"]
+        raw["experiments"] = s["experiments"]
+        raw["codebook"]["n_descriptors"] = s["n_descriptors"]
+        raw["svm"]["cv_folds"] = s["cv_folds"]
+        raw["svm"]["C_grid"] = s["C_grid"]
+        raw["pca_variance"]["targets"] = s["pca_variance_targets"]
+        raw["paths"]["output_dir"] = str(Path(raw["paths"]["output_dir"]) / "smoke")
     if seeds:
         raw["seeds"] = list(seeds)
 
@@ -225,7 +225,7 @@ def load_config(path: str | Path, quick: bool = False, seeds: list[int] | None =
         inference_max_images=(raw.get("timing", {}) or {}).get("inference_max_images"),
         experiments=expand_experiments(raw["experiments"]),
         pca_variance=pca_variance,
-        quick=quick,
-        quick_images=dict(raw["quick"]["images"]) if quick else {},
+        smoke=smoke,
+        smoke_images=dict(raw["smoke"]["images"]) if smoke else {},
         raw=raw_original,
     )

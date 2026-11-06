@@ -16,18 +16,29 @@ From `code/`, with the project environment activated (`conda activate IAVC_2`):
 
 ```powershell
 python -m unittest our_src.part3.test_part3                                    # sanity tests
-python -m our_src.part3.run --config our_src/part3/config.yaml --quick         # smoke test
+python -m our_src.part3.run --config our_src/part3/config.yaml --smoke         # smoke test
 python -m our_src.part3.run --config our_src/part3/config.yaml                 # full run
 python -m our_src.part3.run --config our_src/part3/config.yaml --seeds 0 1     # some seeds only
 python -m our_src.part3.run --config our_src/part3/config.yaml --force         # recompute existing rows
 python -m our_src.part3.run --config our_src/part3/config.yaml --clean-cache   # delete cache/part3
 ```
 
+Or use the `code/run_part_3.ps1` wrapper, which can be called from any directory (shown here from
+the repository root, with the environment activated):
+
+```powershell
+.\code\run_part_3.ps1                # full run
+.\code\run_part_3.ps1 -Smoke         # smoke test
+.\code\run_part_3.ps1 -Seeds 0,1     # some seeds only
+.\code\run_part_3.ps1 -Force         # recompute existing rows
+.\code\run_part_3.ps1 -CleanCache    # delete cache/part3
+```
+
 - **Resumable:** rows already in `metrics.csv` are skipped unless `--force` is passed. Codebooks
   and encodings are cached per (representation, K, seed), so an interrupted run does not refit or
   re-encode what was already finished.
-- **`--quick`** uses about 24 train and 16 test images, one seed, tiny K values and 2-fold CV.
-  It writes to `results/part3/quick/`. One quick PCA setting (VLAD K=4 -> 64) is deliberately
+- **`--smoke`** uses about 24 train and 16 test images, one seed, tiny K values and 2-fold CV.
+  It writes to `results/part3/smoke/`. One smoke PCA setting (VLAD K=4 -> 64) is deliberately
   invalid, to check that skipping works.
 
 ## Pipeline, for each (representation, K, seed)

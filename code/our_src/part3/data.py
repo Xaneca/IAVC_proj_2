@@ -46,7 +46,7 @@ def task_mask(dataset: Dataset, ids: list[str], target: str, negatives: str) -> 
     return np.array([target in dataset.labels[i] or "background" in dataset.labels[i] for i in ids])
 
 
-def _quick_subset(ids: list[str], dataset: Dataset, target: str, n_pos: int, n_neg: int,
+def _smoke_subset(ids: list[str], dataset: Dataset, target: str, n_pos: int, n_neg: int,
                   negatives: str) -> list[str]:
     rng = np.random.default_rng(0)
     pos = [i for i in ids if target in dataset.labels[i]]
@@ -72,13 +72,13 @@ def load_dataset(cfg: Config) -> Dataset:
             return [i for i, m in zip(ids, union) if m]
         dataset.train_ids, dataset.test_ids = keep(train_ids), keep(test_ids)
 
-    if cfg.quick:
-        q = cfg.quick_images
+    if cfg.smoke:
+        s = cfg.smoke_images
         target = cfg.data.target_classes[0]
-        dataset.train_ids = _quick_subset(dataset.train_ids, dataset, target, q["train_pos"],
-                                          q["train_neg"], cfg.data.negatives)
-        dataset.test_ids = _quick_subset(dataset.test_ids, dataset, target, q["test_pos"],
-                                         q["test_neg"], cfg.data.negatives)
+        dataset.train_ids = _smoke_subset(dataset.train_ids, dataset, target, s["train_pos"],
+                                          s["train_neg"], cfg.data.negatives)
+        dataset.test_ids = _smoke_subset(dataset.test_ids, dataset, target, s["test_pos"],
+                                         s["test_neg"], cfg.data.negatives)
 
     missing = [i for i in dataset.all_ids if not dataset.image_path(i).is_file()]
     if missing:

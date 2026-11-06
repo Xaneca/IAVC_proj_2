@@ -103,8 +103,8 @@ pca_variance:
     - {representation: bovw, k: 1024}
   thresholds: [0.80, 0.90, 0.95]
 
-# --quick: tiny smoke test. Overrides the settings above and writes to <output_dir>/quick.
-quick:
+# --smoke: tiny smoke test. Overrides the settings above and writes to <output_dir>/smoke.
+smoke:
   seeds: [0]
   images: {train_pos: 6, train_neg: 18, test_pos: 4, test_neg: 12}
   n_descriptors: 20000
