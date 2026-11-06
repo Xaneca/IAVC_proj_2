@@ -1,0 +1,107 @@
+{
+  "state": "complete",
+  "mode": "full",
+  "split_sha256": "b1872fd2e39d96d76bdaa4a3feb9ce26f4efb698dc62a181fa4d558ab4ec0399",
+  "started_utc": "2026-11-05T02:35:33.008076+00:00",
+  "stages": [
+    {
+      "stage": "A",
+      "state": "complete",
+      "command": [
+        "C:\\Users\\Xaneca\\miniconda3\\envs\\IAVC_2\\python.exe",
+        "-u",
+        "-m",
+        "our_src.stagea.stage_a",
+        "--config",
+        "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\stagea\\stage_a.json"
+      ],
+      "started_utc": "2026-11-05T02:35:33.008076+00:00",
+      "finished_utc": "2026-11-05T03:39:50.477803+00:00"
+    },
+    {
+      "stage": "B",
+      "state": "complete",
+      "command": [
+        "C:\\Users\\Xaneca\\miniconda3\\envs\\IAVC_2\\python.exe",
+        "-u",
+        "-m",
+        "our_src.stageb.stage_b",
+        "--config",
+        "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\stageb\\config.json"
+      ],
+      "started_utc": "2026-11-05T03:39:50.606142+00:00",
+      "finished_utc": "2026-11-05T03:47:43.139766+00:00"
+    },
+    {
+      "stage": "C",
+      "state": "complete",
+      "command": [
+        "C:\\Users\\Xaneca\\miniconda3\\envs\\IAVC_2\\python.exe",
+        "-u",
+        "-m",
+        "our_src.stagec.stage_c",
+        "--config",
+        "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\stagec\\config.json"
+      ],
+      "started_utc": "2026-11-05T03:47:43.155764+00:00",
+      "finished_utc": "2026-11-05T03:51:56.650368+00:00"
+    },
+    {
+      "stage": "D",
+      "state": "complete",
+      "command": [
+        "C:\\Users\\Xaneca\\miniconda3\\envs\\IAVC_2\\python.exe",
+        "-u",
+        "-m",
+        "our_src.staged.stage_d",
+        "--config",
+        "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\staged\\config.json"
+      ],
+      "started_utc": "2026-11-05T03:51:56.654176+00:00",
+      "finished_utc": "2026-11-05T03:57:09.792651+00:00"
+    },
+    {
+      "stage": "E",
+      "state": "complete",
+      "command": [
+        "C:\\Users\\Xaneca\\miniconda3\\envs\\IAVC_2\\python.exe",
+        "-u",
+        "-m",
+        "our_src.stagee.stage_e",
+        "--config",
+        "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\stagee\\config.json"
+      ],
+      "started_utc": "2026-11-05T03:57:09.812929+00:00",
+      "finished_utc": "2026-11-05T04:03:18.904602+00:00"
+    },
+    {
+      "stage": "F",
+      "state": "complete",
+      "command": [
+        "C:\\Users\\Xaneca\\miniconda3\\envs\\IAVC_2\\python.exe",
+        "-u",
+        "-m",
+        "our_src.stagef.stage_f",
+        "--config",
+        "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\stagef\\config.json"
+      ],
+      "started_utc": "2026-11-05T04:03:18.920270+00:00",
+      "finished_utc": "2026-11-05T04:03:26.435226+00:00"
+    },
+    {
+      "stage": "G",
+      "state": "complete",
+      "command": [
+        "C:\\Users\\Xaneca\\miniconda3\\envs\\IAVC_2\\python.exe",
+        "-u",
+        "-m",
+        "our_src.stageg.stage_g",
+        "--config",
+        "C:\\Users\\Xaneca\\Stuff\\Uni\\Mestrado\\IAVC\\IAVC_proj_2\\code\\our_src\\stageg\\config.json"
+      ],
+      "started_utc": "2026-11-05T04:03:26.443148+00:00",
+      "finished_utc": "2026-11-05T04:03:51.674034+00:00"
+    }
+  ],
+  "finished_utc": "2026-11-05T04:03:51.679526+00:00"
+}

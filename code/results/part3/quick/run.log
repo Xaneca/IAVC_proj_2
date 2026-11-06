@@ -1,0 +1,25 @@
+2026-11-05 16:44:22 INFO    ======================================================================
+2026-11-05 16:44:22 INFO    Part 3 run (QUICK), seeds=[0], force=False
+2026-11-05 16:44:22 INFO    Images: 24 train (train+val), 16 test (test); targets=['motorbike'], negatives=all
+2026-11-05 16:44:22 WARNING SKIP vlad_K4_pca64 seed=0: pca_dim=64 must be <= n_train_samples - 1 = 23
+2026-11-05 16:44:22 INFO    6 experiment rows to run (0 already done, 1 skipped)
+2026-11-05 16:44:22 INFO    Extracting dense SIFT for 40/40 images into C:\Users\Xaneca\Stuff\Uni\Mestrado\IAVC\IAVC_proj_2\code\cache\part3\sift
+2026-11-05 16:44:26 INFO      SIFT 40/40
+2026-11-05 16:44:26 INFO    SIFT stage took 3.9s (sum of per-image extraction times: 13.5s)
+2026-11-05 16:44:26 INFO    ----------------------------------------------------------------------
+2026-11-05 16:44:26 INFO    Seed 0: 6 experiments, codebooks [('bovw', 16), ('vlad', 4), ('fisher', 4)]
+2026-11-05 16:44:27 INFO    Seed 0: sampled 20000 descriptors from 24 train images in 1.1s
+2026-11-05 16:44:28 INFO    Seed 0: fitted bovw K=16 codebook in 0.5s
+2026-11-05 16:44:28 INFO    Seed 0: fitted vlad K=4 codebook in 0.2s
+2026-11-05 16:44:28 INFO    Seed 0: fitted fisher K=4 codebook in 0.5s
+2026-11-05 16:44:28 INFO    Seed 0: encoding 40 images with bovw K=16, vlad K=4, fisher K=4
+2026-11-05 16:44:33 INFO      encoded 25/40 images (0s)
+2026-11-05 16:44:33 INFO      encoded 40/40 images (0s)
+2026-11-05 16:44:33 INFO    PCA variance bovw_K16_seed0: d80=3, d90=4, d95=7
+2026-11-05 16:44:35 INFO    Seed 0 bovw_K16           dim    16 ->   16  mAP=0.6147 acc=0.7500 macroF1=0.4286  (1.6s)
+2026-11-05 16:44:37 INFO    Seed 0 bovw_K16_pca8      dim    16 ->    8  mAP=0.3808 acc=0.7500 macroF1=0.4286  (1.7s)
+2026-11-05 16:44:39 INFO    Seed 0 vlad_K4            dim   512 ->  512  mAP=0.4347 acc=0.7500 macroF1=0.4286  (2.1s)
+2026-11-05 16:44:41 INFO    Seed 0 vlad_K4_pca16      dim   512 ->   16  mAP=0.3930 acc=0.7500 macroF1=0.4286  (1.7s)
+2026-11-05 16:44:41 INFO    Seed 0 fisher_K4          dim  1024 -> 1024  mAP=0.3271 acc=0.7500 macroF1=0.4286  (0.0s)
+2026-11-05 16:44:41 INFO    Seed 0 fisher_K4_pca16    dim  1024 ->   16  mAP=0.3485 acc=0.7500 macroF1=0.4286  (0.0s)
+2026-11-05 16:44:41 INFO    Done. Results in C:\Users\Xaneca\Stuff\Uni\Mestrado\IAVC\IAVC_proj_2\code\results\part3\quick

@@ -1,0 +1,124 @@
+# Part 3: large visual vocabularies + PCA vs small vocabularies.
+# Run from the `code/` directory:
+#   python -m our_src.part3.run --config our_src/part3/config.yaml
+# All relative paths are resolved against the `code/` directory.
+
+paths:
+  image_dir: data/images
+  split_dir: data/splits_internal     # same historical split lists as Part 1
+  output_dir: results/part3
+  cache_dir: cache/part3              # SIFT, codebooks and raw encodings (delete with --clean-cache)
+
+data:
+  # The internal splits are train (1978) / val (494) / test (2474 = supplied val).
+  # Hyperparameters are chosen by CV on TRAIN, so by default train+val form TRAIN.
+  train_splits: [train, val]
+  test_splits: [test]
+  # "motorcycle" is the `motorbike` category in this dataset.
+  target_classes: [motorbike]
+  # all: every image without the target class is a negative (background, person, car, ...).
+  # background: only images labelled background are negatives (Part 1 protocol).
+  negatives: all
+
+seeds: [0, 1, 2]
+
+# Parallel workers for SIFT extraction, descriptor sampling and encoding (joblib).
+# -1 = all cores, -2 = all but one.
+n_jobs: -2
+# Images per parallel task during encoding.
+chunk_size: 25
+
+encoding:
+  # Optional cap on dense SIFT descriptors used to encode each image (seeded subsample).
+  # null = use all descriptors (~37-42k per image). Smaller values make encoding much faster.
+  max_descriptors_per_image: null
+  # skimage's fisher_vector returns K + 2*K*D values (mixture-weight gradients first).
+  # false drops the K weight gradients so the Fisher vector has exactly 2*K*D dimensions.
+  fisher_include_weight_grads: false
+
+codebook:
+  # Descriptors sampled from TRAIN images (seeded) to fit every codebook / GMM of a seed.
+  n_descriptors: 200000
+  kmeans:                    # BoVW and VLAD
+    algorithm: minibatch     # minibatch | full
+    batch_size: 4096
+    n_init: 3
+    max_iter: 100
+  gmm:                       # Fisher vectors, diagonal covariances
+    init_params: kmeans
+    max_iter: 100
+    n_init: 1
+    tol: 1.0e-3
+    # SIFT values are in [0, 255]; many low-contrast descriptors are exactly zero, so a small
+    # covariance floor avoids degenerate components (in squared SIFT units).
+    reg_covar: 1.0
+
+normalization:
+  # Applied left to right. Options: sqrt (signed power), l1, l2, none.
+  post_encoding: [sqrt, l2]
+  sqrt_alpha: 0.5
+  post_pca: [l2]
+
+pca:
+  whiten: false
+  # full | randomized | auto (auto = full when min(n_samples, n_features) <= full_max_size)
+  svd_solver: full
+  full_max_size: 20000
+
+svm:
+  kernel: linear             # linear (LinearSVC) | rbf (SVC)
+  C_grid: [0.01, 0.1, 1.0, 10.0, 100.0]
+  gamma_grid: [scale, 0.001, 0.01, 0.1]   # only used with kernel: rbf
+  class_weight: null         # null | balanced
+  max_iter: 20000
+  cv_folds: 5
+  cv_scoring: average_precision
+  cv_n_jobs: -2
+
+timing:
+  # Number of test images used to measure per-image inference time (null = all test images).
+  inference_max_images: null
+
+experiments:
+  bovw:
+    no_pca_k: [128, 256, 512, 1024]
+    pca:
+      1024: [512, 256, 128, 64]
+      512: [256, 128, 64]
+  vlad:
+    no_pca_k: [16, 32]
+    pca:
+      16: [256, 128]
+      32: [256, 128]
+  fisher:
+    no_pca_k: [16, 32]
+    pca:
+      16: [256, 128]
+      32: [256, 128]
+
+pca_variance:
+  enabled: true
+  targets:
+    - {representation: bovw, k: 512}
+    - {representation: bovw, k: 1024}
+  thresholds: [0.80, 0.90, 0.95]
+
+# --quick: tiny smoke test. Overrides the settings above and writes to <output_dir>/quick.
+quick:
+  seeds: [0]
+  images: {train_pos: 6, train_neg: 18, test_pos: 4, test_neg: 12}
+  n_descriptors: 20000
+  cv_folds: 2
+  C_grid: [0.1, 1.0]
+  experiments:
+    bovw:
+      no_pca_k: [16]
+      pca: {16: [8]}
+    vlad:
+      no_pca_k: [4]
+      pca: {4: [16, 64]}      # 64 > n_train - 1, so it must be skipped with a warning
+    fisher:
+      no_pca_k: [4]
+      pca: {4: [16]}
+  pca_variance_targets:
+    - {representation: bovw, k: 16}
