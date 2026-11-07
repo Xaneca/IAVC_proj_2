@@ -1,0 +1,18 @@
+\begin{table}[H]
+\centering
+\caption{Effect of Hellinger-style feature mappings on motorbike retrieval. The selected configuration (bold) maximizes validation AP; test AP is reported only for final evaluation.}
+\label{tab:stageF_ap}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Variant} & \textbf{Train AP} & \textbf{Val. AP} & \textbf{Test AP} & \textbf{$\Delta$ Test (pp)} \\
+\midrule
+Linear (Stage E) & 0.9416 & 0.5513 & 0.4523 & +0.00 \\
+Hellinger: E-L2 $\rightarrow\sqrt{\cdot}$ & 1.0000 & 0.5380 & 0.4401 & -1.22 \\
+Hellinger: none $\rightarrow\sqrt{\cdot}$ & 1.0000 & 0.5285 & 0.4341 & -1.83 \\
+Hellinger: L2 $\rightarrow\sqrt{\cdot}$ & 1.0000 & 0.5380 & 0.4401 & -1.22 \\
+\textbf{Hellinger: $\sqrt{\cdot}\rightarrow$ L2} & \textbf{0.9837} & \textbf{0.6421} & \textbf{0.5151} & \textbf{+6.27} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
