@@ -1,0 +1,123 @@
+# Part 5 (Stages B and C): image retrieval on the PASCAL VOC corpus built in Stage A.
+# Run from the `code/` directory:
+#   python -m our_src.part5.run --config our_src/part5/config.yaml
+# All relative paths are resolved against the `code/` directory.
+
+paths:
+  corpus_csv: our_src/part5/stageA/corpus.csv
+  queries_csv: our_src/part5/stageA/queries.csv
+  text_queries_csv: our_src/part5/stageA/queries_text.csv
+  output_dir: results/part5
+  cache_dir: cache/part5        # SIFT, vocabularies, encodings and embeddings (gitignored)
+
+seed: 0
+device: auto                    # auto (GPU if available) | cuda | cpu
+
+metrics:
+  precision_at: [5, 10, 20]
+  recall_at: [5, 10, 20, 60]    # 60 = number of relevant images
+
+# Dense SIFT from src.features (PHOW). Defaults match src.features.computeFeatures.
+sift:
+  max_size: 480                 # images taller than this are resized (aspect ratio preserved)
+  step: 4                       # pixels between descriptors
+  sizes: [4, 6, 8, 10]          # spatial bin sizes; each descriptor covers 4 x size pixels per side
+  magnification: 6
+  window_size: 1.5
+  contrast_threshold: 0.005
+  fast: true
+
+# Fitted on corpus descriptors only. One vocabulary per k, shared by BoVW and VLAD.
+kmeans:
+  algorithm: minibatch          # minibatch | full
+  max_descriptors: 200000       # cap on the seeded sample used for fitting; null = all descriptors
+  batch_size: 4096              # minibatch only
+  n_init: 3
+  max_iter: 100
+
+deep:
+  corpus_batch_size: 32         # queries are always encoded one at a time, as at query time
+
+timing:
+  ranking_repeats: 5            # similarity + sort is timed this many times per query and averaged
+
+figures:
+  dpi: 150
+  top_k: 10                     # retrieved images shown per row in the qualitative grids
+  thumb_size: 256               # longest thumbnail side, in pixels
+  pr_recall_points: 101         # recall grid of the mean precision-recall curves
+  # Each prompt in queries_text.csv has its own `type`, so bars show the type as a label and
+  # take their color from these families. Types not listed here fall under "other".
+  text_type_families:
+    names the class: [minimal, template, synonym]
+    adds details: [detailed, very_detailed, attribute, context]
+    does not name the class: [generic, descriptive, very_generic]
+
+# Each entry is an experiment group (the names accepted by --only). A list under `k` or
+# `n_components` expands into one experiment per value. To add an experiment, add an entry here.
+#   method: random | bovw | vlad | vlad_pca | deep
+#   query_type: image | text (text requires a CLIP model)
+#   family: torchvision | dinov2 | clip (deep only)
+#   name: experiment name (deep only; optional)
+experiments:
+  random:
+    method: random
+    query_type: image
+
+  bovw:
+    method: bovw
+    query_type: image
+    k: [32, 64, 128, 256, 512, 1024]
+
+  vlad:
+    method: vlad
+    query_type: image
+    k: [16, 32, 64, 128]
+
+  vlad_pca:
+    method: vlad_pca
+    query_type: image
+    k: 32
+    n_components: [8, 16, 32, 64, 128, 219]   # clamped automatically to n_corpus - 1
+
+  cnn:
+    name: cnn_resnet50
+    method: deep
+    query_type: image
+    family: torchvision
+    model: resnet50
+    weights: IMAGENET1K_V2
+    input_size: 224             # the whole image is resized to a square, with no center crop
+
+  dinov2:
+    name: dinov2_vitb14
+    method: deep
+    query_type: image
+    family: dinov2
+    model: dinov2_vitb14
+    input_size: 224             # must be a multiple of the patch size (14)
+
+  clip_text:
+    name: clip_text_vitb32
+    method: deep
+    query_type: text
+    family: clip
+    model: clip_vit_b_32        # name accepted by src.deep_models.getModel; uses CLIP's own preprocess
+
+  clip_image:
+    name: clip_image_vitb32
+    method: deep
+    query_type: image
+    family: clip
+    model: clip_vit_b_32
+
+# --smoke: small subset, written to <output_dir>/smoke. Overrides the settings above.
+smoke:
+  corpus_per_label: 3
+  n_queries: 2
+  n_text_queries: 3
+  max_descriptors: 20000
+  experiment_overrides:
+    bovw: {k: [8, 16]}
+    vlad: {k: [4, 8]}
+    vlad_pca: {k: 4, n_components: [8, 64]}   # 64 > n_corpus - 1, so it must be clamped

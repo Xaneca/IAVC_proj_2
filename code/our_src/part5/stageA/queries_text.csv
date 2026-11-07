@@ -1,0 +1,11 @@
+id,text,type,purpose
+t_01,horse,minimal,Só o nome da classe
+t_02,a photo of a horse,template,Template standard do CLIP (baseline de texto)
+t_03,a photo of a horse standing in a field,detailed,Acrescenta contexto típico
+t_04,a close-up photo of a brown horse with a dark mane grazing on green grass,very_detailed,Descrição muito específica: pode favorecer só alguns cavalos
+t_05,a photo of a white horse,attribute,Atributo de cor: testa se restringe demasiado o ranking
+t_06,a person riding a horse,context,Cena com vários objetos (cavalo + pessoa)
+t_07,a pony,synonym,Sinónimo / subtipo
+t_08,a farm animal,generic,Genérica: deve confundir com vacas e ovelhas
+t_09,a large four-legged animal with hooves,descriptive,Descreve sem dizer o nome: testa confusão com vacas
+t_10,an animal,very_generic,Muito genérica: deve misturar todos os animais

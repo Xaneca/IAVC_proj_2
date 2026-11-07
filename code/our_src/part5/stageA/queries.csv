@@ -1,1 +1,11 @@
-query_id, path_or_text, label, source
+id,path,label,objects
+q_01,voc_retrieval\queries\q_01_horse_006095.jpg,horse,cow;horse;person
+q_02,voc_retrieval\queries\q_02_horse_007809.jpg,horse,horse;person
+q_03,voc_retrieval\queries\q_03_horse_008142.jpg,horse,horse;person
+q_04,voc_retrieval\queries\q_04_horse_003017.jpg,horse,horse;person
+q_05,voc_retrieval\queries\q_05_horse_001071.jpg,horse,car;horse;person
+q_06,voc_retrieval\queries\q_06_horse_003754.jpg,horse,horse
+q_07,voc_retrieval\queries\q_07_horse_006911.jpg,horse,horse;person
+q_08,voc_retrieval\queries\q_08_horse_006862.jpg,horse,horse;person
+q_09,voc_retrieval\queries\q_09_horse_003611.jpg,horse,horse;person
+q_10,voc_retrieval\queries\q_10_horse_005636.jpg,horse,horse;person

@@ -38,3 +38,8 @@ Guia geral: [`PART4.md`](../../PART4.md).
 
 Código em [part2/](part2/README.md); executar `python -m our_src.part2.run` a partir de `code/`
 (ou `run_part_2.ps1` em Windows).
+
+## Parte 5 — recuperação de imagens
+
+Guia em [`part5/`](part5/README.md); executar `.\run_part_5.ps1` (ou `python -m our_src.part5.run`) a partir de
+`code/`, com o ambiente conda ativo.

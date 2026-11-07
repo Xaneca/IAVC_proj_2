@@ -1,0 +1,11 @@
+query,closest_corpus_image,hamming_distance,near_duplicate
+voc_retrieval\queries\q_01_horse_006095.jpg,voc_retrieval\corpus\c_0054_dog_005254.jpg,19,False
+voc_retrieval\queries\q_02_horse_007809.jpg,voc_retrieval\corpus\c_0150_dog_009042.jpg,19,False
+voc_retrieval\queries\q_03_horse_008142.jpg,voc_retrieval\corpus\c_0006_horse_003362.jpg,17,False
+voc_retrieval\queries\q_04_horse_003017.jpg,voc_retrieval\corpus\c_0189_sheep_005223.jpg,21,False
+voc_retrieval\queries\q_05_horse_001071.jpg,voc_retrieval\corpus\c_0212_horse_004450.jpg,18,False
+voc_retrieval\queries\q_06_horse_003754.jpg,voc_retrieval\corpus\c_0048_aeroplane_006212.jpg,19,False
+voc_retrieval\queries\q_07_horse_006911.jpg,voc_retrieval\corpus\c_0099_aeroplane_009702.jpg,20,False
+voc_retrieval\queries\q_08_horse_006862.jpg,voc_retrieval\corpus\c_0023_horse_001420.jpg,17,False
+voc_retrieval\queries\q_09_horse_003611.jpg,voc_retrieval\corpus\c_0214_sheep_001310.jpg,20,False
+voc_retrieval\queries\q_10_horse_005636.jpg,voc_retrieval\corpus\c_0075_cat_008856.jpg,22,False
