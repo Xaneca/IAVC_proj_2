@@ -1,0 +1,296 @@
+{
+  "test": {
+    "accuracy": 0.8726758286176233,
+    "accuracy_definition": "exact label-set match",
+    "binary_background_ap_on_ovr_model": {
+      "aeroplane": 0.9999999999999999,
+      "car": 0.9644147650972485,
+      "horse": 0.9854021560871139,
+      "motorbike": 0.964670117748807,
+      "person": 0.9811513650312087
+    },
+    "confusion_definition": "one 2x2 [TN,FP;FN,TP] matrix per category",
+    "confusion_matrix": [
+      [
+        [
+          2344,
+          4
+        ],
+        [
+          0,
+          126
+        ]
+      ],
+      [
+        [
+          2118,
+          19
+        ],
+        [
+          72,
+          265
+        ]
+      ],
+      [
+        [
+          2322,
+          4
+        ],
+        [
+          16,
+          132
+        ]
+      ],
+      [
+        [
+          2341,
+          8
+        ],
+        [
+          21,
+          104
+        ]
+      ],
+      [
+        [
+          1470,
+          21
+        ],
+        [
+          187,
+          796
+        ]
+      ]
+    ],
+    "forced_single_prediction": false,
+    "images": 2474,
+    "inference_time": 0.024666099998285063,
+    "macro_f1": 0.9058992395689696,
+    "map": 0.9567444403004272,
+    "per_class_ap": {
+      "aeroplane": 0.9821809457344809,
+      "car": 0.9425111007214744,
+      "horse": 0.9770866455850448,
+      "motorbike": 0.9117305434529438,
+      "person": 0.970212966008192
+    },
+    "per_class_f1": {
+      "aeroplane": 0.984375,
+      "car": 0.8534621578099839,
+      "horse": 0.9295774647887324,
+      "motorbike": 0.8776371308016878,
+      "person": 0.8844444444444445
+    },
+    "per_class_precision": {
+      "aeroplane": 0.9692307692307692,
+      "car": 0.9330985915492958,
+      "horse": 0.9705882352941176,
+      "motorbike": 0.9285714285714286,
+      "person": 0.9742962056303549
+    },
+    "per_class_recall": {
+      "aeroplane": 1.0,
+      "car": 0.7863501483679525,
+      "horse": 0.8918918918918919,
+      "motorbike": 0.832,
+      "person": 0.8097660223804679
+    },
+    "top1_label_membership_accuracy": 0.5493128536782539
+  },
+  "train": {
+    "accuracy": 0.9236602628918099,
+    "accuracy_definition": "exact label-set match",
+    "binary_background_ap_on_ovr_model": {
+      "aeroplane": 0.9999999999999999,
+      "car": 0.9831315732570467,
+      "horse": 1.0,
+      "motorbike": 0.9999999999999997,
+      "person": 0.996492446691788
+    },
+    "confusion_definition": "one 2x2 [TN,FP;FN,TP] matrix per category",
+    "confusion_matrix": [
+      [
+        [
+          1888,
+          0
+        ],
+        [
+          0,
+          90
+        ]
+      ],
+      [
+        [
+          1671,
+          6
+        ],
+        [
+          53,
+          248
+        ]
+      ],
+      [
+        [
+          1867,
+          0
+        ],
+        [
+          0,
+          111
+        ]
+      ],
+      [
+        [
+          1882,
+          0
+        ],
+        [
+          0,
+          96
+        ]
+      ],
+      [
+        [
+          1153,
+          5
+        ],
+        [
+          89,
+          731
+        ]
+      ]
+    ],
+    "forced_single_prediction": false,
+    "images": 1978,
+    "inference_time": 0.019047300000238465,
+    "macro_f1": 0.9666564765279417,
+    "map": 0.9934102278565217,
+    "per_class_ap": {
+      "aeroplane": 0.9999999999999999,
+      "car": 0.9732827982389529,
+      "horse": 1.0,
+      "motorbike": 1.0,
+      "person": 0.9937683410436554
+    },
+    "per_class_f1": {
+      "aeroplane": 1.0,
+      "car": 0.8936936936936937,
+      "horse": 1.0,
+      "motorbike": 1.0,
+      "person": 0.9395886889460154
+    },
+    "per_class_precision": {
+      "aeroplane": 1.0,
+      "car": 0.9763779527559056,
+      "horse": 1.0,
+      "motorbike": 1.0,
+      "person": 0.9932065217391305
+    },
+    "per_class_recall": {
+      "aeroplane": 1.0,
+      "car": 0.8239202657807309,
+      "horse": 1.0,
+      "motorbike": 1.0,
+      "person": 0.8914634146341464
+    },
+    "top1_label_membership_accuracy": 0.583923154701719
+  },
+  "val": {
+    "accuracy": 0.8765182186234818,
+    "accuracy_definition": "exact label-set match",
+    "binary_background_ap_on_ovr_model": {
+      "aeroplane": 0.9839572192513368,
+      "car": 0.956933712545501,
+      "horse": 0.9999999999999999,
+      "motorbike": 0.9923115079365078,
+      "person": 0.983214136731009
+    },
+    "confusion_definition": "one 2x2 [TN,FP;FN,TP] matrix per category",
+    "confusion_matrix": [
+      [
+        [
+          472,
+          0
+        ],
+        [
+          1,
+          21
+        ]
+      ],
+      [
+        [
+          417,
+          2
+        ],
+        [
+          16,
+          59
+        ]
+      ],
+      [
+        [
+          466,
+          0
+        ],
+        [
+          0,
+          28
+        ]
+      ],
+      [
+        [
+          469,
+          1
+        ],
+        [
+          5,
+          19
+        ]
+      ],
+      [
+        [
+          288,
+          1
+        ],
+        [
+          40,
+          165
+        ]
+      ]
+    ],
+    "forced_single_prediction": false,
+    "images": 494,
+    "inference_time": 0.005067300000519026,
+    "macro_f1": 0.9195030958252701,
+    "map": 0.9676291615236524,
+    "per_class_ap": {
+      "aeroplane": 0.9778012684989428,
+      "car": 0.9271169738806159,
+      "horse": 1.0,
+      "motorbike": 0.9596455016119299,
+      "person": 0.9735820636267739
+    },
+    "per_class_f1": {
+      "aeroplane": 0.9767441860465116,
+      "car": 0.8676470588235294,
+      "horse": 1.0,
+      "motorbike": 0.8636363636363636,
+      "person": 0.889487870619946
+    },
+    "per_class_precision": {
+      "aeroplane": 1.0,
+      "car": 0.9672131147540983,
+      "horse": 1.0,
+      "motorbike": 0.95,
+      "person": 0.9939759036144579
+    },
+    "per_class_recall": {
+      "aeroplane": 0.9545454545454546,
+      "car": 0.7866666666666666,
+      "horse": 1.0,
+      "motorbike": 0.7916666666666666,
+      "person": 0.8048780487804879
+    },
+    "top1_label_membership_accuracy": 0.5668016194331984
+  }
+}

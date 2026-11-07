@@ -1,0 +1,9 @@
+{
+  "category": "motorbike",
+  "split": "train",
+  "ap": 0.9571822888165851,
+  "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+  "images": 911,
+  "positives": 96,
+  "negatives": 815
+}

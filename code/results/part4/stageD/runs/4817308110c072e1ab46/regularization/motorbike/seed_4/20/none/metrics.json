@@ -1,0 +1,67 @@
+{
+  "motorbike": {
+    "test": {
+      "ap": 0.97516185877139,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1077,
+          0
+        ],
+        [
+          28,
+          97
+        ]
+      ],
+      "f1": 0.8738738738738738,
+      "images": 1202,
+      "inference_seconds": 0.0019460000003164168,
+      "negatives": 1077,
+      "positives": 125,
+      "precision": 1.0,
+      "recall": 0.776
+    },
+    "train": {
+      "ap": 0.9954545454545456,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          815,
+          0
+        ],
+        [
+          2,
+          18
+        ]
+      ],
+      "f1": 0.9473684210526315,
+      "images": 835,
+      "inference_seconds": 0.0011952000022574794,
+      "negatives": 815,
+      "positives": 20,
+      "precision": 1.0,
+      "recall": 0.9
+    },
+    "val": {
+      "ap": 0.9923115079365078,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          204,
+          0
+        ],
+        [
+          7,
+          17
+        ]
+      ],
+      "f1": 0.8292682926829268,
+      "images": 228,
+      "inference_seconds": 0.0004914999990432989,
+      "negatives": 204,
+      "positives": 24,
+      "precision": 1.0,
+      "recall": 0.7083333333333334
+    }
+  }
+}

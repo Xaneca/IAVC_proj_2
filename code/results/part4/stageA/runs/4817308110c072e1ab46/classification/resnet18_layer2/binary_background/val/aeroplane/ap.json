@@ -1,0 +1,9 @@
+{
+  "category": "aeroplane",
+  "split": "val",
+  "ap": 0.7650115762055328,
+  "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+  "images": 226,
+  "positives": 22,
+  "negatives": 204
+}

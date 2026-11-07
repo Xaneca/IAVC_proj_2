@@ -1,0 +1,237 @@
+{
+  "protocol": "multilabel_one_vs_rest",
+  "selected": {
+    "C_by_category": {
+      "aeroplane": 10.0,
+      "car": 1.0,
+      "horse": 10.0,
+      "motorbike": 10.0,
+      "person": 1.0
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 0.9934102278565217,
+    "validation_map": 0.9676291615236524
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.30564790000062203,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "aeroplane",
+          "fit_seconds": 0.06544969999958994,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9999999999999999,
+          "train_images": 1978,
+          "validation_ap": 0.9753787878787876,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0021510000005946495
+        },
+        {
+          "C": 0.1,
+          "category": "car",
+          "fit_seconds": 0.062143000002834015,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9312319759828577,
+          "train_images": 1978,
+          "validation_ap": 0.9169167994495621,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0016947000003710855
+        },
+        {
+          "C": 0.1,
+          "category": "horse",
+          "fit_seconds": 0.057524699997884454,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9926770380349604,
+          "train_images": 1978,
+          "validation_ap": 0.9987684729064039,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0016354000035789795
+        },
+        {
+          "C": 0.1,
+          "category": "motorbike",
+          "fit_seconds": 0.06021820000023581,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9454907721838239,
+          "train_images": 1978,
+          "validation_ap": 0.9215785986013698,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.002188300000852905
+        },
+        {
+          "C": 0.1,
+          "category": "person",
+          "fit_seconds": 0.06031230000007781,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9777323475659532,
+          "train_images": 1978,
+          "validation_ap": 0.9631169206898598,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.001575599999341648
+        }
+      ],
+      "train_map": 0.9694264267535191,
+      "validation_map": 0.9551519159051967
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.48972649999996065,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "aeroplane",
+          "fit_seconds": 0.07998230000157491,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9999999999999999,
+          "train_images": 1978,
+          "validation_ap": 0.9734133790737562,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0021396000011009164
+        },
+        {
+          "C": 1,
+          "category": "car",
+          "fit_seconds": 0.10512709999966319,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9732827982389529,
+          "train_images": 1978,
+          "validation_ap": 0.9271169738806159,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0018478000019968022
+        },
+        {
+          "C": 1,
+          "category": "horse",
+          "fit_seconds": 0.06438749999870197,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.99895101758415,
+          "train_images": 1978,
+          "validation_ap": 0.9987684729064039,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.002362900002481183
+        },
+        {
+          "C": 1,
+          "category": "motorbike",
+          "fit_seconds": 0.08448800000041956,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9880668332911492,
+          "train_images": 1978,
+          "validation_ap": 0.9482681585638573,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.001469599999836646
+        },
+        {
+          "C": 1,
+          "category": "person",
+          "fit_seconds": 0.15574159999960102,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9937683410436554,
+          "train_images": 1978,
+          "validation_ap": 0.9735820636267739,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0014641000016126782
+        }
+      ],
+      "train_map": 0.9908137980315816,
+      "validation_map": 0.9642298096102815
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.8372792999980447,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "aeroplane",
+          "fit_seconds": 0.06507739999869955,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9999999999999999,
+          "train_images": 1978,
+          "validation_ap": 0.9778012684989428,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0014489000022877008
+        },
+        {
+          "C": 10,
+          "category": "car",
+          "fit_seconds": 0.20984150000003865,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9978109703245853,
+          "train_images": 1978,
+          "validation_ap": 0.9120270178047453,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0015418000002682675
+        },
+        {
+          "C": 10,
+          "category": "horse",
+          "fit_seconds": 0.08186519999799202,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 1978,
+          "validation_ap": 1.0,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0015338000011979602
+        },
+        {
+          "C": 10,
+          "category": "motorbike",
+          "fit_seconds": 0.09249590000035823,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 1978,
+          "validation_ap": 0.9596455016119299,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0014118999970378354
+        },
+        {
+          "C": 10,
+          "category": "person",
+          "fit_seconds": 0.3879993000009563,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.99951406163683,
+          "train_images": 1978,
+          "validation_ap": 0.9707573146267366,
+          "validation_images": 494,
+          "validation_inference_seconds": 0.0013882000021112617
+        }
+      ],
+      "train_map": 0.9994650063922832,
+      "validation_map": 0.964046220508471
+    }
+  ]
+}

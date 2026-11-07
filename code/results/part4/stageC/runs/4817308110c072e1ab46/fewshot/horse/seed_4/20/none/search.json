@@ -1,0 +1,77 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "horse": 0.1
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 1.0,
+    "validation_map": 0.9974929627023222
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.006207300000824034,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "horse",
+          "fit_seconds": 0.006207300000824034,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 835,
+          "validation_ap": 0.9974929627023222,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00023409999994328246
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9974929627023222
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.006747599996742792,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "horse",
+          "fit_seconds": 0.006747599996742792,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 835,
+          "validation_ap": 0.9974929627023222,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00019600000086938962
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9974929627023222
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.00713240000186488,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "horse",
+          "fit_seconds": 0.00713240000186488,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 835,
+          "validation_ap": 0.996343537414966,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.0002562000008765608
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.996343537414966
+    }
+  ]
+}

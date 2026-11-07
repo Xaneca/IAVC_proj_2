@@ -1,0 +1,67 @@
+{
+  "aeroplane": {
+    "test": {
+      "ap": 0.9998110275898051,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1077,
+          0
+        ],
+        [
+          91,
+          35
+        ]
+      ],
+      "f1": 0.43478260869565216,
+      "images": 1203,
+      "inference_seconds": 0.0016758999990997836,
+      "negatives": 1077,
+      "positives": 126,
+      "precision": 1.0,
+      "recall": 0.2777777777777778
+    },
+    "train": {
+      "ap": 1.0000000000000002,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1630,
+          0
+        ],
+        [
+          33,
+          7
+        ]
+      ],
+      "f1": 0.2978723404255319,
+      "images": 1670,
+      "inference_seconds": 0.0024233999974967446,
+      "negatives": 1630,
+      "positives": 40,
+      "precision": 1.0,
+      "recall": 0.175
+    },
+    "val": {
+      "ap": 0.9749536178107605,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          204,
+          0
+        ],
+        [
+          13,
+          9
+        ]
+      ],
+      "f1": 0.5806451612903226,
+      "images": 226,
+      "inference_seconds": 0.0003913000000466127,
+      "negatives": 204,
+      "positives": 22,
+      "precision": 1.0,
+      "recall": 0.4090909090909091
+    }
+  }
+}

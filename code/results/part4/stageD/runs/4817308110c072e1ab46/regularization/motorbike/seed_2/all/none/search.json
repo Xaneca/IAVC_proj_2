@@ -1,0 +1,119 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "motorbike": 1.0
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 0.9998926116838486,
+    "validation_map": 0.9967948717948716
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.005487999998877058,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "motorbike",
+          "fit_seconds": 0.005487999998877058,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9852276629848024,
+          "train_images": 911,
+          "validation_ap": 0.990562678062678,
+          "validation_images": 228,
+          "validation_inference_seconds": 0.00021840000044903718
+        }
+      ],
+      "train_map": 0.9852276629848024,
+      "validation_map": 0.990562678062678
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.006882899997435743,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "motorbike",
+          "fit_seconds": 0.006882899997435743,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9998926116838486,
+          "train_images": 911,
+          "validation_ap": 0.9967948717948716,
+          "validation_images": 228,
+          "validation_inference_seconds": 0.0003619999988586642
+        }
+      ],
+      "train_map": 0.9998926116838486,
+      "validation_map": 0.9967948717948716
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.008582899998145876,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "motorbike",
+          "fit_seconds": 0.008582899998145876,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9999999999999997,
+          "train_images": 911,
+          "validation_ap": 0.9928160919540229,
+          "validation_images": 228,
+          "validation_inference_seconds": 0.00023050000163493678
+        }
+      ],
+      "train_map": 0.9999999999999997,
+      "validation_map": 0.9928160919540229
+    },
+    {
+      "C": 100.0,
+      "classifier_training_time": 0.011494300000777002,
+      "per_class": [
+        {
+          "C": 100,
+          "category": "motorbike",
+          "fit_seconds": 0.011494300000777002,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9999999999999997,
+          "train_images": 911,
+          "validation_ap": 0.9928160919540229,
+          "validation_images": 228,
+          "validation_inference_seconds": 0.00022949999765842222
+        }
+      ],
+      "train_map": 0.9999999999999997,
+      "validation_map": 0.9928160919540229
+    },
+    {
+      "C": 1000.0,
+      "classifier_training_time": 0.011711800001648953,
+      "per_class": [
+        {
+          "C": 1000,
+          "category": "motorbike",
+          "fit_seconds": 0.011711800001648953,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9999999999999997,
+          "train_images": 911,
+          "validation_ap": 0.9928160919540229,
+          "validation_images": 228,
+          "validation_inference_seconds": 0.0003113000020675827
+        }
+      ],
+      "train_map": 0.9999999999999997,
+      "validation_map": 0.9928160919540229
+    }
+  ]
+}

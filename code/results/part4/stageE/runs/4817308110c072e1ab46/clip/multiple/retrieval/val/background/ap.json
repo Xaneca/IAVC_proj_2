@@ -1,0 +1,11 @@
+{
+  "ap": 0.46787173951512,
+  "ap_definition": "sklearn non-interpolated AP on cosine similarities",
+  "category": "background",
+  "images": 494,
+  "negative_definition": "all images without this category",
+  "negatives": 290,
+  "positives": 204,
+  "protocol": "full_dataset_classwise_text_retrieval",
+  "split": "val"
+}

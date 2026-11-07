@@ -1,0 +1,25 @@
+{
+  "aggregation": "mean of cosine similarities; no renormalization of mean text",
+  "prompts": [
+    [
+      "an image showing a airplane"
+    ],
+    [
+      "an image showing a car"
+    ],
+    [
+      "an image showing a horse"
+    ],
+    [
+      "an image showing a motorbike"
+    ],
+    [
+      "an image showing a person"
+    ],
+    [
+      "an image showing a background scene without the target objects"
+    ]
+  ],
+  "selection": "global template selected exclusively by validation target mAP",
+  "selection_record": "../template_selection.json"
+}

@@ -1,0 +1,32 @@
+{
+  "candidates": [
+    [
+      0.7654142501562424,
+      "resnet18_layer2"
+    ],
+    [
+      0.9227152433872993,
+      "resnet18_layer3"
+    ],
+    [
+      0.978407680439447,
+      "resnet18_layer4"
+    ],
+    [
+      0.9790865757176646,
+      "dinov2_vits14_global"
+    ],
+    [
+      0.9892269635997769,
+      "dinov2_vits14_patch_mean"
+    ],
+    [
+      0.9889344877919675,
+      "dinov2_vits14_spatial2x2"
+    ]
+  ],
+  "reason": "highest validation mAP; lexical ascending representation name breaks ties",
+  "representation": "dinov2_vits14_patch_mean",
+  "test_used_for_selection": false,
+  "validation_metric": "target/background mAP"
+}

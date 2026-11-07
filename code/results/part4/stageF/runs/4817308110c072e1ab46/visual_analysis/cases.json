@@ -1,0 +1,1343 @@
+[
+  {
+    "ground_truth": [
+      "person"
+    ],
+    "ground_truth_target": "person",
+    "image_id": "002886",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          0.1793837994337082,
+          0.19696582853794098,
+          0.18627533316612244,
+          0.174631267786026,
+          0.21963471174240112,
+          0.16285474598407745
+        ],
+        "top1_membership": true,
+        "truth": [
+          "person"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "motorbike",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -1.5732127175904864,
+          0.5261285713247055,
+          -0.4826740797351472,
+          0.6434159667527166,
+          7.828392324495116
+        ],
+        "top1_membership": true,
+        "truth": [
+          "person"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -1.1558029131218341,
+          -0.5772839380306934,
+          -0.6097029867889271,
+          -0.9446709247483112,
+          2.1433027546009344
+        ],
+        "top1_membership": true,
+        "truth": [
+          "person"
+        ]
+      }
+    },
+    "selection_reason": "all_correct",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "aeroplane"
+    ],
+    "ground_truth_target": "aeroplane",
+    "image_id": "003876",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "aeroplane"
+        ],
+        "prediction": "aeroplane",
+        "scores": [
+          0.31678903102874756,
+          0.23206692934036255,
+          0.20707166194915771,
+          0.2234029769897461,
+          0.2322361320257187,
+          0.2298145741224289
+        ],
+        "top1_membership": true,
+        "truth": [
+          "aeroplane"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "aeroplane"
+        ],
+        "prediction": "aeroplane",
+        "scores": [
+          0.5583782389997806,
+          -0.9845617164447048,
+          -1.5751183201792631,
+          -0.6999005236791738,
+          -0.7371658157760979
+        ],
+        "top1_membership": true,
+        "truth": [
+          "aeroplane"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "aeroplane"
+        ],
+        "prediction": "aeroplane",
+        "scores": [
+          0.5665528031187012,
+          -0.7411857749210983,
+          -1.1025110865658019,
+          -0.7197132848346344,
+          -0.6539246162240921
+        ],
+        "top1_membership": true,
+        "truth": [
+          "aeroplane"
+        ]
+      }
+    },
+    "selection_reason": "all_correct",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "background"
+    ],
+    "ground_truth_target": "background",
+    "image_id": "009678",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car"
+        ],
+        "prediction": "car",
+        "scores": [
+          0.23029713332653046,
+          0.2952319383621216,
+          0.23593515157699585,
+          0.22887450456619263,
+          0.23356275260448456,
+          0.2230687290430069
+        ],
+        "top1_membership": false,
+        "truth": [
+          "background"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -1.1858238463149722,
+          0.10685242630258629,
+          -1.459438521541705,
+          -1.8108089047793867,
+          0.5129184001648701
+        ],
+        "top1_membership": false,
+        "truth": [
+          "background"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car"
+        ],
+        "prediction": "car",
+        "scores": [
+          -1.1490624565858913,
+          0.17006248842631722,
+          -0.9279691816885285,
+          -0.8490819244280274,
+          -0.2590252864943722
+        ],
+        "top1_membership": false,
+        "truth": [
+          "background"
+        ]
+      }
+    },
+    "selection_reason": "all_wrong",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "car"
+    ],
+    "ground_truth_target": "car",
+    "image_id": "008716",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "motorbike"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          0.22310781478881836,
+          0.2812877297401428,
+          0.21074362099170685,
+          0.28291967511177063,
+          0.21900218725204468,
+          0.21668006479740143
+        ],
+        "top1_membership": false,
+        "truth": [
+          "car"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "motorbike",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -0.3814114334158293,
+          1.3102457626889035,
+          -0.9411336481565724,
+          1.791037650484225,
+          2.1248850709122182
+        ],
+        "top1_membership": false,
+        "truth": [
+          "car"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "motorbike",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -0.4124950350441564,
+          0.5997287798772398,
+          -0.7443492202005624,
+          0.6051377155107729,
+          0.996527201140368
+        ],
+        "top1_membership": false,
+        "truth": [
+          "car"
+        ]
+      }
+    },
+    "selection_reason": "all_wrong",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "horse"
+    ],
+    "ground_truth_target": "horse",
+    "image_id": "001632",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "horse"
+        ],
+        "prediction": "horse",
+        "scores": [
+          0.19091029465198517,
+          0.19763785600662231,
+          0.3055938482284546,
+          0.19337496161460876,
+          0.2286798655986786,
+          0.20414456725120544
+        ],
+        "top1_membership": true,
+        "truth": [
+          "horse"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "horse"
+        ],
+        "prediction": "horse",
+        "scores": [
+          -1.551543904998094,
+          -1.0974554523183095,
+          1.4265693877242778,
+          -1.6948244806607449,
+          -1.2915434436499842
+        ],
+        "top1_membership": true,
+        "truth": [
+          "horse"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "background"
+        ],
+        "prediction": "background",
+        "scores": [
+          -1.328806348020528,
+          -1.1097242526374007,
+          -0.0407090586730553,
+          -1.2206580406236647,
+          -0.6270342768998036
+        ],
+        "top1_membership": false,
+        "truth": [
+          "horse"
+        ]
+      }
+    },
+    "selection_reason": "cnn_only",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "motorbike"
+    ],
+    "ground_truth_target": "motorbike",
+    "image_id": "005212",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "motorbike"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          0.19747887551784515,
+          0.20861956477165222,
+          0.2072734534740448,
+          0.25106459856033325,
+          0.21553277969360352,
+          0.19875851273536682
+        ],
+        "top1_membership": true,
+        "truth": [
+          "motorbike"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "motorbike",
+          "person"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          -1.5751801254999176,
+          0.0135929935205088,
+          -2.174566138038228,
+          0.09975536752542657,
+          0.03999653130799352
+        ],
+        "top1_membership": true,
+        "truth": [
+          "motorbike"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "background"
+        ],
+        "prediction": "background",
+        "scores": [
+          -1.0449712398815731,
+          -0.7947823763974684,
+          -1.148317821690808,
+          -1.025860037448131,
+          -0.3841423094194499
+        ],
+        "top1_membership": false,
+        "truth": [
+          "motorbike"
+        ]
+      }
+    },
+    "selection_reason": "cnn_only",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "motorbike"
+    ],
+    "ground_truth_target": "motorbike",
+    "image_id": "006747",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "motorbike"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          0.2179199904203415,
+          0.25882360339164734,
+          0.23856596648693085,
+          0.32784032821655273,
+          0.2504277229309082,
+          0.22241291403770447
+        ],
+        "top1_membership": true,
+        "truth": [
+          "motorbike"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "motorbike",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -0.9379280523534164,
+          0.6536369878104822,
+          -0.9615447724356154,
+          0.6788913947308068,
+          1.3499716219401137
+        ],
+        "top1_membership": false,
+        "truth": [
+          "motorbike"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "motorbike"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          -1.0999773591258464,
+          0.15920788195289515,
+          -1.3069027153472665,
+          0.5354697267939141,
+          -0.21236457966059807
+        ],
+        "top1_membership": true,
+        "truth": [
+          "motorbike"
+        ]
+      }
+    },
+    "selection_reason": "dino_only",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "car"
+    ],
+    "ground_truth_target": "car",
+    "image_id": "005679",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "car"
+        ],
+        "prediction": "car",
+        "scores": [
+          0.22923889756202698,
+          0.31064414978027344,
+          0.22330260276794434,
+          0.25950944423675537,
+          0.23383960127830505,
+          0.23223057389259338
+        ],
+        "top1_membership": true,
+        "truth": [
+          "car"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -1.2634720422833645,
+          1.5798209507118284,
+          -0.857136664252881,
+          -0.6893696439319266,
+          2.96678099189712
+        ],
+        "top1_membership": false,
+        "truth": [
+          "car"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car",
+          "person"
+        ],
+        "prediction": "car",
+        "scores": [
+          -0.7999858285116136,
+          0.9343942693505906,
+          -1.0197090870070808,
+          -0.27520693255124895,
+          0.030916412883746913
+        ],
+        "top1_membership": true,
+        "truth": [
+          "car"
+        ]
+      }
+    },
+    "selection_reason": "dino_only",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "horse"
+    ],
+    "ground_truth_target": "horse",
+    "image_id": "003015",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "horse"
+        ],
+        "prediction": "horse",
+        "scores": [
+          0.22530250251293182,
+          0.23584984242916107,
+          0.321408748626709,
+          0.2452269196510315,
+          0.2615581452846527,
+          0.22450274229049683
+        ],
+        "top1_membership": true,
+        "truth": [
+          "horse"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "background"
+        ],
+        "prediction": "background",
+        "scores": [
+          -1.9191645662924075,
+          -1.331809723904564,
+          -0.25031189253461816,
+          -1.5386114409628437,
+          -1.537386968763903
+        ],
+        "top1_membership": false,
+        "truth": [
+          "horse"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "background"
+        ],
+        "prediction": "background",
+        "scores": [
+          -1.1853952111665746,
+          -1.0620401527697865,
+          -0.4912888469707546,
+          -0.9948318531714779,
+          -0.5210087369632015
+        ],
+        "top1_membership": false,
+        "truth": [
+          "horse"
+        ]
+      }
+    },
+    "selection_reason": "clip_success",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "aeroplane"
+    ],
+    "ground_truth_target": "aeroplane",
+    "image_id": "008101",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "aeroplane"
+        ],
+        "prediction": "aeroplane",
+        "scores": [
+          0.3013310730457306,
+          0.23917946219444275,
+          0.21858622133731842,
+          0.23791101574897766,
+          0.23151837289333344,
+          0.21997736394405365
+        ],
+        "top1_membership": true,
+        "truth": [
+          "aeroplane"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "aeroplane",
+          "motorbike",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          0.946674053292543,
+          -0.2619594013367412,
+          -1.797297100228882,
+          0.6556238311456357,
+          1.1394049017842525
+        ],
+        "top1_membership": false,
+        "truth": [
+          "aeroplane"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "aeroplane"
+        ],
+        "prediction": "aeroplane",
+        "scores": [
+          0.5084547856895892,
+          -0.9341108684585334,
+          -1.0182272106443793,
+          -0.5524584483315049,
+          -0.7657227976657588
+        ],
+        "top1_membership": true,
+        "truth": [
+          "aeroplane"
+        ]
+      }
+    },
+    "selection_reason": "clip_success",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "person"
+    ],
+    "ground_truth_target": "person",
+    "image_id": "002933",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "car"
+        ],
+        "prediction": "car",
+        "scores": [
+          0.21392188966274261,
+          0.24414217472076416,
+          0.21332430839538574,
+          0.22864951193332672,
+          0.23053936660289764,
+          0.19507668912410736
+        ],
+        "top1_membership": false,
+        "truth": [
+          "person"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "motorbike",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -1.4780522187898129,
+          -0.35783547482523104,
+          -0.8850063045903924,
+          0.06387367636462216,
+          5.135893974888978
+        ],
+        "top1_membership": true,
+        "truth": [
+          "person"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -1.022069125570261,
+          -0.43353720827851555,
+          -0.2554635495534776,
+          -0.04338953681910973,
+          2.37927804599757
+        ],
+        "top1_membership": true,
+        "truth": [
+          "person"
+        ]
+      }
+    },
+    "selection_reason": "clip_failure",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "background"
+    ],
+    "ground_truth_target": "background",
+    "image_id": "008759",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "motorbike"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          0.20771557092666626,
+          0.24192622303962708,
+          0.2281140685081482,
+          0.29888004064559937,
+          0.22203519940376282,
+          0.19078485667705536
+        ],
+        "top1_membership": false,
+        "truth": [
+          "background"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "background"
+        ],
+        "prediction": "background",
+        "scores": [
+          -1.1849653404252043,
+          -0.9117000918688165,
+          -0.5755233176507013,
+          -1.4828142526293624,
+          -1.424125810979755
+        ],
+        "top1_membership": true,
+        "truth": [
+          "background"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "background"
+        ],
+        "prediction": "background",
+        "scores": [
+          -1.0850700011895158,
+          -0.8267132861451935,
+          -1.1733762698646344,
+          -0.33333779398005914,
+          -0.6700090787568204
+        ],
+        "top1_membership": true,
+        "truth": [
+          "background"
+        ]
+      }
+    },
+    "selection_reason": "clip_failure",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "background"
+    ],
+    "ground_truth_target": "background",
+    "image_id": "006404",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "horse"
+        ],
+        "prediction": "horse",
+        "scores": [
+          0.20459908246994019,
+          0.21539585292339325,
+          0.29579776525497437,
+          0.22365021705627441,
+          0.22817236185073853,
+          0.23058274388313293
+        ],
+        "top1_membership": false,
+        "truth": [
+          "background"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -1.5054400207446412,
+          -1.0494383800990768,
+          -1.231437749154018,
+          -0.07937298683411775,
+          0.4777246343338444
+        ],
+        "top1_membership": false,
+        "truth": [
+          "background"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "background"
+        ],
+        "prediction": "background",
+        "scores": [
+          -1.1637633576274242,
+          -0.9843980605060354,
+          -0.8443527218323719,
+          -1.07566588676953,
+          -0.7042992411233033
+        ],
+        "top1_membership": true,
+        "truth": [
+          "background"
+        ]
+      }
+    },
+    "selection_reason": "background",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "background"
+    ],
+    "ground_truth_target": "background",
+    "image_id": "005841",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "horse"
+        ],
+        "prediction": "horse",
+        "scores": [
+          0.2525739371776581,
+          0.2828426957130432,
+          0.2955888509750366,
+          0.28328388929367065,
+          0.2723190486431122,
+          0.2385479211807251
+        ],
+        "top1_membership": false,
+        "truth": [
+          "background"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          -0.44348030418883944,
+          -0.694512989449538,
+          0.15067314354604244,
+          0.29951715809259394,
+          0.08768001617374122
+        ],
+        "top1_membership": false,
+        "truth": [
+          "background"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": true,
+        "predicted_label_set": [
+          "background"
+        ],
+        "prediction": "background",
+        "scores": [
+          -0.8747399675405269,
+          -0.8552891703826507,
+          -0.45345488293316605,
+          -0.8410918069368346,
+          -0.22318211118879483
+        ],
+        "top1_membership": true,
+        "truth": [
+          "background"
+        ]
+      }
+    },
+    "selection_reason": "background",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  },
+  {
+    "ground_truth": [
+      "person"
+    ],
+    "ground_truth_target": "person",
+    "image_id": "003470",
+    "models": {
+      "clip": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person",
+          "background"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "motorbike"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          0.21931856870651245,
+          0.23697638511657715,
+          0.22925767302513123,
+          0.29986992478370667,
+          0.23139239847660065,
+          0.18798014521598816
+        ],
+        "top1_membership": false,
+        "truth": [
+          "person"
+        ]
+      },
+      "cnn": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "motorbike",
+          "person"
+        ],
+        "prediction": "person",
+        "scores": [
+          -0.9444798352467383,
+          -0.17298850241890462,
+          -0.7773648290039643,
+          1.5322319031742748,
+          1.7164014843428266
+        ],
+        "top1_membership": true,
+        "truth": [
+          "person"
+        ]
+      },
+      "dino": {
+        "categories": [
+          "aeroplane",
+          "car",
+          "horse",
+          "motorbike",
+          "person"
+        ],
+        "exact_multilabel_correct": false,
+        "predicted_label_set": [
+          "motorbike",
+          "person"
+        ],
+        "prediction": "motorbike",
+        "scores": [
+          -0.9386241995195869,
+          -0.11979645811061201,
+          -0.6425034048083037,
+          1.800764627071571,
+          1.2937918016995908
+        ],
+        "top1_membership": false,
+        "truth": [
+          "person"
+        ]
+      }
+    },
+    "selection_reason": "confident_mistake",
+    "target_policy": "lexically first annotated target; background only when no targets"
+  }
+]

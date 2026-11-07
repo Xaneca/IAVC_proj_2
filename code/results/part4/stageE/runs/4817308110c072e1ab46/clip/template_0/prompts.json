@@ -1,0 +1,24 @@
+{
+  "aggregation": "mean of cosine similarities; no renormalization of mean text",
+  "prompts": [
+    [
+      "a photo of a airplane"
+    ],
+    [
+      "a photo of a car"
+    ],
+    [
+      "a photo of a horse"
+    ],
+    [
+      "a photo of a motorbike"
+    ],
+    [
+      "a photo of a person"
+    ],
+    [
+      "a photo of a background scene without the target objects"
+    ]
+  ],
+  "selection": "fixed prior knowledge, before evaluation"
+}

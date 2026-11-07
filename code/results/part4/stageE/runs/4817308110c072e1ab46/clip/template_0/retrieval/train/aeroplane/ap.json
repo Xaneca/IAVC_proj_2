@@ -1,0 +1,11 @@
+{
+  "ap": 0.9661552108622438,
+  "ap_definition": "sklearn non-interpolated AP on cosine similarities",
+  "category": "aeroplane",
+  "images": 1978,
+  "negative_definition": "all images without this category",
+  "negatives": 1888,
+  "positives": 90,
+  "protocol": "full_dataset_classwise_text_retrieval",
+  "split": "train"
+}

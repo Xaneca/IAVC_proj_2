@@ -1,0 +1,9 @@
+{
+  "category": "horse",
+  "split": "train",
+  "ap": 0.9264265669620015,
+  "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+  "images": 926,
+  "positives": 111,
+  "negatives": 815
+}

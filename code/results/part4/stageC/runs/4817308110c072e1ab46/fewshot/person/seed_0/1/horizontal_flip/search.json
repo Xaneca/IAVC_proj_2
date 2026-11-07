@@ -1,0 +1,77 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "person": 1.0
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 1.0,
+    "validation_map": 0.9110961561218407
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.015548199997283518,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "person",
+          "fit_seconds": 0.015548199997283518,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 1632,
+          "validation_ap": 0.8728971414466558,
+          "validation_images": 409,
+          "validation_inference_seconds": 0.000536600000486942
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.8728971414466558
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.014484200000879355,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "person",
+          "fit_seconds": 0.014484200000879355,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 1632,
+          "validation_ap": 0.9110961561218407,
+          "validation_images": 409,
+          "validation_inference_seconds": 0.0005421999994723592
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9110961561218407
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.013525800000934396,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "person",
+          "fit_seconds": 0.013525800000934396,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 1632,
+          "validation_ap": 0.9092158753989377,
+          "validation_images": 409,
+          "validation_inference_seconds": 0.0006270000012591481
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9092158753989377
+    }
+  ]
+}

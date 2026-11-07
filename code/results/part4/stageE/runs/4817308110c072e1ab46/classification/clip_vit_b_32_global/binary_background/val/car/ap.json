@@ -1,0 +1,9 @@
+{
+  "category": "car",
+  "split": "val",
+  "ap": 0.9725425295450593,
+  "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+  "images": 279,
+  "positives": 75,
+  "negatives": 204
+}

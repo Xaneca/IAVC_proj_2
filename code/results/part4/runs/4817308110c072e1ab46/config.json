@@ -1,0 +1,65 @@
+{
+  "C_values": [
+    0.1,
+    1,
+    10
+  ],
+  "augmentations": [
+    "none",
+    "horizontal_flip"
+  ],
+  "batch_size": 16,
+  "categories": [
+    "aeroplane",
+    "car",
+    "horse",
+    "motorbike",
+    "person",
+    "background"
+  ],
+  "class_descriptions": {
+    "aeroplane": "airplane",
+    "background": "background scene without the target objects",
+    "car": "car",
+    "horse": "horse",
+    "motorbike": "motorbike",
+    "person": "person"
+  },
+  "device": "cuda",
+  "dino_patch_visualization": true,
+  "fewshot_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "image_dir": "data/images",
+  "max_iter": 20000,
+  "occlusion_grid": 7,
+  "output_dir": "results/part4",
+  "positive_counts": [
+    1,
+    5,
+    10,
+    20,
+    "all"
+  ],
+  "prompt_templates": [
+    "a photo of a {}",
+    "an image showing a {}",
+    "a picture of a {}"
+  ],
+  "regularization_C_values": [
+    0.1,
+    1,
+    10,
+    100,
+    1000
+  ],
+  "seed": 42,
+  "split_dir": "data/splits_internal",
+  "tol": 0.0001,
+  "visual_examples": 2,
+  "visual_max_total": 15
+}

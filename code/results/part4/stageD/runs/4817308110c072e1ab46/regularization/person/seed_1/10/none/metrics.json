@@ -1,0 +1,67 @@
+{
+  "person": {
+    "test": {
+      "ap": 0.9608689779539501,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1077,
+          0
+        ],
+        [
+          837,
+          146
+        ]
+      ],
+      "f1": 0.25863596102745795,
+      "images": 2060,
+      "inference_seconds": 0.008249700000305893,
+      "negatives": 1077,
+      "positives": 983,
+      "precision": 1.0,
+      "recall": 0.14852492370295015
+    },
+    "train": {
+      "ap": 0.9999999999999999,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          815,
+          0
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "f1": 0.6666666666666666,
+      "images": 825,
+      "inference_seconds": 0.0013388999977905769,
+      "negatives": 815,
+      "positives": 10,
+      "precision": 1.0,
+      "recall": 0.5
+    },
+    "val": {
+      "ap": 0.958035494226253,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          204,
+          0
+        ],
+        [
+          175,
+          30
+        ]
+      ],
+      "f1": 0.2553191489361702,
+      "images": 409,
+      "inference_seconds": 0.0006615999991481658,
+      "negatives": 204,
+      "positives": 205,
+      "precision": 1.0,
+      "recall": 0.14634146341463414
+    }
+  }
+}

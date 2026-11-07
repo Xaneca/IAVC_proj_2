@@ -1,0 +1,17 @@
+{
+  "experiment_id": "4817308110c072e1ab46",
+  "final_test_evaluation": true,
+  "finished_utc": "2026-11-07T05:10:51.937097+00:00",
+  "split_sha256": "b1872fd2e39d96d76bdaa4a3feb9ce26f4efb698dc62a181fa4d558ab4ec0399",
+  "stages": {
+    "A": "complete",
+    "B": "complete",
+    "C": "complete",
+    "D": "complete",
+    "E": "complete",
+    "F": "complete"
+  },
+  "started_utc": "2026-11-07T05:02:09.937246+00:00",
+  "state": "complete",
+  "technical_smoke": false
+}

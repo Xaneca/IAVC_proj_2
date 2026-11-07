@@ -56,10 +56,16 @@ def load_predictions(path):
             for i,s,l in zip(z['image_ids'],z['scores'],z['labels'])}
 
 
-def occlusion(backbone, image, score, grid, expected=None):
+def encode_as_extracted(backbone, images, batch_size):
+    """Encode at the extraction batch size; cuDNN convolutions vary slightly with it."""
+    padded = images + [images[-1]]*(batch_size-len(images))
+    values,_ = backbone.encode(padded)
+    return {k:v[:len(images)] for k,v in values.items()}
+
+
+def occlusion(backbone, image, score, grid, expected=None, batch_size=1):
     """Score decrease after mean-RGB occlusion. Sensitivity, not causal proof."""
-    values,_ = backbone.encode([image])
-    baseline = score(values)
+    baseline = score(encode_as_extracted(backbone,[image],batch_size))
     if expected is not None and not np.allclose(baseline,expected,atol=5e-4,rtol=5e-4):
         raise ValueError('Occlusion baseline differs from the saved classifier score')
     width,height = image.size
@@ -71,8 +77,7 @@ def occlusion(backbone, image, score, grid, expected=None):
             changed = image.copy()
             changed.paste(mean,(x*width//grid,y*height//grid,(x+1)*width//grid,(y+1)*height//grid))
             images.append(changed)
-        values,_ = backbone.encode(images)
-        heat[y] = baseline - score(values)
+        heat[y] = baseline - score(encode_as_extracted(backbone,images,batch_size))
     return heat
 
 
@@ -117,7 +122,7 @@ def render_case(image,image_id,group,mode,target,predictions,backbones,scorers,c
         prediction = target if mode=='ground_truth' else predictions[name][image_id]['prediction']
         saved=predictions[name][image_id]
         expected=(saved['scores'][saved['categories'].index(prediction)] if prediction in saved['categories'] else -max(saved['scores']))
-        heat = occlusion(backbones[name],image,scorers[name](prediction),config['occlusion_grid'],expected)
+        heat = occlusion(backbones[name],image,scorers[name](prediction),config['occlusion_grid'],expected,config['batch_size'])
         npz(output/f'{group}_{image_id}_{mode}_{name}.npz',occlusion_score_decrease=heat,
             image_id=np.array(image_id),category=np.array(prediction),mode=np.array(mode),baseline_score=np.array(expected),
             score_type=np.array('cosine similarity' if name=='clip' else 'SVM margin / negative max margin for background'))

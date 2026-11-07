@@ -1,0 +1,372 @@
+{
+  "aeroplane": {
+    "test": {
+      "ap": 0.7659229715507926,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "aeroplane",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1064,
+          13
+        ],
+        [
+          59,
+          67
+        ]
+      ],
+      "f1": 0.6504854368932039,
+      "images": 1203,
+      "inference_seconds": 0.0014558999973814934,
+      "negatives": 1077,
+      "positives": 126,
+      "precision": 0.8375,
+      "recall": 0.5317460317460317,
+      "split": "test"
+    },
+    "train": {
+      "ap": 0.8534902226526659,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "aeroplane",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          809,
+          6
+        ],
+        [
+          30,
+          60
+        ]
+      ],
+      "f1": 0.7692307692307693,
+      "images": 905,
+      "inference_seconds": 0.0011522999993758276,
+      "negatives": 815,
+      "positives": 90,
+      "precision": 0.9090909090909091,
+      "recall": 0.6666666666666666,
+      "split": "train"
+    },
+    "val": {
+      "ap": 0.7683445471852652,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "aeroplane",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          200,
+          4
+        ],
+        [
+          6,
+          16
+        ]
+      ],
+      "f1": 0.7619047619047619,
+      "images": 226,
+      "inference_seconds": 0.00032619999910821207,
+      "negatives": 204,
+      "positives": 22,
+      "precision": 0.8,
+      "recall": 0.7272727272727273,
+      "split": "val"
+    }
+  },
+  "car": {
+    "test": {
+      "ap": 0.783563385374362,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "car",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1013,
+          64
+        ],
+        [
+          121,
+          216
+        ]
+      ],
+      "f1": 0.700162074554295,
+      "images": 1414,
+      "inference_seconds": 0.0017733999993652105,
+      "negatives": 1077,
+      "positives": 337,
+      "precision": 0.7714285714285715,
+      "recall": 0.6409495548961425,
+      "split": "test"
+    },
+    "train": {
+      "ap": 0.8427153984216046,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "car",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          778,
+          37
+        ],
+        [
+          109,
+          192
+        ]
+      ],
+      "f1": 0.7245283018867924,
+      "images": 1116,
+      "inference_seconds": 0.0013593000003311317,
+      "negatives": 815,
+      "positives": 301,
+      "precision": 0.8384279475982532,
+      "recall": 0.6378737541528239,
+      "split": "train"
+    },
+    "val": {
+      "ap": 0.7980308667180297,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "car",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          197,
+          7
+        ],
+        [
+          28,
+          47
+        ]
+      ],
+      "f1": 0.7286821705426356,
+      "images": 279,
+      "inference_seconds": 0.00039169999945443124,
+      "negatives": 204,
+      "positives": 75,
+      "precision": 0.8703703703703703,
+      "recall": 0.6266666666666667,
+      "split": "val"
+    }
+  },
+  "horse": {
+    "test": {
+      "ap": 0.7064345806528259,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "horse",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1074,
+          3
+        ],
+        [
+          103,
+          45
+        ]
+      ],
+      "f1": 0.45918367346938777,
+      "images": 1225,
+      "inference_seconds": 0.0015787000011187047,
+      "negatives": 1077,
+      "positives": 148,
+      "precision": 0.9375,
+      "recall": 0.30405405405405406,
+      "split": "test"
+    },
+    "train": {
+      "ap": 0.8085386419010392,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "horse",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          813,
+          2
+        ],
+        [
+          75,
+          36
+        ]
+      ],
+      "f1": 0.48322147651006714,
+      "images": 926,
+      "inference_seconds": 0.0011823000022559427,
+      "negatives": 815,
+      "positives": 111,
+      "precision": 0.9473684210526315,
+      "recall": 0.32432432432432434,
+      "split": "train"
+    },
+    "val": {
+      "ap": 0.7425780968178449,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "horse",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          200,
+          4
+        ],
+        [
+          17,
+          11
+        ]
+      ],
+      "f1": 0.5116279069767442,
+      "images": 232,
+      "inference_seconds": 0.0003469000002951361,
+      "negatives": 204,
+      "positives": 28,
+      "precision": 0.7333333333333333,
+      "recall": 0.39285714285714285,
+      "split": "val"
+    }
+  },
+  "motorbike": {
+    "test": {
+      "ap": 0.7540266900781408,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "motorbike",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1073,
+          4
+        ],
+        [
+          68,
+          57
+        ]
+      ],
+      "f1": 0.6129032258064516,
+      "images": 1202,
+      "inference_seconds": 0.0014440999984799419,
+      "negatives": 1077,
+      "positives": 125,
+      "precision": 0.9344262295081968,
+      "recall": 0.456,
+      "split": "test"
+    },
+    "train": {
+      "ap": 0.8355476849242586,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "motorbike",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          813,
+          2
+        ],
+        [
+          53,
+          43
+        ]
+      ],
+      "f1": 0.6099290780141844,
+      "images": 911,
+      "inference_seconds": 0.0013252999997348525,
+      "negatives": 815,
+      "positives": 96,
+      "precision": 0.9555555555555556,
+      "recall": 0.4479166666666667,
+      "split": "train"
+    },
+    "val": {
+      "ap": 0.6844256361640778,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "motorbike",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          201,
+          3
+        ],
+        [
+          15,
+          9
+        ]
+      ],
+      "f1": 0.5,
+      "images": 228,
+      "inference_seconds": 0.00034130000130971894,
+      "negatives": 204,
+      "positives": 24,
+      "precision": 0.75,
+      "recall": 0.375,
+      "split": "val"
+    }
+  },
+  "person": {
+    "test": {
+      "ap": 0.8549709746428283,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "person",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          893,
+          184
+        ],
+        [
+          253,
+          730
+        ]
+      ],
+      "f1": 0.7696362677912494,
+      "images": 2060,
+      "inference_seconds": 0.002528699998947559,
+      "negatives": 1077,
+      "positives": 983,
+      "precision": 0.7986870897155361,
+      "recall": 0.7426246185147508,
+      "split": "test"
+    },
+    "train": {
+      "ap": 0.9100919604224205,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "person",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          677,
+          138
+        ],
+        [
+          155,
+          665
+        ]
+      ],
+      "f1": 0.8194701170671596,
+      "images": 1635,
+      "inference_seconds": 0.0019535999999789055,
+      "negatives": 815,
+      "positives": 820,
+      "precision": 0.8281444582814446,
+      "recall": 0.8109756097560976,
+      "split": "train"
+    },
+    "val": {
+      "ap": 0.8336921038959946,
+      "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+      "category": "person",
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          159,
+          45
+        ],
+        [
+          51,
+          154
+        ]
+      ],
+      "f1": 0.7623762376237624,
+      "images": 409,
+      "inference_seconds": 0.0005483999993884936,
+      "negatives": 204,
+      "positives": 205,
+      "precision": 0.7738693467336684,
+      "recall": 0.751219512195122,
+      "split": "val"
+    }
+  }
+}

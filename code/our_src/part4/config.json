@@ -19,7 +19,7 @@
   "max_iter": 20000,
   "tol": 0.0001,
   "batch_size": 16,
-  "device": "cpu",
+  "device": "cuda",
   "positive_counts": [
     1,
     5,

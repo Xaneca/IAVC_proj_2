@@ -1,0 +1,11 @@
+{
+  "ap": 0.9089456283470342,
+  "ap_definition": "sklearn non-interpolated AP on cosine similarities",
+  "category": "motorbike",
+  "images": 1978,
+  "negative_definition": "all images without this category",
+  "negatives": 1882,
+  "positives": 96,
+  "protocol": "full_dataset_classwise_text_retrieval",
+  "split": "train"
+}

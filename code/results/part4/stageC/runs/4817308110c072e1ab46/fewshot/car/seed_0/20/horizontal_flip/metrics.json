@@ -1,0 +1,67 @@
+{
+  "car": {
+    "test": {
+      "ap": 0.9471877037154657,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1077,
+          0
+        ],
+        [
+          337,
+          0
+        ]
+      ],
+      "f1": 0.0,
+      "images": 1414,
+      "inference_seconds": 0.001968799999303883,
+      "negatives": 1077,
+      "positives": 337,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    "train": {
+      "ap": 0.9150625923199236,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1630,
+          0
+        ],
+        [
+          40,
+          0
+        ]
+      ],
+      "f1": 0.0,
+      "images": 1670,
+      "inference_seconds": 0.002417700001387857,
+      "negatives": 1630,
+      "positives": 40,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    "val": {
+      "ap": 0.9286312063075883,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          204,
+          0
+        ],
+        [
+          75,
+          0
+        ]
+      ],
+      "f1": 0.0,
+      "images": 279,
+      "inference_seconds": 0.000464000000647502,
+      "negatives": 204,
+      "positives": 75,
+      "precision": 0.0,
+      "recall": 0.0
+    }
+  }
+}

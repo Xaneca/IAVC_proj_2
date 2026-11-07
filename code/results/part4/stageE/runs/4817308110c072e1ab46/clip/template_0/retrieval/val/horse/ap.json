@@ -1,0 +1,11 @@
+{
+  "ap": 0.8304726623662838,
+  "ap_definition": "sklearn non-interpolated AP on cosine similarities",
+  "category": "horse",
+  "images": 494,
+  "negative_definition": "all images without this category",
+  "negatives": 466,
+  "positives": 28,
+  "protocol": "full_dataset_classwise_text_retrieval",
+  "split": "val"
+}

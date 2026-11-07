@@ -1,0 +1,77 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "motorbike": 1.0
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 1.0,
+    "validation_map": 0.9934615384615383
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.011931300003197975,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "motorbike",
+          "fit_seconds": 0.011931300003197975,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 1650,
+          "validation_ap": 0.9920370370370368,
+          "validation_images": 228,
+          "validation_inference_seconds": 0.00020619999850168824
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9920370370370368
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.01667970000198693,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "motorbike",
+          "fit_seconds": 0.01667970000198693,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 1650,
+          "validation_ap": 0.9934615384615383,
+          "validation_images": 228,
+          "validation_inference_seconds": 0.0002376000011281576
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9934615384615383
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.03224440000121831,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "motorbike",
+          "fit_seconds": 0.03224440000121831,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 1650,
+          "validation_ap": 0.9910799808429118,
+          "validation_images": 228,
+          "validation_inference_seconds": 0.00042720000055851415
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9910799808429118
+    }
+  ]
+}

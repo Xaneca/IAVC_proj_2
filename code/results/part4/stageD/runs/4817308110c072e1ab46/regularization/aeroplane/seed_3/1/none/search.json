@@ -1,0 +1,119 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "aeroplane": 0.1
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 1.0,
+    "validation_map": 0.9333723599632691
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.006538900001032744,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "aeroplane",
+          "fit_seconds": 0.006538900001032744,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.9333723599632691,
+          "validation_images": 226,
+          "validation_inference_seconds": 0.00024330000087502412
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9333723599632691
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.006330399999569636,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "aeroplane",
+          "fit_seconds": 0.006330399999569636,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.9069096715196886,
+          "validation_images": 226,
+          "validation_inference_seconds": 0.00028280000333325006
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9069096715196886
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.00508800000170595,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "aeroplane",
+          "fit_seconds": 0.00508800000170595,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.8691212362863081,
+          "validation_images": 226,
+          "validation_inference_seconds": 0.0002461000003677327
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.8691212362863081
+    },
+    {
+      "C": 100.0,
+      "classifier_training_time": 0.0060578999982681125,
+      "per_class": [
+        {
+          "C": 100,
+          "category": "aeroplane",
+          "fit_seconds": 0.0060578999982681125,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.8691212362863081,
+          "validation_images": 226,
+          "validation_inference_seconds": 0.000305800000205636
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.8691212362863081
+    },
+    {
+      "C": 1000.0,
+      "classifier_training_time": 0.005933500000537606,
+      "per_class": [
+        {
+          "C": 1000,
+          "category": "aeroplane",
+          "fit_seconds": 0.005933500000537606,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.8691212362863081,
+          "validation_images": 226,
+          "validation_inference_seconds": 0.0001826999978220556
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.8691212362863081
+    }
+  ]
+}

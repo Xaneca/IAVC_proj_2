@@ -1,0 +1,11 @@
+{
+  "ap": 0.8137322079612538,
+  "ap_definition": "sklearn non-interpolated AP on cosine similarities",
+  "category": "car",
+  "images": 1978,
+  "negative_definition": "all images without this category",
+  "negatives": 1677,
+  "positives": 301,
+  "protocol": "full_dataset_classwise_text_retrieval",
+  "split": "train"
+}

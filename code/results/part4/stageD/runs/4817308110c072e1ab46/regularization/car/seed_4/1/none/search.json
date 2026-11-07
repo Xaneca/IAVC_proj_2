@@ -1,0 +1,119 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "car": 0.1
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 1.0,
+    "validation_map": 0.5517377731669525
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.0068562999986170325,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "car",
+          "fit_seconds": 0.0068562999986170325,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.5517377731669525,
+          "validation_images": 279,
+          "validation_inference_seconds": 0.0003130000004603062
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.5517377731669525
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.008830199996737065,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "car",
+          "fit_seconds": 0.008830199996737065,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.3935892017251108,
+          "validation_images": 279,
+          "validation_inference_seconds": 0.0002372999988438096
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.3935892017251108
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.008983899999293499,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "car",
+          "fit_seconds": 0.008983899999293499,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.3673521983848137,
+          "validation_images": 279,
+          "validation_inference_seconds": 0.00034100000266334973
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.3673521983848137
+    },
+    {
+      "C": 100.0,
+      "classifier_training_time": 0.0067013000007136725,
+      "per_class": [
+        {
+          "C": 100,
+          "category": "car",
+          "fit_seconds": 0.0067013000007136725,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.3673521983848137,
+          "validation_images": 279,
+          "validation_inference_seconds": 0.00022990000070421956
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.3673521983848137
+    },
+    {
+      "C": 1000.0,
+      "classifier_training_time": 0.006787399997847388,
+      "per_class": [
+        {
+          "C": 1000,
+          "category": "car",
+          "fit_seconds": 0.006787399997847388,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 816,
+          "validation_ap": 0.3673521983848137,
+          "validation_images": 279,
+          "validation_inference_seconds": 0.00017519999892101623
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.3673521983848137
+    }
+  ]
+}

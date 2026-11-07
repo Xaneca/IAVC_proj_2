@@ -1,0 +1,310 @@
+[
+  {
+    "cache_storage_bytes_shared": null,
+    "descriptor_bytes_per_image": 256,
+    "dimension": 64,
+    "extraction_time_shared": null,
+    "protocol": "target_vs_background",
+    "representation": "BoVW_K64",
+    "selected_C": null,
+    "status": "PENDING / no compatible completed result",
+    "test_ap_per_category": null,
+    "test_map": null,
+    "validation_ap_per_category": null,
+    "validation_map": null
+  },
+  {
+    "cache_storage_bytes_shared": null,
+    "descriptor_bytes_per_image": 512,
+    "dimension": 128,
+    "extraction_time_shared": null,
+    "protocol": "target_vs_background",
+    "representation": "BoVW_K128",
+    "selected_C": null,
+    "status": "PENDING / no compatible completed result",
+    "test_ap_per_category": null,
+    "test_map": null,
+    "validation_ap_per_category": null,
+    "validation_map": null
+  },
+  {
+    "cache_storage_bytes_shared": null,
+    "descriptor_bytes_per_image": 32768,
+    "dimension": 8192,
+    "extraction_time_shared": null,
+    "protocol": "target_vs_background",
+    "representation": "VLAD_K64",
+    "selected_C": null,
+    "status": "PENDING / no compatible completed result",
+    "test_ap_per_category": null,
+    "test_map": null,
+    "validation_ap_per_category": null,
+    "validation_map": null
+  },
+  {
+    "cache_storage_bytes_shared": null,
+    "descriptor_bytes_per_image": 65536,
+    "dimension": 16384,
+    "extraction_time_shared": null,
+    "protocol": "target_vs_background",
+    "representation": "VLAD_K128",
+    "selected_C": null,
+    "status": "PENDING / no compatible completed result",
+    "test_ap_per_category": null,
+    "test_map": null,
+    "validation_ap_per_category": null,
+    "validation_map": null
+  },
+  {
+    "cache_storage_bytes_shared": null,
+    "descriptor_bytes_per_image": 65792,
+    "dimension": 16448,
+    "extraction_time_shared": null,
+    "protocol": "target_vs_background",
+    "representation": "Fisher_K64",
+    "selected_C": null,
+    "status": "PENDING / no compatible completed result",
+    "test_ap_per_category": null,
+    "test_map": null,
+    "validation_ap_per_category": null,
+    "validation_map": null
+  },
+  {
+    "cache_storage_bytes_shared": null,
+    "descriptor_bytes_per_image": 131584,
+    "dimension": 32896,
+    "extraction_time_shared": null,
+    "protocol": "target_vs_background",
+    "representation": "Fisher_K128",
+    "selected_C": null,
+    "status": "PENDING / no compatible completed result",
+    "test_ap_per_category": null,
+    "test_map": null,
+    "validation_ap_per_category": null,
+    "validation_map": null
+  },
+  {
+    "cache_storage_bytes_shared": 46421328,
+    "descriptor_bytes_per_image": 512,
+    "dimension": 128,
+    "extraction_time_shared": 28.357814400056668,
+    "protocol": "target_vs_background",
+    "representation": "resnet18_layer2",
+    "selected_C": {
+      "aeroplane": 10.0,
+      "car": 10.0,
+      "horse": 10.0,
+      "motorbike": 10.0,
+      "person": 10.0
+    },
+    "status": "EXECUTED",
+    "test_ap_per_category": {
+      "aeroplane": 0.7659229715507926,
+      "car": 0.783563385374362,
+      "horse": 0.7064345806528259,
+      "motorbike": 0.7540266900781408,
+      "person": 0.8549709746428283
+    },
+    "test_map": 0.77298372045979,
+    "validation_ap_per_category": {
+      "aeroplane": 0.7683445471852652,
+      "car": 0.7980308667180297,
+      "horse": 0.7425780968178449,
+      "motorbike": 0.6844256361640778,
+      "person": 0.8336921038959946
+    },
+    "validation_map": 0.7654142501562424
+  },
+  {
+    "cache_storage_bytes_shared": 46421328,
+    "descriptor_bytes_per_image": 1024,
+    "dimension": 256,
+    "extraction_time_shared": 28.357814400056668,
+    "protocol": "target_vs_background",
+    "representation": "resnet18_layer3",
+    "selected_C": {
+      "aeroplane": 10.0,
+      "car": 10.0,
+      "horse": 10.0,
+      "motorbike": 10.0,
+      "person": 10.0
+    },
+    "status": "EXECUTED",
+    "test_ap_per_category": {
+      "aeroplane": 0.8830771921061382,
+      "car": 0.9016236821575657,
+      "horse": 0.8663874688041718,
+      "motorbike": 0.8959232470487151,
+      "person": 0.9602343305870108
+    },
+    "test_map": 0.9014491841407203,
+    "validation_ap_per_category": {
+      "aeroplane": 0.9174620248335819,
+      "car": 0.9209327900273225,
+      "horse": 0.869661573623235,
+      "motorbike": 0.9374244441464119,
+      "person": 0.9680953843059454
+    },
+    "validation_map": 0.9227152433872993
+  },
+  {
+    "cache_storage_bytes_shared": 46421328,
+    "descriptor_bytes_per_image": 2048,
+    "dimension": 512,
+    "extraction_time_shared": 28.357814400056668,
+    "protocol": "target_vs_background",
+    "representation": "resnet18_layer4",
+    "selected_C": {
+      "aeroplane": 1.0,
+      "car": 1.0,
+      "horse": 10.0,
+      "motorbike": 10.0,
+      "person": 10.0
+    },
+    "status": "EXECUTED",
+    "test_ap_per_category": {
+      "aeroplane": 0.9811352700182906,
+      "car": 0.963635902471351,
+      "horse": 0.9492539716544002,
+      "motorbike": 0.9810130645266906,
+      "person": 0.9719608099777324
+    },
+    "test_map": 0.9693998037296929,
+    "validation_ap_per_category": {
+      "aeroplane": 0.971590909090909,
+      "car": 0.9587479138062274,
+      "horse": 0.9899594703781895,
+      "motorbike": 0.9928160919540229,
+      "person": 0.978924016967886
+    },
+    "validation_map": 0.978407680439447
+  },
+  {
+    "cache_storage_bytes_shared": 99414535,
+    "descriptor_bytes_per_image": 1536,
+    "dimension": 384,
+    "extraction_time_shared": 46.26828940007181,
+    "protocol": "target_vs_background",
+    "representation": "dinov2_vits14_global",
+    "selected_C": {
+      "aeroplane": 0.1,
+      "car": 1.0,
+      "horse": 0.1,
+      "motorbike": 1.0,
+      "person": 1.0
+    },
+    "status": "EXECUTED",
+    "test_ap_per_category": {
+      "aeroplane": 0.9994373975287036,
+      "car": 0.9743000125391978,
+      "horse": 0.9982671613698987,
+      "motorbike": 0.9802162595526602,
+      "person": 0.9800661294840083
+    },
+    "test_map": 0.9864573920948938,
+    "validation_ap_per_category": {
+      "aeroplane": 0.9704184704184704,
+      "car": 0.9675919556641509,
+      "horse": 0.9999999999999999,
+      "motorbike": 0.9749999999999999,
+      "person": 0.9824224525057011
+    },
+    "validation_map": 0.9790865757176646
+  },
+  {
+    "cache_storage_bytes_shared": 99414535,
+    "descriptor_bytes_per_image": 1536,
+    "dimension": 384,
+    "extraction_time_shared": 46.26828940007181,
+    "protocol": "target_vs_background",
+    "representation": "dinov2_vits14_patch_mean",
+    "selected_C": {
+      "aeroplane": 0.1,
+      "car": 0.1,
+      "horse": 0.1,
+      "motorbike": 1.0,
+      "person": 0.1
+    },
+    "status": "EXECUTED",
+    "test_ap_per_category": {
+      "aeroplane": 0.9996889498262698,
+      "car": 0.9676483155580067,
+      "horse": 0.9909579789952522,
+      "motorbike": 0.9833815311811865,
+      "person": 0.9843979328158388
+    },
+    "test_map": 0.9852149416753108,
+    "validation_ap_per_category": {
+      "aeroplane": 0.9878787878787878,
+      "car": 0.9750169514550131,
+      "horse": 0.9987684729064039,
+      "motorbike": 0.9967948717948716,
+      "person": 0.9876757339638086
+    },
+    "validation_map": 0.9892269635997769
+  },
+  {
+    "cache_storage_bytes_shared": 99414535,
+    "descriptor_bytes_per_image": 6144,
+    "dimension": 1536,
+    "extraction_time_shared": 46.26828940007181,
+    "protocol": "target_vs_background",
+    "representation": "dinov2_vits14_spatial2x2",
+    "selected_C": {
+      "aeroplane": 0.1,
+      "car": 0.1,
+      "horse": 0.1,
+      "motorbike": 1.0,
+      "person": 0.1
+    },
+    "status": "EXECUTED",
+    "test_ap_per_category": {
+      "aeroplane": 0.9991108834535577,
+      "car": 0.9636420132590705,
+      "horse": 0.9889036064831438,
+      "motorbike": 0.980676900478876,
+      "person": 0.9828924056564243
+    },
+    "test_map": 0.9830451618662146,
+    "validation_ap_per_category": {
+      "aeroplane": 0.9868035190615835,
+      "car": 0.9745190851849371,
+      "horse": 0.9987684729064039,
+      "motorbike": 0.9965972222222221,
+      "person": 0.9879841395846904
+    },
+    "validation_map": 0.9889344877919675
+  },
+  {
+    "cache_storage_bytes_shared": 25972315,
+    "descriptor_bytes_per_image": 2048,
+    "dimension": 512,
+    "extraction_time_shared": 31.635775499915326,
+    "protocol": "target_vs_background",
+    "representation": "clip_vit_b_32_global",
+    "selected_C": {
+      "aeroplane": 1.0,
+      "car": 10.0,
+      "horse": 1.0,
+      "motorbike": 10.0,
+      "person": 1.0
+    },
+    "status": "EXECUTED",
+    "test_ap_per_category": {
+      "aeroplane": 0.9979546782587531,
+      "car": 0.9740038680084968,
+      "horse": 0.988800392985897,
+      "motorbike": 0.9940459000913663,
+      "person": 0.9922055133690414
+    },
+    "test_map": 0.989402070542711,
+    "validation_ap_per_category": {
+      "aeroplane": 1.0,
+      "car": 0.9887303094654426,
+      "horse": 0.9999999999999999,
+      "motorbike": 0.9999999999999998,
+      "person": 0.9892300608262001
+    },
+    "validation_map": 0.9955920740583284
+  }
+]

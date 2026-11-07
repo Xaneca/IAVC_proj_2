@@ -1,0 +1,77 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "aeroplane": 0.1
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 1.0000000000000002,
+    "validation_map": 0.9749536178107605
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.012038599998049904,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "aeroplane",
+          "fit_seconds": 0.012038599998049904,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0000000000000002,
+          "train_images": 1670,
+          "validation_ap": 0.9749536178107605,
+          "validation_images": 226,
+          "validation_inference_seconds": 0.00030019999758224003
+        }
+      ],
+      "train_map": 1.0000000000000002,
+      "validation_map": 0.9749536178107605
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.016359799999918323,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "aeroplane",
+          "fit_seconds": 0.016359799999918323,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0000000000000002,
+          "train_images": 1670,
+          "validation_ap": 0.9673659673659674,
+          "validation_images": 226,
+          "validation_inference_seconds": 0.00026140000045415945
+        }
+      ],
+      "train_map": 1.0000000000000002,
+      "validation_map": 0.9673659673659674
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.017690200002107304,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "aeroplane",
+          "fit_seconds": 0.017690200002107304,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0000000000000002,
+          "train_images": 1670,
+          "validation_ap": 0.9655344655344655,
+          "validation_images": 226,
+          "validation_inference_seconds": 0.00032330000249203295
+        }
+      ],
+      "train_map": 1.0000000000000002,
+      "validation_map": 0.9655344655344655
+    }
+  ]
+}

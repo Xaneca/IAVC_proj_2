@@ -1,0 +1,77 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "horse": 0.1
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 0.9995172070315299,
+    "validation_map": 0.9987684729064039
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.006381499999406515,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "horse",
+          "fit_seconds": 0.006381499999406515,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 0.9995172070315299,
+          "train_images": 926,
+          "validation_ap": 0.9987684729064039,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00025070000265259296
+        }
+      ],
+      "train_map": 0.9995172070315299,
+      "validation_map": 0.9987684729064039
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.008838900001137517,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "horse",
+          "fit_seconds": 0.008838900001137517,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 926,
+          "validation_ap": 0.9987684729064039,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00026950000028591603
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9987684729064039
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.010405000000901055,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "horse",
+          "fit_seconds": 0.010405000000901055,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 926,
+          "validation_ap": 0.9974929627023222,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.0002778999987640418
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9974929627023222
+    }
+  ]
+}

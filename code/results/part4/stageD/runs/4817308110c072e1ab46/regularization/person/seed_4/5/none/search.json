@@ -1,0 +1,119 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "person": 1.0
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 1.0,
+    "validation_map": 0.9548188075551489
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.007866100000683218,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "person",
+          "fit_seconds": 0.007866100000683218,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9225854657233643,
+          "validation_images": 409,
+          "validation_inference_seconds": 0.00040920000174082816
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9225854657233643
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.006775700003345264,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "person",
+          "fit_seconds": 0.006775700003345264,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9548188075551489,
+          "validation_images": 409,
+          "validation_inference_seconds": 0.0004059999992023222
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9548188075551489
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.007647700000234181,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "person",
+          "fit_seconds": 0.007647700000234181,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9457951752288966,
+          "validation_images": 409,
+          "validation_inference_seconds": 0.00037460000021383166
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9457951752288966
+    },
+    {
+      "C": 100.0,
+      "classifier_training_time": 0.007410299996990943,
+      "per_class": [
+        {
+          "C": 100,
+          "category": "person",
+          "fit_seconds": 0.007410299996990943,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9457951752288966,
+          "validation_images": 409,
+          "validation_inference_seconds": 0.0004312999990361277
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9457951752288966
+    },
+    {
+      "C": 1000.0,
+      "classifier_training_time": 0.009466800001973752,
+      "per_class": [
+        {
+          "C": 1000,
+          "category": "person",
+          "fit_seconds": 0.009466800001973752,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9457951752288966,
+          "validation_images": 409,
+          "validation_inference_seconds": 0.0005010999993828591
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9457951752288966
+    }
+  ]
+}

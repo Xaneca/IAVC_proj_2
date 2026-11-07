@@ -1,0 +1,11 @@
+{
+  "ap": 0.5474754456158942,
+  "ap_definition": "sklearn non-interpolated AP on cosine similarities",
+  "category": "person",
+  "images": 494,
+  "negative_definition": "all images without this category",
+  "negatives": 289,
+  "positives": 205,
+  "protocol": "full_dataset_classwise_text_retrieval",
+  "split": "val"
+}

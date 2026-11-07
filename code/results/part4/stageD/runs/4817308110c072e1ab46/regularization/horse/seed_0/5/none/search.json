@@ -1,0 +1,119 @@
+{
+  "protocol": "target_vs_background",
+  "selected": {
+    "C_by_category": {
+      "horse": 10.0
+    },
+    "criterion": "independent validation AP per category; lowest C wins ties",
+    "test_used_for_selection": false,
+    "train_map": 1.0,
+    "validation_map": 0.9974929627023222
+  },
+  "trials": [
+    {
+      "C": 0.1,
+      "classifier_training_time": 0.007152999998652376,
+      "per_class": [
+        {
+          "C": 0.1,
+          "category": "horse",
+          "fit_seconds": 0.007152999998652376,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9919904830619116,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00021940000078757294
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9919904830619116
+    },
+    {
+      "C": 1.0,
+      "classifier_training_time": 0.00642139999763458,
+      "per_class": [
+        {
+          "C": 1,
+          "category": "horse",
+          "fit_seconds": 0.00642139999763458,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.996170211379571,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00018769999951473437
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.996170211379571
+    },
+    {
+      "C": 10.0,
+      "classifier_training_time": 0.007033900001260918,
+      "per_class": [
+        {
+          "C": 10,
+          "category": "horse",
+          "fit_seconds": 0.007033900001260918,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9974929627023222,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00024019999909796752
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9974929627023222
+    },
+    {
+      "C": 100.0,
+      "classifier_training_time": 0.009354300000268267,
+      "per_class": [
+        {
+          "C": 100,
+          "category": "horse",
+          "fit_seconds": 0.009354300000268267,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9974929627023222,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00033039999834727496
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9974929627023222
+    },
+    {
+      "C": 1000.0,
+      "classifier_training_time": 0.007399599999189377,
+      "per_class": [
+        {
+          "C": 1000,
+          "category": "horse",
+          "fit_seconds": 0.007399599999189377,
+          "max_iter": 20000,
+          "normalization": "none",
+          "tol": 0.0001,
+          "train_ap": 1.0,
+          "train_images": 820,
+          "validation_ap": 0.9974929627023222,
+          "validation_images": 232,
+          "validation_inference_seconds": 0.00024640000265208073
+        }
+      ],
+      "train_map": 1.0,
+      "validation_map": 0.9974929627023222
+    }
+  ]
+}

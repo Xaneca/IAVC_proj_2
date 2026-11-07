@@ -1,0 +1,38 @@
+{
+  "correctness": "top-scoring target belongs to true label set; SVM predicts background if all margins <0; CLIP includes background prompt",
+  "explanation": "mean-RGB occlusion score decrease; sensitivity is not causal evidence; input includes original crop preprocessing",
+  "groups": {
+    "all_correct": [
+      "002886",
+      "003876"
+    ],
+    "all_wrong": [
+      "009678",
+      "008716"
+    ],
+    "background": [
+      "006404",
+      "005841"
+    ],
+    "clip_failure": [
+      "002933",
+      "008759"
+    ],
+    "clip_success": [
+      "003015",
+      "008101"
+    ],
+    "cnn_only": [
+      "001632",
+      "005212"
+    ],
+    "confident_mistake": [
+      "003470"
+    ],
+    "dino_only": [
+      "006747",
+      "005679"
+    ],
+    "multilabel": []
+  }
+}

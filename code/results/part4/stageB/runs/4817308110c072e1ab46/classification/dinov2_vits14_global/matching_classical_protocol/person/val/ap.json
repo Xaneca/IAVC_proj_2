@@ -1,0 +1,9 @@
+{
+  "category": "person",
+  "split": "val",
+  "ap": 0.9824224525057011,
+  "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+  "images": 409,
+  "positives": 205,
+  "negatives": 204
+}

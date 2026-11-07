@@ -1,0 +1,67 @@
+{
+  "horse": {
+    "test": {
+      "ap": 0.9863189027290901,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1077,
+          0
+        ],
+        [
+          115,
+          33
+        ]
+      ],
+      "f1": 0.36464088397790057,
+      "images": 1225,
+      "inference_seconds": 0.0019233000020904,
+      "negatives": 1077,
+      "positives": 148,
+      "precision": 1.0,
+      "recall": 0.22297297297297297
+    },
+    "train": {
+      "ap": 0.9975900116144021,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          1630,
+          0
+        ],
+        [
+          29,
+          11
+        ]
+      ],
+      "f1": 0.43137254901960786,
+      "images": 1670,
+      "inference_seconds": 0.0022891000007803086,
+      "negatives": 1630,
+      "positives": 40,
+      "precision": 1.0,
+      "recall": 0.275
+    },
+    "val": {
+      "ap": 0.9987684729064039,
+      "confusion_definition": "[TN, FP; FN, TP]; target/background membership only",
+      "confusion_matrix": [
+        [
+          204,
+          0
+        ],
+        [
+          25,
+          3
+        ]
+      ],
+      "f1": 0.1935483870967742,
+      "images": 232,
+      "inference_seconds": 0.00036360000012791716,
+      "negatives": 204,
+      "positives": 28,
+      "precision": 1.0,
+      "recall": 0.10714285714285714
+    }
+  }
+}

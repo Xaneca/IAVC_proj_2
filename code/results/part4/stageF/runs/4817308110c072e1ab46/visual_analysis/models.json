@@ -1,0 +1,10 @@
+{
+  "background_svm_score": "negative maximum target margin; derived score, not a trained background classifier",
+  "clip_mode": "validation-selected global template",
+  "representations": {
+    "cnn": "resnet18_layer4",
+    "dino": "dinov2_vits14_patch_mean"
+  },
+  "selection_split": "val",
+  "svm_protocol": "target_vs_background"
+}

@@ -1,0 +1,63 @@
+2026-11-07 03:19:37 INFO    ======================================================================
+2026-11-07 03:19:37 INFO    Part 5 run, only=None, force=False
+2026-11-07 03:19:42 INFO    Corpus: 220 images (60 relevant); 10 image queries, 10 text queries; device=cuda
+2026-11-07 03:19:42 INFO    Running 21 of 21 experiments
+2026-11-07 03:19:42 INFO    random                   dim=0      mAP=0.2916 (std 0.0197)  query=0.0 ms
+2026-11-07 03:19:49 INFO      dense SIFT: 25 images extracted
+2026-11-07 03:19:57 INFO      dense SIFT: 50 images extracted
+2026-11-07 03:20:03 INFO      dense SIFT: 75 images extracted
+2026-11-07 03:20:10 INFO      dense SIFT: 100 images extracted
+2026-11-07 03:20:16 INFO      dense SIFT: 125 images extracted
+2026-11-07 03:20:23 INFO      dense SIFT: 150 images extracted
+2026-11-07 03:20:29 INFO      dense SIFT: 175 images extracted
+2026-11-07 03:20:36 INFO      dense SIFT: 200 images extracted
+2026-11-07 03:20:37 INFO    Dense SIFT: 204 of 230 images extracted, others loaded from C:\Users\Xaneca\Stuff\Uni\Mestrado\IAVC\IAVC_proj_2\code\cache\part5\sift\6d76b2d545e0
+2026-11-07 03:20:39 INFO    Fitted vocabulary k=32 on 200000 descriptors in 1.5s
+2026-11-07 03:20:43 INFO    Encoded bovw k=32 in 4.4s
+2026-11-07 03:20:43 INFO    bovw_k32                 dim=32     mAP=0.3879 (std 0.1036)  query=134.1 ms
+2026-11-07 03:20:45 INFO    Fitted vocabulary k=64 on 200000 descriptors in 2.1s
+2026-11-07 03:20:51 INFO    Encoded bovw k=64 in 5.8s
+2026-11-07 03:20:51 INFO    bovw_k64                 dim=64     mAP=0.3945 (std 0.0966)  query=141.5 ms
+2026-11-07 03:20:54 INFO    Fitted vocabulary k=128 on 200000 descriptors in 3.2s
+2026-11-07 03:21:01 INFO    Encoded bovw k=128 in 7.0s
+2026-11-07 03:21:01 INFO    bovw_k128                dim=128    mAP=0.3982 (std 0.0959)  query=147.9 ms
+2026-11-07 03:21:07 INFO    Fitted vocabulary k=256 on 200000 descriptors in 5.7s
+2026-11-07 03:21:17 INFO    Encoded bovw k=256 in 9.8s
+2026-11-07 03:21:17 INFO    bovw_k256                dim=256    mAP=0.3991 (std 0.0946)  query=163.1 ms
+2026-11-07 03:21:28 INFO    Fitted vocabulary k=512 on 200000 descriptors in 10.9s
+2026-11-07 03:21:43 INFO    Encoded bovw k=512 in 14.9s
+2026-11-07 03:21:43 INFO    bovw_k512                dim=512    mAP=0.4033 (std 0.0943)  query=180.2 ms
+2026-11-07 03:22:03 INFO    Fitted vocabulary k=1024 on 200000 descriptors in 19.9s
+2026-11-07 03:22:29 INFO    Encoded bovw k=1024 in 25.8s
+2026-11-07 03:22:29 INFO    bovw_k1024               dim=1024   mAP=0.4007 (std 0.0931)  query=228.9 ms
+2026-11-07 03:22:30 INFO    Fitted vocabulary k=16 on 200000 descriptors in 0.9s
+2026-11-07 03:22:38 INFO    Encoded vlad k=16 in 8.1s
+2026-11-07 03:22:38 INFO    vlad_k16                 dim=2048   mAP=0.3501 (std 0.0574)  query=153.3 ms
+2026-11-07 03:22:48 INFO    Encoded vlad k=32 in 10.1s
+2026-11-07 03:22:48 INFO    vlad_k32                 dim=4096   mAP=0.3544 (std 0.0682)  query=174.9 ms
+2026-11-07 03:23:00 INFO    Encoded vlad k=64 in 11.7s
+2026-11-07 03:23:00 INFO    vlad_k64                 dim=8192   mAP=0.3655 (std 0.0654)  query=160.6 ms
+2026-11-07 03:23:14 INFO    Encoded vlad k=128 in 14.2s
+2026-11-07 03:23:14 INFO    vlad_k128                dim=16384  mAP=0.3566 (std 0.0592)  query=172.1 ms
+2026-11-07 03:23:15 INFO    vlad_k32_pca8            dim=8      mAP=0.3409 (std 0.0767)  query=175.3 ms
+2026-11-07 03:23:15 INFO    vlad_k32_pca16           dim=16     mAP=0.3375 (std 0.0658)  query=175.3 ms
+2026-11-07 03:23:15 INFO    vlad_k32_pca32           dim=32     mAP=0.3391 (std 0.0679)  query=175.3 ms
+2026-11-07 03:23:15 INFO    vlad_k32_pca64           dim=64     mAP=0.3396 (std 0.0677)  query=175.3 ms
+2026-11-07 03:23:15 INFO    vlad_k32_pca128          dim=128    mAP=0.3398 (std 0.0676)  query=175.4 ms
+2026-11-07 03:23:15 INFO    vlad_k32_pca219          dim=219    mAP=0.3407 (std 0.0677)  query=175.3 ms
+2026-11-07 03:23:15 INFO    Loading resnet50 on cuda
+2026-11-07 03:23:18 INFO    resnet50: encoded 220 corpus images in 1.64s
+2026-11-07 03:23:18 INFO    cnn_resnet50             dim=2048   mAP=0.7781 (std 0.2636)  query=10.1 ms
+2026-11-07 03:23:18 INFO    Loading dinov2_vitb14 on cuda
+2026-11-07 03:23:25 INFO    dinov2_vitb14: encoded 220 corpus images in 4.37s
+2026-11-07 03:23:25 INFO    dinov2_vitb14            dim=768    mAP=0.7703 (std 0.2598)  query=23.8 ms
+2026-11-07 03:23:25 INFO    Loading clip_vit_b_32 on cuda
+2026-11-07 03:23:29 INFO    clip_vit_b_32: encoded 220 corpus images in 1.28s
+2026-11-07 03:23:29 INFO    clip_text_vitb32         dim=512    mAP=0.6202 (std 0.2502)  query=14.9 ms
+2026-11-07 03:23:29 INFO    clip_image_vitb32        dim=512    mAP=0.7476 (std 0.2850)  query=9.6 ms
+2026-11-07 03:23:41 INFO    Figures written to C:\Users\Xaneca\Stuff\Uni\Mestrado\IAVC\IAVC_proj_2\code\results\part5\figures
+2026-11-07 03:23:41 INFO    Done. Results in C:\Users\Xaneca\Stuff\Uni\Mestrado\IAVC\IAVC_proj_2\code\results\part5
+2026-11-07 03:27:41 INFO    ======================================================================
+2026-11-07 03:27:41 INFO    Part 5 run, only=None, force=False
+2026-11-07 03:27:57 INFO    Figures written to C:\Users\Xaneca\Stuff\Uni\Mestrado\IAVC\IAVC_proj_2\code\results\part5\figures
+2026-11-07 03:27:57 INFO    Done. Results in C:\Users\Xaneca\Stuff\Uni\Mestrado\IAVC\IAVC_proj_2\code\results\part5

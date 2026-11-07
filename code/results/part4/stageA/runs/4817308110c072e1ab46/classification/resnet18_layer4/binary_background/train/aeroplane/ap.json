@@ -1,0 +1,9 @@
+{
+  "category": "aeroplane",
+  "split": "train",
+  "ap": 0.9999999999999999,
+  "ap_definition": "sklearn non-interpolated average precision on continuous SVM scores",
+  "images": 905,
+  "positives": 90,
+  "negatives": 815
+}
